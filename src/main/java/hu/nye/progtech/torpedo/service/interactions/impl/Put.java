@@ -1,6 +1,7 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 import hu.nye.progtech.torpedo.model.GameState;
@@ -35,13 +36,53 @@ public class Put implements Interaction {
         this.interactions = interactions;
     }
 
-    @Override
-    public void process(String in, StepController stepController) {
+    /**
+     * Should turn on shoot.
+     *
+     * @return {@link List} of {@link Ship}
+     */
 
+    public int shipsLeft(List<Ship> ships) {
         List<Ship> shipsLeft = ships.stream().filter(ship -> !ship.isUsed()).collect(Collectors.toList());
         System.out.print("You can put down a: ");
         shipsLeft.forEach(ship -> System.out.print(ship.getName() + ", "));
         System.out.println();
+        return shipsLeft.size();
+    }
+
+    /**
+     * Should turn on shoot.
+     *
+     * @param interactions interactions
+     * @return {@link Interaction}
+     */
+
+    public Interaction turnOnShoot(List<Interaction> interactions) {
+        interactions.forEach(asd -> System.out.println(asd.isUsable()));
+        interactions.stream()
+                .filter(interaction -> interaction.getName().equals("shoot"))
+                .forEach(interaction -> interaction.setUsable(true));
+        return interactions.stream().filter(interaction -> interaction.getName().equals("shoot")).collect(Collectors.toList()).get(0);
+
+    }
+
+    /**
+     * Should turn off put.
+     *
+     * @param interactions interactions
+     * @return {@link Interaction}
+     */
+
+    public Interaction turnOffPut(List<Interaction> interactions) {
+        interactions.stream()
+                .filter(interaction -> interaction.getName().equals("put"))
+                .forEach(interaction -> interaction.setUsable(false));
+        return interactions.stream().filter(interaction -> interaction.getName().equals("put")).collect(Collectors.toList()).get(0);
+    }
+
+    @Override
+    public void process(String in, StepController stepController) {
+        shipsLeft(ships);
         String input = userInput.scanInput();
         ships.stream()
                 .filter(ship -> ship.getName().equals(input))
@@ -50,12 +91,8 @@ public class Put implements Interaction {
                         ship.useShip();
                         if (ships.stream().allMatch(Ship::isUsed)) {
                             System.out.println("All ships has been put down!");
-                            interactions.stream()
-                                    .filter(interaction -> interaction.getName().equals("put"))
-                                    .forEach(interaction -> interaction.setUsable(false));
-                            interactions.stream()
-                                    .filter(interaction -> interaction.getName().equals("shoot"))
-                                    .forEach(interaction -> interaction.setUsable(true));
+                            turnOffPut(interactions);
+                            turnOnShoot(interactions);
                         }
                     }
                 });

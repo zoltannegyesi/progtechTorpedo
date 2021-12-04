@@ -15,15 +15,15 @@ import org.springframework.stereotype.Service;
 public class Print implements Interaction {
 
     private static final String PRINT_COMMAND = &quot;print&quot;;
-<span class="nc" id="L18">    private boolean usable = true;</span>
+<span class="fc" id="L18">    private boolean usable = true;</span>
 
     private final TablePrinter tablePrinter;
     private final GameState game;
 
-<span class="nc" id="L23">    public Print(TablePrinter tablePrinter, GameState game) {</span>
-<span class="nc" id="L24">        this.tablePrinter = tablePrinter;</span>
-<span class="nc" id="L25">        this.game = game;</span>
-<span class="nc" id="L26">    }</span>
+<span class="fc" id="L23">    public Print(TablePrinter tablePrinter, GameState game) {</span>
+<span class="fc" id="L24">        this.tablePrinter = tablePrinter;</span>
+<span class="fc" id="L25">        this.game = game;</span>
+<span class="fc" id="L26">    }</span>
 
     @Override
     public void process(String in, StepController stepController) {
@@ -40,7 +40,7 @@ public class Print implements Interaction {
 
     @Override
     public String getName() {
-<span class="nc" id="L43">        return PRINT_COMMAND;</span>
+<span class="fc" id="L43">        return PRINT_COMMAND;</span>
     }
 
     @Override
@@ -50,7 +50,7 @@ public class Print implements Interaction {
 
     @Override
     public boolean isUsable() {
-<span class="nc" id="L53">        return this.usable;</span>
+<span class="fc" id="L53">        return this.usable;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
