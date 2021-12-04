@@ -14,24 +14,24 @@ import org.springframework.stereotype.Service;
 public class Exit implements Interaction {
 
     private static final String EXIT_COMMAND = &quot;exit&quot;;
-<span class="nc" id="L17">    private boolean usable = true;</span>
+<span class="fc" id="L17">    private boolean usable = true;</span>
 
     private final TablePrinter tablePrinter;
     private final GameState game;
 
-<span class="nc" id="L22">    public Exit(TablePrinter tablePrinter, GameState game) {</span>
-<span class="nc" id="L23">        this.tablePrinter = tablePrinter;</span>
-<span class="nc" id="L24">        this.game = game;</span>
-<span class="nc" id="L25">    }</span>
+<span class="fc" id="L22">    public Exit(TablePrinter tablePrinter, GameState game) {</span>
+<span class="fc" id="L23">        this.tablePrinter = tablePrinter;</span>
+<span class="fc" id="L24">        this.game = game;</span>
+<span class="fc" id="L25">    }</span>
 
     @Override
     public void process(String in, StepController stepController) {
-<span class="nc" id="L29">        System.exit(0);</span>
+<span class="nc" id="L29">        game.setShouldExit(true);</span>
 <span class="nc" id="L30">    }</span>
 
     @Override
     public boolean isEqualToCommand(String in) {
-<span class="nc" id="L34">        return EXIT_COMMAND.equals(in);</span>
+<span class="fc" id="L34">        return EXIT_COMMAND.equals(in);</span>
     }
 
     @Override

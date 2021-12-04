@@ -9,6 +9,10 @@ import hu.nye.progtech.torpedo.model.TableVO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Unit tests for {@link TableCreator}.
+ */
+
 public class TableCreatorTest {
 
     private static final List<Character> ROW = List.of(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
@@ -16,7 +20,7 @@ public class TableCreatorTest {
     private static final ArrayList<List<Character>> EXPECTED_MAP = new ArrayList<>();
 
     @BeforeEach
-    public void setup() {í
+    public void setup() {
         for (int i = 0; i < 10; i++) {
             EXPECTED_MAP.add(ROW);
         }

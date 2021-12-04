@@ -45,7 +45,7 @@ public class GameController {
 <span class="nc" id="L45">    }</span>
 
     private boolean isGameRunning() {
-<span class="nc" id="L48">        return mapUtil.areAllShipsDestroyed(gameState.getCurrentTable());</span>
+<span class="nc bnc" id="L48" title="All 4 branches missed.">        return !gameState.isShouldExit() &amp;&amp; mapUtil.areAllShipsDestroyed(gameState.getCurrentTable());</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

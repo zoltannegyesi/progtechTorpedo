@@ -15,9 +15,11 @@ public class GameState {
 
     private TableVO currentTable;
     private TableVO aiTable;
+    private boolean shouldExit;
 
     public GameState(TableVO currentTable, TableVO aiTable) {
         this.currentTable = currentTable;
         this.aiTable = aiTable;
+        shouldExit = false;
     }
 }

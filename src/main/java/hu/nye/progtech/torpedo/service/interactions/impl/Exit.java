@@ -26,7 +26,7 @@ public class Exit implements Interaction {
 
     @Override
     public void process(String in, StepController stepController) {
-        System.exit(0);
+        game.setShouldExit(true);
     }
 
     @Override

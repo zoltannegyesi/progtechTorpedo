@@ -45,6 +45,6 @@ public class GameController {
     }
 
     private boolean isGameRunning() {
-        return mapUtil.areAllShipsDestroyed(gameState.getCurrentTable());
+        return !gameState.isShouldExit() && mapUtil.areAllShipsDestroyed(gameState.getCurrentTable());
     }
 }
