@@ -78,12 +78,4 @@ public class StepControllerTest {
         verify(inputHandler).handleInput(INPUT, underTest);
     }
 
-    @Test
-    public void testPrintCommandsShouldReturnWithListOfInteractions() {
-        // given in setup
-
-
-
-    }
-
 }

@@ -15,13 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TablePrinter {
 
-
-    private final int tableSize;
-    private final ArrayList<List<Character>> table;
-
-    public TablePrinter(GameState gameState) {
-        this.tableSize = gameState.getCurrentTable().getTableSize();
-        this.table = gameState.getCurrentTable().getTable();
+    public TablePrinter() {
     }
 
     /**
