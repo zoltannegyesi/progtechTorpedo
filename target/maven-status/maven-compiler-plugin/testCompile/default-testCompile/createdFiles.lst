@@ -1,6 +1,7 @@
 hu/nye/progtech/torpedo/service/interactions/impl/PrintTest.class
 hu/nye/progtech/torpedo/service/interactions/impl/PutTest.class
 hu/nye/progtech/torpedo/service/util/MapUtilTest$1.class
+hu/nye/progtech/torpedo/service/ai/AiShooterTest$7.class
 hu/nye/progtech/torpedo/service/game/GameControllerTest.class
 hu/nye/progtech/torpedo/service/ai/AiShooterTest$2.class
 hu/nye/progtech/torpedo/ui/TablePrinterTest.class
@@ -9,10 +10,13 @@ hu/nye/progtech/torpedo/service/ai/AiShooterTest$3.class
 hu/nye/progtech/torpedo/service/interactions/impl/DefaultTest.class
 hu/nye/progtech/torpedo/service/util/MapUtilTest$2.class
 hu/nye/progtech/torpedo/service/interactions/impl/ExitTest.class
+hu/nye/progtech/torpedo/service/ai/AiShooterTest$4.class
 hu/nye/progtech/torpedo/service/game/StepControllerTest.class
+hu/nye/progtech/torpedo/service/ai/AiShooterTest$5.class
 hu/nye/progtech/torpedo/service/util/CoordinateConverterTest.class
 hu/nye/progtech/torpedo/ui/UserInputTest.class
 hu/nye/progtech/torpedo/service/util/MapUtilTest.class
 hu/nye/progtech/torpedo/service/table/TableCreatorTest$1.class
 hu/nye/progtech/torpedo/service/ai/AiShooterTest.class
+hu/nye/progtech/torpedo/service/ai/AiShooterTest$6.class
 hu/nye/progtech/torpedo/service/ai/AiShooterTest$1.class

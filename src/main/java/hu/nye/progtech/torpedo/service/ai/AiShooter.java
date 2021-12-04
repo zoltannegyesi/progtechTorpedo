@@ -1,10 +1,8 @@
 package hu.nye.progtech.torpedo.service.ai;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-import hu.nye.progtech.torpedo.model.GameState;
 import org.springframework.stereotype.Service;
 
 /**
@@ -22,8 +20,6 @@ public class AiShooter {
     /**
      * generates a random coordinate,
      * and places a '+' or 'X' on the coordinate.
-     *
-     *
      */
 
     public ArrayList<Character> shoot(ArrayList<Character> row, int x) {
@@ -35,7 +31,7 @@ public class AiShooter {
             row.set(x, '+');
             System.out.println("AI shot and hit a ship");
             return row;
-        } else if (row.get(x) == '+' || row.get(x) == 'X'){
+        } else if (row.get(x) == '+' || row.get(x) == 'X') {
             return this.shoot(row, rnd.nextInt(10));
         } else {
             return null;

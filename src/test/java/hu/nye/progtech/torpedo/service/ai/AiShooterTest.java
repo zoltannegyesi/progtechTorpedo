@@ -79,12 +79,13 @@ public class AiShooterTest {
         }
     };
 
-    private static final ArrayList<Character> ROW_X_2 = new ArrayList<>() {
+
+    private static final ArrayList<Character> ROW_RECURSIVE_2 = new ArrayList<>() {
         {
             add('X');
             add('+');
-            add('X');
-            add('X');
+            add('+');
+            add(' ');
             add('+');
             add('X');
             add('X');
@@ -94,11 +95,27 @@ public class AiShooterTest {
         }
     };
 
-    private static final ArrayList<Character> ROW_RECURSIVE_2 = new ArrayList<>() {
+    private static final ArrayList<Character> ROW_RECURSIVE_3 = new ArrayList<>() {
         {
             add('X');
             add('+');
+            add('+');
+            add(' ');
+            add('+');
             add('X');
+            add('X');
+            add('X');
+            add('+');
+            add('X');
+        }
+    };
+
+
+    private static final ArrayList<Character> ROW_RECURSIVE_4 = new ArrayList<>() {
+        {
+            add('X');
+            add('+');
+            add('+');
             add('X');
             add('+');
             add('X');
@@ -157,7 +174,7 @@ public class AiShooterTest {
     }
 
     @Test
-    public void testShootShouldCallItselfAndFillInTheLastCoordinate() {
+    public void testShootShouldCallItselfWithXAndFillInTheLastCoordinate() {
         // given
         underTest = new AiShooter();
 
@@ -166,6 +183,18 @@ public class AiShooterTest {
 
         // then
         assertEquals(result, ROW_RECURSIVE_2);
+    }
+
+    @Test
+    public void testShootShouldCallItselfWithPlusAndFillInTheLastCoordinate() {
+        // given
+        underTest = new AiShooter();
+
+        // when
+        ArrayList<Character> result = underTest.shoot(ROW_RECURSIVE_3, COORDINATE_X);
+
+        // then
+        assertEquals(result, ROW_RECURSIVE_4);
     }
 
     @Test
