@@ -1,4 +1,4 @@
-package hu.nye.progtech.torpedo.service;
+package hu.nye.progtech.torpedo.service.interactions;
 
 import hu.nye.progtech.torpedo.model.Ai;
 import hu.nye.progtech.torpedo.model.GameState;

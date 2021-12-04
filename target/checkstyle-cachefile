@@ -1,18 +1,18 @@
-#Mon Nov 29 22:15:21 CET 2021
+#Sat Dec 04 10:59:44 CET 2021
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/ui/TablePrinter.java=1637448019939
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/Ship.java=1637858892375
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/impl/Submarine.java=1637858785929
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/TableVO.java=1637448020002
-/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/TableCreator.java=1637860887660
-/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/game/GameController.java=1637860912642
+/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/game/GameController.java=1638610300892
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/impl/Cruiser.java=1637858807031
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ai/AiTableCreator.java=1637861430256
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ShipVO.java=1637447747170
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/InputHandler.java=1637860801494
+/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/Shooter.java=1638610066547
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/Interaction.java=1637860836431
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Exit.java=1637859079056
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/PlayerVO.java=1637447747167
-/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Shoot.java=1637858949009
+/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Shoot.java=1638611658058
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/impl/Destroyer.java=1637858818872
 configuration*?=DD88180AD3FAF52670F80BFF6956A73492073541
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/ui/UserInput.java=1637860849188
@@ -25,10 +25,10 @@ configuration*?=DD88180AD3FAF52670F80BFF6956A73492073541
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/ShipPutter.java=1637860751361
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Print.java=1637858995996
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/impl/Battleship.java=1637858832354
-/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/Shooter.java=1637860027141
-module-resource*?\:checkstyle-xpath-suppressions.xml=7B67BA1F6FCF48E6ECD32ABD1B9F6BBD70FC2825
-module-resource*?\:checkstyle-suppressions.xml=50364E4AF3E4405043FD602D903F73ACCF001A62
+module-resource*?\:checkstyle-xpath-suppressions.xml=1C95F524092A037EDC48EADDD9D7530FB9FE8614
+module-resource*?\:checkstyle-suppressions.xml=2AF06415EFACA5C7A2D84A0804925292AD9EF93C
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ai/AiShooter.java=1637860879988
+/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/table/TableCreator.java=1638611899378
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/Main.java=1637858659409
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/resources/application.properties=1636822490248
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/util/MapUtil.java=1637860483152

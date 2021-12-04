@@ -5,11 +5,11 @@ hu/nye/progtech/torpedo/service/interactions/impl/Exit.class
 hu/nye/progtech/torpedo/model/ShipVO.class
 hu/nye/progtech/torpedo/service/ships/impl/Cruiser.class
 hu/nye/progtech/torpedo/ui/TablePrinter.class
-hu/nye/progtech/torpedo/service/Shooter.class
 hu/nye/progtech/torpedo/service/interactions/impl/Put.class
 hu/nye/progtech/torpedo/ui/UserInput.class
 hu/nye/progtech/torpedo/model/GameState.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreator.class
+hu/nye/progtech/torpedo/service/table/TableCreator.class
 hu/nye/progtech/torpedo/service/util/CoordinateConverter.class
 hu/nye/progtech/torpedo/service/interactions/Interaction.class
 hu/nye/progtech/torpedo/service/interactions/impl/Shoot.class
@@ -17,9 +17,9 @@ hu/nye/progtech/torpedo/service/interactions/ShipPutter.class
 hu/nye/progtech/torpedo/model/Ai.class
 hu/nye/progtech/torpedo/service/game/StepController.class
 hu/nye/progtech/torpedo/service/ships/impl/Carrier.class
+hu/nye/progtech/torpedo/service/interactions/Shooter.class
 hu/nye/progtech/torpedo/service/util/MapUtil.class
 hu/nye/progtech/torpedo/service/interactions/impl/PrintAiTable.class
-hu/nye/progtech/torpedo/service/TableCreator.class
 hu/nye/progtech/torpedo/model/PlayerVO.class
 hu/nye/progtech/torpedo/service/ships/impl/Submarine.class
 hu/nye/progtech/torpedo/service/interactions/impl/Print.class
