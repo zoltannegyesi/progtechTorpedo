@@ -16,7 +16,7 @@ public class TableCreatorTest {
     private static final ArrayList<List<Character>> EXPECTED_MAP = new ArrayList<>();
 
     @BeforeEach
-    public void setup() {
+    public void setup() {í
         for (int i = 0; i < 10; i++) {
             EXPECTED_MAP.add(ROW);
         }
