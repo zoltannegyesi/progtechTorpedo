@@ -1,4 +1,4 @@
-package hu.nye.progtech.torpedo.service;
+package hu.nye.progtech.torpedo.service.table;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class TableCreator {
      * @param tableVO which is being created.
      */
 
-    public void createTable(TableVO tableVO) {
+    public ArrayList<List<Character>> createTable(TableVO tableVO) {
         ArrayList<List<Character>> table = new ArrayList<>();
         for (int i = 0; i < tableVO.getTableSize(); i++) {
             List<Character> temp = new ArrayList<>();
@@ -28,7 +28,8 @@ public class TableCreator {
             }
             table.add(temp);
         }
-        tableVO.setTable(table);
 
+        tableVO.setTable(table);
+        return table;
     }
 }

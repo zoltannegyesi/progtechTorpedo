@@ -1,8 +1,8 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
-import hu.nye.progtech.torpedo.service.Shooter;
 import hu.nye.progtech.torpedo.service.game.StepController;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
+import hu.nye.progtech.torpedo.service.interactions.Shooter;
 import org.springframework.stereotype.Service;
 
 /**

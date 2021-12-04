@@ -40,6 +40,18 @@
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>3.12.4</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -71,11 +83,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <forkCount>3</forkCount>
-                    <reuseForks>true</reuseForks>
-                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
-                </configuration>
                 <version>3.0.0-M5</version>
             </plugin>
             <plugin>
@@ -86,9 +93,6 @@
                     <excludes>
                         <exclude>hu/nye/progtech/torpedo/model/*</exclude>
                         <exclude>hu/nye/progtech/torpedo/Main.*</exclude>
-                        <exclude>hu/nye/progtech/torpedo/ui/UserInput.*</exclude>
-                        <exclude>hu.nye.progtech.torpedo.model.*</exclude>
-                        <exclude>hu.nye.progtech.torpedo.Main.*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
