@@ -1,8 +1,6 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.service.game.StepController;
@@ -10,7 +8,6 @@ import hu.nye.progtech.torpedo.ui.TablePrinter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.beans.FatalBeanException;
 
 /**
  * Unit tests for {@link Exit}
@@ -23,13 +20,12 @@ public class ExitTest {
 
     private Exit underTest;
     private GameState gameState;
-    private TablePrinter tablePrinter;
     private StepController stepController;
 
     @BeforeEach
     public void setUp() {
         gameState = new GameState(null, null);
-        tablePrinter = Mockito.mock(TablePrinter.class);
+        TablePrinter tablePrinter = Mockito.mock(TablePrinter.class);
         underTest = new Exit(tablePrinter, gameState);
         stepController = Mockito.mock(StepController.class);
     }

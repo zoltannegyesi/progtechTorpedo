@@ -1,10 +1,10 @@
 package hu.nye.progtech.torpedo.service.util;
 
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import hu.nye.progtech.torpedo.model.Ai;
 import hu.nye.progtech.torpedo.model.GameState;
-import hu.nye.progtech.torpedo.model.TableVO;
 import org.springframework.stereotype.Service;
 
 /**
@@ -25,31 +25,37 @@ public class MapUtil {
     /**
      * Checks, if the given tableVO has unshoted ships left.
      *
-     * @param tableVO that is being checked.
      * @return boolean.
      */
-    public boolean areAllShipsDestroyed(TableVO tableVO) {
-        AtomicInteger shipLeft = new AtomicInteger(0);
-        AtomicInteger aiShipLeft = new AtomicInteger(0);
-        gameState.getCurrentTable().getTable().forEach(row -> {
-            row.forEach(item -> {
-                if (item == 'o') {
-                    shipLeft.incrementAndGet();
-                }
+    public boolean areAllShipsDestroyed() {
+        if (gameState.isRan()) {
+            AtomicBoolean shipLeft = new AtomicBoolean(true);
+            AtomicBoolean aiShipLeft = new AtomicBoolean(true);
+            gameState.getCurrentTable().getTable().forEach(row -> {
+                row.forEach(item -> {
+                    if (item == 'o') {
+                        shipLeft.set(false);
+                    }
+                });
             });
-        });
-        gameState.getCurrentTable().getTable().forEach(row -> {
-            row.forEach(item -> {
-                if (item == 'o') {
-                    aiShipLeft.incrementAndGet();
-                }
+            gameState.getCurrentTable().getTable().forEach(row -> {
+                row.forEach(item -> {
+                    if (item == 'o') {
+                        shipLeft.set(false);
+                    }
+                });
             });
-        });
-        if (shipLeft.get() == 0) {
-            System.out.println("AI won!");
-        } else if (aiShipLeft.get() == 0) {
-            System.out.println("Player won");
+            if (shipLeft.get()) {
+                System.out.println("AI won!");
+            } else if (aiShipLeft.get()) {
+                System.out.println("Player won");
+            }
+            return !(shipLeft.get() && shipLeft.get());
+
+        } else {
+           return true;
         }
-        return !(shipLeft.get() == 0 && aiShipLeft.get() == 0);
+
+
     }
 }

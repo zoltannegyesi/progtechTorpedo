@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MapUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">torpedo</a> &gt; <a href="index.source.html" class="el_package">hu.nye.progtech.torpedo.service.util</a> &gt; <span class="el_source">MapUtil.java</span></div><h1>MapUtil.java</h1><pre class="source lang-java linenums">package hu.nye.progtech.torpedo.service.util;
 
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import hu.nye.progtech.torpedo.model.Ai;
 import hu.nye.progtech.torpedo.model.GameState;
-import hu.nye.progtech.torpedo.model.TableVO;
 import org.springframework.stereotype.Service;
 
 /**
@@ -25,32 +25,38 @@ public class MapUtil {
     /**
      * Checks, if the given tableVO has unshoted ships left.
      *
-     * @param tableVO that is being checked.
      * @return boolean.
      */
-    public boolean areAllShipsDestroyed(TableVO tableVO) {
-<span class="nc" id="L32">        AtomicInteger shipLeft = new AtomicInteger(0);</span>
-<span class="nc" id="L33">        AtomicInteger aiShipLeft = new AtomicInteger(0);</span>
-<span class="nc" id="L34">        gameState.getCurrentTable().getTable().forEach(row -&gt; {</span>
-<span class="nc" id="L35">            row.forEach(item -&gt; {</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">                if (item == 'o') {</span>
-<span class="nc" id="L37">                    shipLeft.incrementAndGet();</span>
-                }
-<span class="nc" id="L39">            });</span>
-<span class="nc" id="L40">        });</span>
-<span class="nc" id="L41">        gameState.getCurrentTable().getTable().forEach(row -&gt; {</span>
-<span class="nc" id="L42">            row.forEach(item -&gt; {</span>
-<span class="nc bnc" id="L43" title="All 2 branches missed.">                if (item == 'o') {</span>
-<span class="nc" id="L44">                    aiShipLeft.incrementAndGet();</span>
-                }
-<span class="nc" id="L46">            });</span>
-<span class="nc" id="L47">        });</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (shipLeft.get() == 0) {</span>
-<span class="nc" id="L49">            System.out.println(&quot;AI won!&quot;);</span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        } else if (aiShipLeft.get() == 0) {</span>
-<span class="nc" id="L51">            System.out.println(&quot;Player won&quot;);</span>
+    public boolean areAllShipsDestroyed() {
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (gameState.isRan()) {</span>
+<span class="nc" id="L32">            AtomicBoolean shipLeft = new AtomicBoolean(true);</span>
+<span class="nc" id="L33">            AtomicBoolean aiShipLeft = new AtomicBoolean(true);</span>
+<span class="nc" id="L34">            gameState.getCurrentTable().getTable().forEach(row -&gt; {</span>
+<span class="nc" id="L35">                row.forEach(item -&gt; {</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">                    if (item == 'o') {</span>
+<span class="nc" id="L37">                        shipLeft.set(false);</span>
+                    }
+<span class="nc" id="L39">                });</span>
+<span class="nc" id="L40">            });</span>
+<span class="nc" id="L41">            gameState.getCurrentTable().getTable().forEach(row -&gt; {</span>
+<span class="nc" id="L42">                row.forEach(item -&gt; {</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">                    if (item == 'o') {</span>
+<span class="nc" id="L44">                        shipLeft.set(false);</span>
+                    }
+<span class="nc" id="L46">                });</span>
+<span class="nc" id="L47">            });</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">            if (shipLeft.get()) {</span>
+<span class="nc" id="L49">                System.out.println(&quot;AI won!&quot;);</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            } else if (aiShipLeft.get()) {</span>
+<span class="nc" id="L51">                System.out.println(&quot;Player won&quot;);</span>
+            }
+<span class="nc bnc" id="L53" title="All 4 branches missed.">            return shipLeft.get() &amp;&amp; shipLeft.get();</span>
+
+        } else {
+<span class="nc" id="L56">           return true;</span>
         }
-<span class="nc bnc" id="L53" title="All 4 branches missed.">        return !(shipLeft.get() == 0 &amp;&amp; aiShipLeft.get() == 0);</span>
+
+
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

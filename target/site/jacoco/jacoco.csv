@@ -3,7 +3,7 @@ torpedo,hu.nye.progtech.torpedo.ui,TablePrinter,127,0,4,0,20,0,6,0,4,0
 torpedo,hu.nye.progtech.torpedo.ui,UserInput,25,0,0,0,9,0,2,0,2,0
 torpedo,hu.nye.progtech.torpedo.service.table,TableCreator,0,41,0,4,0,9,0,4,0,2
 torpedo,hu.nye.progtech.torpedo.service.game,StepController,53,0,2,0,16,0,5,0,4,0
-torpedo,hu.nye.progtech.torpedo.service.game,GameController,67,0,6,0,16,0,6,0,3,0
+torpedo,hu.nye.progtech.torpedo.service.game,GameController,13,59,3,3,3,16,3,4,0,4
 torpedo,hu.nye.progtech.torpedo.service.interactions.impl,Exit,0,30,0,0,0,12,0,6,0,6
 torpedo,hu.nye.progtech.torpedo.service.interactions.impl,PrintAiTable,36,0,0,0,13,0,6,0,6,0
 torpedo,hu.nye.progtech.torpedo.service.interactions.impl,Shoot,26,0,0,0,11,0,6,0,6,0
@@ -20,4 +20,4 @@ torpedo,hu.nye.progtech.torpedo.service.ships.impl,Carrier,29,0,0,0,9,0,5,0,5,0
 torpedo,hu.nye.progtech.torpedo.service.ships.impl,Submarine,29,0,0,0,9,0,5,0,5,0
 torpedo,hu.nye.progtech.torpedo.service.ships.impl,Cruiser,29,0,0,0,9,0,5,0,5,0
 torpedo,hu.nye.progtech.torpedo.service.util,CoordinateConverter,17,0,4,0,4,0,4,0,2,0
-torpedo,hu.nye.progtech.torpedo.service.util,MapUtil,82,0,12,0,23,0,12,0,6,0
+torpedo,hu.nye.progtech.torpedo.service.util,MapUtil,88,0,14,0,25,0,13,0,6,0

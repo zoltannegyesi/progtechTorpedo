@@ -30,21 +30,29 @@ public class GameController {
         this.ai = ai;
     }
 
-    /**
-     * Starts the game loop.
-     */
-    public void start() {
+
+    private boolean isGameRunning() {
+        return !gameState.isShouldExit() && mapUtil.areAllShipsDestroyed();
+    }
+
+    private void createStartingTables() {
         tableCreator.createTable(ai.getTable());
         ai.createTable();
         tableCreator.createTable(gameState.getCurrentTable());
         tableCreator.createTable(gameState.getAiTable());
-        do {
-            stepController.performStep();
-            stepController.performAiStep();
-        } while (isGameRunning());
     }
 
-    private boolean isGameRunning() {
-        return !gameState.isShouldExit() && mapUtil.areAllShipsDestroyed(gameState.getCurrentTable());
+    /**
+     * Starts the game loop.
+     */
+    public void start() {
+        createStartingTables();
+        while (isGameRunning()) {
+            gameState.setRan(true);
+            stepController.performStep();
+            stepController.performAiStep();
+        }
     }
+
+
 }
