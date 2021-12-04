@@ -47,7 +47,7 @@ public class StepControllerTest {
     public void setUp() {
         interactions = new ArrayList<>();
         interactions.add(Mockito.mock(Exit.class));
-        interactions.add(Mockito.mock(Print.class));
+        //interactions.add(Mockito.mock(Print.class));
         interactions.add(Mockito.mock(Put.class));
         interactions.add(Mockito.mock(PrintAiTable.class));
         interactions.add(Mockito.mock(Shoot.class));

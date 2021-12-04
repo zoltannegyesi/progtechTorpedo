@@ -1,30 +1,19 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
 
-import javax.lang.model.element.Element;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.model.ships.Ship;
 import hu.nye.progtech.torpedo.model.ships.impl.*;
-import hu.nye.progtech.torpedo.service.game.StepController;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
-import hu.nye.progtech.torpedo.service.interactions.ShipPutter;
-import hu.nye.progtech.torpedo.ui.TablePrinter;
 import hu.nye.progtech.torpedo.ui.UserInput;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InOrder;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
@@ -61,7 +50,7 @@ public class PutTest {
 
         interactions = new ArrayList<>();
         interactions.add(new Exit(null, null));
-        interactions.add(new Print(null, null));
+       // interactions.add(new PrintTest(null, null));
         interactions.add(new Put(null, null, null, null, null));
         interactions.add(new PrintAiTable(null, null));
         Shoot shoot = new Shoot(null);
