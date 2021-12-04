@@ -4,7 +4,7 @@ torpedo,hu.nye.progtech.torpedo.ui,UserInput,25,0,0,0,9,0,2,0,2,0
 torpedo,hu.nye.progtech.torpedo.service.table,TableCreator,0,41,0,4,0,9,0,4,0,2
 torpedo,hu.nye.progtech.torpedo.service.game,StepController,53,0,2,0,16,0,5,0,4,0
 torpedo,hu.nye.progtech.torpedo.service.game,GameController,67,0,6,0,16,0,6,0,3,0
-torpedo,hu.nye.progtech.torpedo.service.interactions.impl,Exit,14,16,0,0,6,6,4,2,4,2
+torpedo,hu.nye.progtech.torpedo.service.interactions.impl,Exit,0,30,0,0,0,12,0,6,0,6
 torpedo,hu.nye.progtech.torpedo.service.interactions.impl,PrintAiTable,36,0,0,0,13,0,6,0,6,0
 torpedo,hu.nye.progtech.torpedo.service.interactions.impl,Shoot,26,0,0,0,11,0,6,0,6,0
 torpedo,hu.nye.progtech.torpedo.service.interactions.impl,Put,138,0,6,0,34,0,17,0,14,0

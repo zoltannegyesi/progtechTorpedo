@@ -26,8 +26,8 @@ public class Exit implements Interaction {
 
     @Override
     public void process(String in, StepController stepController) {
-<span class="nc" id="L29">        game.setShouldExit(true);</span>
-<span class="nc" id="L30">    }</span>
+<span class="fc" id="L29">        game.setShouldExit(true);</span>
+<span class="fc" id="L30">    }</span>
 
     @Override
     public boolean isEqualToCommand(String in) {
@@ -36,17 +36,17 @@ public class Exit implements Interaction {
 
     @Override
     public String getName() {
-<span class="nc" id="L39">        return EXIT_COMMAND;</span>
+<span class="fc" id="L39">        return EXIT_COMMAND;</span>
     }
 
     @Override
     public void setUsable(boolean bool) {
-<span class="nc" id="L44">        this.usable = bool;</span>
-<span class="nc" id="L45">    }</span>
+<span class="fc" id="L44">        this.usable = bool;</span>
+<span class="fc" id="L45">    }</span>
 
     @Override
     public boolean isUsable() {
-<span class="nc" id="L49">        return this.usable;</span>
+<span class="fc" id="L49">        return this.usable;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
