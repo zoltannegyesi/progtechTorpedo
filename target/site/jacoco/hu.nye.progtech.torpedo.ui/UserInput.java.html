@@ -16,9 +16,9 @@ public class UserInput {
     private final BufferedReader reader;
 
 
-<span class="nc" id="L19">    public UserInput() {</span>
-<span class="nc" id="L20">        this.reader = new BufferedReader(new InputStreamReader(System.in));</span>
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L19">    public UserInput(BufferedReader reader) {</span>
+<span class="fc" id="L20">        this.reader = reader;</span>
+<span class="fc" id="L21">    }</span>
 
 
     /**
@@ -27,13 +27,13 @@ public class UserInput {
      * @return String.
      */
     public String scanInput() {
-<span class="nc" id="L30">        String in = null;</span>
+<span class="fc" id="L30">        String in = null;</span>
         try {
-<span class="nc" id="L32">            in = reader.readLine();</span>
-<span class="nc" id="L33">        } catch (IOException e) {</span>
-<span class="nc" id="L34">            System.err.println(&quot;Error happened during the reading&quot;);</span>
-<span class="nc" id="L35">        }</span>
-<span class="nc" id="L36">        return in;</span>
+<span class="fc" id="L32">            in = reader.readLine();</span>
+<span class="fc" id="L33">        } catch (IOException e) {</span>
+<span class="fc" id="L34">            System.err.println(&quot;Error happened during the reading&quot;);</span>
+<span class="fc" id="L35">        }</span>
+<span class="fc" id="L36">        return in;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

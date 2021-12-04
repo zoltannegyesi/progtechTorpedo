@@ -15,39 +15,33 @@ import org.springframework.stereotype.Service;
 @Service
 public class TablePrinter {
 
-
-    private final int tableSize;
-    private final ArrayList&lt;List&lt;Character&gt;&gt; table;
-
-<span class="nc" id="L22">    public TablePrinter(GameState gameState) {</span>
-<span class="nc" id="L23">        this.tableSize = gameState.getCurrentTable().getTableSize();</span>
-<span class="nc" id="L24">        this.table = gameState.getCurrentTable().getTable();</span>
-<span class="nc" id="L25">    }</span>
+<span class="fc" id="L18">    public TablePrinter() {</span>
+<span class="fc" id="L19">    }</span>
 
     /**
      * Prints the given table to the standard input.
      */
 
     public String drawTable(TableVO tableVO) {
-<span class="nc" id="L32">        StringBuilder tableText = new StringBuilder(&quot;   &quot;);</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (char c = 'A'; c &lt; 'A' + tableVO.getTableSize(); c++) {</span>
-<span class="nc" id="L34">            tableText.append(&quot; &quot;).append(c);</span>
+<span class="fc" id="L26">        StringBuilder tableText = new StringBuilder(&quot;   &quot;);</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (char c = 'A'; c &lt; 'A' + tableVO.getTableSize(); c++) {</span>
+<span class="fc" id="L28">            tableText.append(&quot; &quot;).append(c);</span>
         }
-<span class="nc" id="L36">        tableText.append(&quot;\n   &quot;);</span>
-<span class="nc" id="L37">        tableText.append(&quot;_&quot;.repeat(Math.max(0, tableVO.getTableSize() * 2 + 1)));</span>
-<span class="nc" id="L38">        tableText.append(&quot;\n&quot;);</span>
-<span class="nc" id="L39">        AtomicInteger i = new AtomicInteger();</span>
-<span class="nc" id="L40">        tableVO.getTable().forEach(</span>
+<span class="fc" id="L30">        tableText.append(&quot;\n   &quot;);</span>
+<span class="fc" id="L31">        tableText.append(&quot;_&quot;.repeat(Math.max(0, tableVO.getTableSize() * 2 + 1)));</span>
+<span class="fc" id="L32">        tableText.append(&quot;\n&quot;);</span>
+<span class="fc" id="L33">        AtomicInteger i = new AtomicInteger();</span>
+<span class="fc" id="L34">        tableVO.getTable().forEach(</span>
                 row -&gt; {
-<span class="nc bnc" id="L42" title="All 2 branches missed.">                    String temp = i.incrementAndGet() &gt; 9 ? &quot; &quot; : &quot;  &quot;;</span>
-<span class="nc" id="L43">                    tableText.append(i.get()).append(temp).append('|');</span>
-<span class="nc" id="L44">                    row.forEach(column -&gt; tableText.append(column).append(&quot; &quot;));</span>
-<span class="nc" id="L45">                    tableText.deleteCharAt(tableText.length() - 1);</span>
-<span class="nc" id="L46">                    tableText.append(&quot;|\n&quot;);</span>
-<span class="nc" id="L47">                }</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">                    String temp = i.incrementAndGet() &gt; 9 ? &quot; &quot; : &quot;  &quot;;</span>
+<span class="fc" id="L37">                    tableText.append(i.get()).append(temp).append('|');</span>
+<span class="fc" id="L38">                    row.forEach(column -&gt; tableText.append(column).append(&quot; &quot;));</span>
+<span class="fc" id="L39">                    tableText.deleteCharAt(tableText.length() - 1);</span>
+<span class="fc" id="L40">                    tableText.append(&quot;|\n&quot;);</span>
+<span class="fc" id="L41">                }</span>
         );
-<span class="nc" id="L49">        tableText.append(&quot;   &quot;).append(&quot;-&quot;.repeat(Math.max(0, tableVO.getTableSize() * 2 + 1)));</span>
-<span class="nc" id="L50">        return tableText.toString();</span>
+<span class="fc" id="L43">        tableText.append(&quot;   &quot;).append(&quot;-&quot;.repeat(Math.max(0, tableVO.getTableSize() * 2 + 1)));</span>
+<span class="fc" id="L44">        return tableText.toString();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

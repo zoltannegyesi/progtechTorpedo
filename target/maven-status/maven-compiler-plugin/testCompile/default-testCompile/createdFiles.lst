@@ -1,5 +1,6 @@
 hu/nye/progtech/torpedo/service/interactions/impl/ExitTest.class
-hu/nye/progtech/torpedo/ui/asdTest.class
 hu/nye/progtech/torpedo/service/game/StepControllerTest.class
 hu/nye/progtech/torpedo/service/game/GameControllerTest.class
+hu/nye/progtech/torpedo/ui/UserInputTest.class
+hu/nye/progtech/torpedo/ui/TablePrinterTest.class
 hu/nye/progtech/torpedo/service/table/TableCreatorTest.class
