@@ -1,7 +1,6 @@
 package hu.nye.progtech.torpedo.service.util;
 
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import hu.nye.progtech.torpedo.model.Ai;
 import hu.nye.progtech.torpedo.model.GameState;
@@ -15,11 +14,9 @@ import org.springframework.stereotype.Service;
 public class MapUtil {
 
     private final GameState gameState;
-    private final Ai ai;
 
-    public MapUtil(GameState gameState, Ai ai) {
+    public MapUtil(GameState gameState) {
         this.gameState = gameState;
-        this.ai = ai;
     }
 
     /**
@@ -38,10 +35,10 @@ public class MapUtil {
                     }
                 });
             });
-            gameState.getCurrentTable().getTable().forEach(row -> {
+            gameState.getAiTable().getTable().forEach(row -> {
                 row.forEach(item -> {
                     if (item == 'o') {
-                        shipLeft.set(false);
+                        aiShipLeft.set(false);
                     }
                 });
             });
@@ -50,10 +47,10 @@ public class MapUtil {
             } else if (aiShipLeft.get()) {
                 System.out.println("Player won");
             }
-            return !(shipLeft.get() && shipLeft.get());
+            return (shipLeft.get() && aiShipLeft.get());
 
         } else {
-           return true;
+            return true;
         }
 
 

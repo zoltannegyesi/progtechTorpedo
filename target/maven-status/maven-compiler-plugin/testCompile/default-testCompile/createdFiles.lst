@@ -4,3 +4,4 @@ hu/nye/progtech/torpedo/service/game/GameControllerTest.class
 hu/nye/progtech/torpedo/ui/UserInputTest.class
 hu/nye/progtech/torpedo/ui/TablePrinterTest.class
 hu/nye/progtech/torpedo/service/table/TableCreatorTest.class
+hu/nye/progtech/torpedo/service/util/MapUtilTest.class

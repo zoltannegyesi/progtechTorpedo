@@ -2,6 +2,7 @@ package hu.nye.progtech.torpedo.ui;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import org.springframework.stereotype.Service;
 
@@ -12,10 +13,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserInput {
 
-    private final BufferedReader reader;
+    private BufferedReader reader;
 
 
-    public UserInput(BufferedReader reader) {
+    public UserInput() {
+        this.reader = new BufferedReader(new InputStreamReader(System.in));
+    }
+
+    /**
+     * Sets BufferedReader.
+     *
+     */
+
+    public void setReader(BufferedReader reader) {
         this.reader = reader;
     }
 

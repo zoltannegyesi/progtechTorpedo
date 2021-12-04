@@ -26,13 +26,14 @@ public class UserInputTest {
 
     @BeforeEach
     public void setUp() {
-        underTest = new UserInput(bufferedReader);
+        underTest = new UserInput();
     }
 
     @Test
     public void testScanInputShouldReturnTheInputReadByBufferedReader() throws IOException {
         // given
         given(bufferedReader.readLine()).willReturn(INPUT);
+        underTest.setReader(bufferedReader);
 
         // when
         String result = underTest.scanInput();
@@ -45,6 +46,7 @@ public class UserInputTest {
     public void testScanInputShouldReturnNullWhenBufferedReaderThrowsException() throws IOException {
         // given
         doThrow(IOException.class).when(bufferedReader).readLine();
+        underTest.setReader(bufferedReader);
 
         // when
         String result = underTest.scanInput();

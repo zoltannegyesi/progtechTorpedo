@@ -1,4 +1,4 @@
-#Sat Dec 04 15:36:35 CET 2021
+#Sat Dec 04 16:26:21 CET 2021
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/ui/TablePrinter.java=1638627731993
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Default.java=1638626018837
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/Ship.java=1637858892375
@@ -16,7 +16,7 @@
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Shoot.java=1638611658058
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/impl/Destroyer.java=1637858818872
 configuration*?=DD88180AD3FAF52670F80BFF6956A73492073541
-/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/ui/UserInput.java=1638628464315
+/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/ui/UserInput.java=1638631176805
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/util/CoordinateConverter.java=1637860504855
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/GameState.java=1638619835551
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/PrintAiTable.java=1637859052471
@@ -32,5 +32,5 @@ module-resource*?\:checkstyle-suppressions.xml=2AF06415EFACA5C7A2D84A0804925292A
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/table/TableCreator.java=1638611899378
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/Main.java=1638613351020
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/resources/application.properties=1636822490248
-/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/util/MapUtil.java=1638621511704
+/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/util/MapUtil.java=1638630840696
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Put.java=1637859067326
