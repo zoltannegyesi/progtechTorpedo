@@ -3,6 +3,7 @@ package hu.nye.progtech.torpedo.service.game;
 import java.util.List;
 
 import hu.nye.progtech.torpedo.model.Ai;
+import hu.nye.progtech.torpedo.service.ai.AiShooter;
 import hu.nye.progtech.torpedo.service.interactions.InputHandler;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
 import hu.nye.progtech.torpedo.ui.UserInput;
@@ -19,18 +20,20 @@ public class StepController {
     private final UserInput userInput;
     private final InputHandler inputHandler;
     private final List<Interaction> interactions;
+    private final AiShooter aiShooter;
     private final Ai ai;
 
     @Autowired
-    public StepController(UserInput userInput, InputHandler inputHandler, List<Interaction> interactions, Ai ai) {
+    public StepController(UserInput userInput, InputHandler inputHandler, List<Interaction> interactions, Ai ai, AiShooter aiShooter) {
         this.userInput = userInput;
         this.inputHandler = inputHandler;
         this.interactions = interactions;
+        this.aiShooter = aiShooter;
         this.ai = ai;
     }
 
     public void performAiStep() {
-        ai.shoot();
+        aiShooter.shoot(ai);
     }
 
     /**
