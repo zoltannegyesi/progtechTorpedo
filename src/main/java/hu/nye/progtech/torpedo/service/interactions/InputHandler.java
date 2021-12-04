@@ -26,18 +26,21 @@ public class InputHandler {
      *
      * @param in                the input.
      * @param stepController    the controller, that used it.
-     * @return boolean.
      *
      */
-    public boolean handleInput(String in, StepController stepController) {
-        List<Interaction> command = interactions.stream()
-                .filter(interaction -> interaction.isEqualToCommand(in))
-                .collect(Collectors.toList());
-        if (command.isEmpty()) {
-            return false;
-        } else {
-            command.forEach(interaction -> interaction.process(in, stepController));
-            return true;
+    public void handleInput(String in, StepController stepController) {
+        boolean unknown = true;
+        for (Interaction interaction : interactions) {
+            if (interaction.isEqualToCommand(in) && !interaction.getName().equals("Unknown command")) {
+                interaction.process(in, stepController);
+                unknown = false;
+                break;
+            }
+        }
+        if (unknown) {
+            Interaction interaction = interactions.stream().filter(command ->
+                    command.getName().equals("Unknown command")).collect(Collectors.toList()).get(0);
+            interaction.process(in, stepController);
         }
 
     }

@@ -26,20 +26,23 @@ public class InputHandler {
      *
      * @param in                the input.
      * @param stepController    the controller, that used it.
-     * @return boolean.
      *
      */
-    public boolean handleInput(String in, StepController stepController) {
-<span class="nc" id="L33">        List&lt;Interaction&gt; command = interactions.stream()</span>
-<span class="nc" id="L34">                .filter(interaction -&gt; interaction.isEqualToCommand(in))</span>
-<span class="nc" id="L35">                .collect(Collectors.toList());</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">        if (command.isEmpty()) {</span>
-<span class="nc" id="L37">            return false;</span>
-        } else {
-<span class="nc" id="L39">            command.forEach(interaction -&gt; interaction.process(in, stepController));</span>
-<span class="nc" id="L40">            return true;</span>
+    public void handleInput(String in, StepController stepController) {
+<span class="nc" id="L32">        boolean unknown = true;</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (Interaction interaction : interactions) {</span>
+<span class="nc bnc" id="L34" title="All 4 branches missed.">            if (interaction.isEqualToCommand(in) &amp;&amp; !interaction.getName().equals(&quot;Unknown command&quot;)) {</span>
+<span class="nc" id="L35">                interaction.process(in, stepController);</span>
+<span class="nc" id="L36">                unknown = false;</span>
+<span class="nc" id="L37">                break;</span>
+            }
+<span class="nc" id="L39">        }</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (unknown) {</span>
+<span class="nc" id="L41">            Interaction interaction = interactions.stream().filter(command -&gt;</span>
+<span class="nc" id="L42">                    command.getName().equals(&quot;Unknown command&quot;)).collect(Collectors.toList()).get(0);</span>
+<span class="nc" id="L43">            interaction.process(in, stepController);</span>
         }
 
-    }
+<span class="nc" id="L46">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

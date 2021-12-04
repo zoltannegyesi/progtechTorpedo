@@ -1,6 +1,6 @@
 package hu.nye.progtech.torpedo.service.game;
 
-import static org.mockito.Mockito.times;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
@@ -10,17 +10,13 @@ import hu.nye.progtech.torpedo.model.Ai;
 import hu.nye.progtech.torpedo.service.ai.AiShooter;
 import hu.nye.progtech.torpedo.service.interactions.InputHandler;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
-import hu.nye.progtech.torpedo.service.interactions.Shooter;
 import hu.nye.progtech.torpedo.service.interactions.impl.*;
-import hu.nye.progtech.torpedo.ui.TablePrinter;
 import hu.nye.progtech.torpedo.ui.UserInput;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
@@ -33,6 +29,8 @@ public class StepControllerTest {
     @Mock
     private InputHandler inputHandler;
 
+
+    //private StepController stepController;
 
     @Mock
     private Ai ai;
@@ -65,6 +63,25 @@ public class StepControllerTest {
 
         // then
         verify(aiShooter).shoot(ai);
+    }
+
+    @Test
+    public void testPerformStepShouldReadUserInputAndCallHandleInputFromInputHandler() {
+        // given
+        given(userInput.scanInput()).willReturn(INPUT);
+
+        // when
+        underTest.performStep();
+
+        // then
+        verify(userInput).scanInput();
+        verify(inputHandler).handleInput(INPUT, underTest);
+    }
+
+    @Test
+    public void testPrintCommandsShouldReturnWithListOfInteractions() {
+        // given in setup
+
 
 
     }

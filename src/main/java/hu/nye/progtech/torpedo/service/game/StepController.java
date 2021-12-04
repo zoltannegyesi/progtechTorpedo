@@ -1,6 +1,7 @@
 package hu.nye.progtech.torpedo.service.game;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import hu.nye.progtech.torpedo.model.Ai;
 import hu.nye.progtech.torpedo.service.ai.AiShooter;
@@ -31,23 +32,31 @@ public class StepController {
         this.aiShooter = aiShooter;
         this.ai = ai;
     }
+    /**
+     * Method that lists the available commands.
+     *
+     * @return {@link List} of {@link Interaction}
+     */
+
+    private List<Interaction> printCommands() {
+        System.out.print("Commands: ");
+        List<Interaction> interactionList = interactions.stream().filter(Interaction::isUsable).collect(Collectors.toList());
+        interactionList.forEach(interaction -> System.out.print(interaction.getName() + " "));
+        System.out.println();
+        return interactionList;
+    }
 
     public void performAiStep() {
         aiShooter.shoot(ai);
     }
 
     /**
-     * Method that lists the available commands,
+     * Reads input,
      * and calls the command handling method.
      */
     public void performStep() {
-        System.out.print("Commands: ");
-        interactions.stream().filter(Interaction::isUsable).forEach(interaction -> System.out.print(interaction.getName() + " "));
-        System.out.println();
+        printCommands();
         String in = userInput.scanInput();
-        if (!inputHandler.handleInput(in, this)) {
-            System.out.println("Wrong command! Try again!");
-            this.performStep();
-        }
+        inputHandler.handleInput(in, this);
     }
 }

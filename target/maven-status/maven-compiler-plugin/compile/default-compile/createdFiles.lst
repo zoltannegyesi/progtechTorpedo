@@ -11,6 +11,7 @@ hu/nye/progtech/torpedo/model/GameState.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreator.class
 hu/nye/progtech/torpedo/service/table/TableCreator.class
 hu/nye/progtech/torpedo/service/util/CoordinateConverter.class
+hu/nye/progtech/torpedo/service/interactions/impl/Default.class
 hu/nye/progtech/torpedo/service/interactions/Interaction.class
 hu/nye/progtech/torpedo/service/interactions/impl/Shoot.class
 hu/nye/progtech/torpedo/service/interactions/ShipPutter.class
