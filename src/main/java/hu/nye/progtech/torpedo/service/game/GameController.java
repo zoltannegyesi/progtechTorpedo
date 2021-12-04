@@ -50,7 +50,7 @@ public class GameController {
         while (isGameRunning()) {
             gameState.setRan(true);
             stepController.performStep();
-            stepController.performAiStep();
+            stepController.performAiStep(gameState);
         }
     }
 

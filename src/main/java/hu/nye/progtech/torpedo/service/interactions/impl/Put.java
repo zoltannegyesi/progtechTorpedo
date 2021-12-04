@@ -1,6 +1,7 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
@@ -34,6 +35,7 @@ public class Put implements Interaction {
         this.shipPutter = shipPutter;
         this.userInput = userInput;
         this.interactions = interactions;
+        interactions.add(this);
     }
 
     /**
@@ -58,7 +60,6 @@ public class Put implements Interaction {
      */
 
     public Interaction turnOnShoot(List<Interaction> interactions) {
-        interactions.forEach(asd -> System.out.println(asd.isUsable()));
         interactions.stream()
                 .filter(interaction -> interaction.getName().equals("shoot"))
                 .forEach(interaction -> interaction.setUsable(true));
@@ -90,6 +91,7 @@ public class Put implements Interaction {
      */
 
     public boolean useShip(List<Ship> ships, String input) {
+        AtomicBoolean allShipsPutDown = new AtomicBoolean(false);
         ships.stream()
                 .filter(ship -> ship.getName().equals(input))
                 .forEach(ship -> {
@@ -97,11 +99,14 @@ public class Put implements Interaction {
                         ship.useShip();
                         if (ships.stream().allMatch(Ship::isUsed)) {
                             System.out.println("All ships has been put down!");
-                            turnOffPut(interactions);
-                            turnOnShoot(interactions);
+                            allShipsPutDown.set(true);
                         }
                     }
                 });
+        if (allShipsPutDown.get()) {
+            turnOffPut(interactions);
+            turnOnShoot(interactions);
+        }
         return true;
     }
 

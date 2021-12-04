@@ -1,9 +1,11 @@
 package hu.nye.progtech.torpedo.service.game;
 
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 import hu.nye.progtech.torpedo.model.Ai;
+import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.service.ai.AiShooter;
 import hu.nye.progtech.torpedo.service.interactions.InputHandler;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
@@ -23,6 +25,7 @@ public class StepController {
     private final List<Interaction> interactions;
     private final AiShooter aiShooter;
     private final Ai ai;
+    private final Random rnd;
 
     @Autowired
     public StepController(UserInput userInput, InputHandler inputHandler, List<Interaction> interactions, Ai ai, AiShooter aiShooter) {
@@ -31,6 +34,7 @@ public class StepController {
         this.interactions = interactions;
         this.aiShooter = aiShooter;
         this.ai = ai;
+        rnd = new Random();
     }
     /**
      * Method that lists the available commands.
@@ -46,8 +50,8 @@ public class StepController {
         return interactionList;
     }
 
-    public void performAiStep() {
-        aiShooter.shoot(ai);
+    public void performAiStep(GameState gameState) {
+        aiShooter.shoot(gameState.getCurrentTable().getTable().get(rnd.nextInt(10)), rnd.nextInt(10));
     }
 
     /**

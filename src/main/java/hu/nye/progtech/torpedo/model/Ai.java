@@ -34,7 +34,4 @@ public class Ai {
         aiTableCreator.createAiTable(this);
     }
 
-    public void shoot() {
-        this.aiShooter.shoot(this);
-    }
 }

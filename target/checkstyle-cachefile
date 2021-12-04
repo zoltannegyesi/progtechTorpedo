@@ -1,4 +1,4 @@
-#Sat Dec 04 19:46:55 CET 2021
+#Sat Dec 04 20:14:54 CET 2021
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/ui/TablePrinter.java=1638627731993
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Default.java=1638634205248
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/TableVO.java=1637448020002
@@ -23,7 +23,7 @@ configuration*?=DD88180AD3FAF52670F80BFF6956A73492073541
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/game/StepController.java=1638627213709
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/Ai.java=1637860840361
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/ShipPutter.java=1637860751361
-/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Print.java=1637858995996
+/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Print.java=1638645287895
 /Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/impl/Cruiser.java=1638632925211
 module-resource*?\:checkstyle-xpath-suppressions.xml=1C95F524092A037EDC48EADDD9D7530FB9FE8614
 module-resource*?\:checkstyle-suppressions.xml=2AF06415EFACA5C7A2D84A0804925292AD9EF93C

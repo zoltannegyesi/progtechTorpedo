@@ -25,11 +25,16 @@ public class Print implements Interaction {
         this.game = game;
     }
 
+    /**
+     * Maybe put this in the table printer in general.
+     * System.out.println("Your table:\n" + tablePrinter.drawTable(game.getCurrentTable()));.
+     *  System.out.println("AI's table:\n" + tablePrinter.drawTable(game.getAiTable()));.
+     *
+     */
+
     @Override
     public void process(String in, StepController stepController) {
 
-        System.out.println("Your table:\n" + tablePrinter.drawTable(game.getCurrentTable()));
-        System.out.println("AI's table:\n" + tablePrinter.drawTable(game.getAiTable()));
         stepController.performStep();
     }
 

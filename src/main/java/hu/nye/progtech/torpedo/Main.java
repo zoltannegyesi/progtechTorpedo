@@ -13,6 +13,7 @@ public class Main {
 
 
     /* TODO
+    - enable ships(true)
     - after exit ai should not shoot
     - if wrong input on shooting, can shoot again without ai shooting
     - shooting out of range should not work

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class Carrier implements Ship {
     private final String name = "Carrier";
     private final int size = 5;
-    private boolean used = false;
+    private boolean used = true;
 
     @Override
     public void useShip() {
