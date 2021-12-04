@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
  */
 
 @Service
-<span class="nc" id="L10">public class CoordinateConverter {</span>
+<span class="fc" id="L10">public class CoordinateConverter {</span>
 
     /**
      * Converts ASCII characters to numbers.
@@ -18,10 +18,10 @@ import org.springframework.stereotype.Service;
 
     public int checkCoordinate(char character) {
         // -65 and -49 -&gt; to convert char to number -&gt; ASCII table
-<span class="nc bnc" id="L21" title="All 4 branches missed.">        if (character &gt;= 'A' &amp;&amp; character &lt;= 'J') {</span>
-<span class="nc" id="L22">            return (int) (character - 65);</span>
+<span class="pc bpc" id="L21" title="1 of 4 branches missed.">        if (character &gt;= 'A' &amp;&amp; character &lt;= 'J') {</span>
+<span class="fc" id="L22">            return (int) (character - 65);</span>
         } else {
-<span class="nc" id="L24">            return (int) (character - 49);</span>
+<span class="fc" id="L24">            return (int) (character - 49);</span>
         }
     }
 }
