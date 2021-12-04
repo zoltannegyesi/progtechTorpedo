@@ -42,12 +42,12 @@ public class Put implements Interaction {
      * @return {@link List} of {@link Ship}
      */
 
-    public List&lt;Ship&gt; shipsLeft() {
-<span class="nc bnc" id="L46" title="All 2 branches missed.">        List&lt;Ship&gt; shipsLeft = ships.stream().filter(ship -&gt; !ship.isUsed()).collect(Collectors.toList());</span>
-<span class="nc" id="L47">        System.out.print(&quot;You can put down a: &quot;);</span>
-<span class="nc" id="L48">        shipsLeft.forEach(ship -&gt; System.out.print(ship.getName() + &quot;, &quot;));</span>
-<span class="nc" id="L49">        System.out.println();</span>
-<span class="nc" id="L50">        return shipsLeft;</span>
+    public int shipsLeft(List&lt;Ship&gt; ships) {
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        List&lt;Ship&gt; shipsLeft = ships.stream().filter(ship -&gt; !ship.isUsed()).collect(Collectors.toList());</span>
+<span class="fc" id="L47">        System.out.print(&quot;You can put down a: &quot;);</span>
+<span class="fc" id="L48">        shipsLeft.forEach(ship -&gt; System.out.print(ship.getName() + &quot;, &quot;));</span>
+<span class="fc" id="L49">        System.out.println();</span>
+<span class="fc" id="L50">        return shipsLeft.size();</span>
     }
 
     /**
@@ -80,43 +80,57 @@ public class Put implements Interaction {
 <span class="fc" id="L80">        return interactions.stream().filter(interaction -&gt; interaction.getName().equals(&quot;put&quot;)).collect(Collectors.toList()).get(0);</span>
     }
 
-    @Override
-    public void process(String in, StepController stepController) {
-<span class="nc" id="L85">        shipsLeft();</span>
-<span class="nc" id="L86">        String input = userInput.scanInput();</span>
-<span class="nc" id="L87">        ships.stream()</span>
-<span class="nc" id="L88">                .filter(ship -&gt; ship.getName().equals(input))</span>
-<span class="nc" id="L89">                .forEach(ship -&gt; {</span>
-<span class="nc bnc" id="L90" title="All 2 branches missed.">                    if (shipPutter.putShip(ship.getSize(), game.getCurrentTable())) {</span>
-<span class="nc" id="L91">                        ship.useShip();</span>
-<span class="nc bnc" id="L92" title="All 2 branches missed.">                        if (ships.stream().allMatch(Ship::isUsed)) {</span>
-<span class="nc" id="L93">                            System.out.println(&quot;All ships has been put down!&quot;);</span>
-<span class="nc" id="L94">                            turnOffPut(interactions);</span>
-<span class="nc" id="L95">                            turnOnShoot(interactions);</span>
+
+    /**
+     * Should use ship.
+     *
+     * @param ships ships
+     * @param input input
+     * @return {@link Interaction}
+     */
+
+    public boolean useShip(List&lt;Ship&gt; ships, String input) {
+<span class="nc" id="L93">        ships.stream()</span>
+<span class="nc" id="L94">                .filter(ship -&gt; ship.getName().equals(input))</span>
+<span class="nc" id="L95">                .forEach(ship -&gt; {</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">                    if (shipPutter.putShip(ship.getSize(), game.getCurrentTable())) {</span>
+<span class="nc" id="L97">                        ship.useShip();</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">                        if (ships.stream().allMatch(Ship::isUsed)) {</span>
+<span class="nc" id="L99">                            System.out.println(&quot;All ships has been put down!&quot;);</span>
+<span class="nc" id="L100">                            turnOffPut(interactions);</span>
+<span class="nc" id="L101">                            turnOnShoot(interactions);</span>
                         }
                     }
-<span class="nc" id="L98">                });</span>
-<span class="nc" id="L99">        stepController.performStep();</span>
-<span class="nc" id="L100">    }</span>
+<span class="nc" id="L104">                });</span>
+<span class="nc" id="L105">        return true;</span>
+    }
+
+    @Override
+    public void process(String in, StepController stepController) {
+<span class="nc" id="L110">        shipsLeft(ships);</span>
+<span class="nc" id="L111">        String input = userInput.scanInput();</span>
+<span class="nc" id="L112">        useShip(ships, input);</span>
+<span class="nc" id="L113">        stepController.performStep();</span>
+<span class="nc" id="L114">    }</span>
 
     @Override
     public boolean isEqualToCommand(String in) {
-<span class="fc" id="L104">        return PUT_COMMAND.equals(in);</span>
+<span class="fc" id="L118">        return PUT_COMMAND.equals(in);</span>
     }
 
     @Override
     public String getName() {
-<span class="fc" id="L109">        return PUT_COMMAND;</span>
+<span class="fc" id="L123">        return PUT_COMMAND;</span>
     }
 
     @Override
     public void setUsable(boolean bool) {
-<span class="fc" id="L114">        this.usable = bool;</span>
-<span class="fc" id="L115">    }</span>
+<span class="fc" id="L128">        this.usable = bool;</span>
+<span class="fc" id="L129">    }</span>
 
     @Override
     public boolean isUsable() {
-<span class="fc" id="L119">        return this.usable;</span>
+<span class="fc" id="L133">        return this.usable;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

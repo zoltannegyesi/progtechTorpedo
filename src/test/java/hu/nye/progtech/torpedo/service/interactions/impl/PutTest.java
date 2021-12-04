@@ -1,7 +1,9 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.verify;
 
 import javax.lang.model.element.Element;
 import java.util.ArrayList;
@@ -30,6 +32,8 @@ public class PutTest {
     private static final String PUT_COMMAND = "put";
     private static final String NOT_PUT_COMMAND = "not-put";
 
+    private static final String INPUT = "Destroyer";
+
     private static final int SHIPS_REMAINING = 2;
 
    // private final GameState game;
@@ -38,13 +42,22 @@ public class PutTest {
    // private final ShipPutter shipPutter;
    // private final UserInput userInput;
 
+    @Mock
+    private UserInput userInput;
+
 
     private Put underTest;
 
     @BeforeEach
     public void setUp() {
         ships = new ArrayList<>();
-
+        Destroyer destroyer = new Destroyer();
+        destroyer.useShip();
+        Submarine submarine = new Submarine();
+        Cruiser cruiser = new Cruiser();
+        ships.add(destroyer);
+        ships.add(submarine);
+        ships.add(cruiser);
 
         interactions = new ArrayList<>();
         interactions.add(new Exit(null, null));
@@ -64,14 +77,7 @@ public class PutTest {
 
     @Test
     public void testShipsLeftShouldReturnTheNumberOfShipsRemaining() {
-        // given
-        Destroyer destroyer = new Destroyer();
-        destroyer.useShip();
-        Submarine submarine = new Submarine();
-        Cruiser cruiser = new Cruiser();
-        ships.add(destroyer);
-        ships.add(submarine);
-        ships.add(cruiser);
+        // given in setup
 
         // when
         int result = underTest.shipsLeft(ships);
@@ -103,6 +109,23 @@ public class PutTest {
         // then
         assertFalse(result.isUsable());
     }
+
+    /*
+    @Test
+    public void testProcessShouldReadInputAndCallPerformStepFromStepController() {
+        // given
+        StepController stepController = Mockito.mock(StepController.class);
+        List<Ship>
+        given(underTest.shipsLeft()).willReturn(SHIPS_REMAINING);
+        given(userInput.scanInput()).willReturn(INPUT);
+        given(underTest.useShip(ships, INPUT)).willReturn(true);
+
+        // when
+        underTest.process(null, stepController);
+
+        // then
+        verify(stepController).performStep();
+    }*/
 
 
     @Test

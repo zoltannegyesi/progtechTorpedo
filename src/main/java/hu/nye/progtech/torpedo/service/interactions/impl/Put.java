@@ -80,10 +80,16 @@ public class Put implements Interaction {
         return interactions.stream().filter(interaction -> interaction.getName().equals("put")).collect(Collectors.toList()).get(0);
     }
 
-    @Override
-    public void process(String in, StepController stepController) {
-        shipsLeft(ships);
-        String input = userInput.scanInput();
+
+    /**
+     * Should use ship.
+     *
+     * @param ships ships
+     * @param input input
+     * @return {@link Interaction}
+     */
+
+    public boolean useShip(List<Ship> ships, String input) {
         ships.stream()
                 .filter(ship -> ship.getName().equals(input))
                 .forEach(ship -> {
@@ -96,6 +102,14 @@ public class Put implements Interaction {
                         }
                     }
                 });
+        return true;
+    }
+
+    @Override
+    public void process(String in, StepController stepController) {
+        shipsLeft(ships);
+        String input = userInput.scanInput();
+        useShip(ships, input);
         stepController.performStep();
     }
 
