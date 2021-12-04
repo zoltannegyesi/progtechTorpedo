@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import hu.nye.progtech.torpedo.model.Ai;
-import hu.nye.progtech.torpedo.service.ships.Ship;
+import hu.nye.progtech.torpedo.model.ships.Ship;
 import org.springframework.stereotype.Service;
 
 /**

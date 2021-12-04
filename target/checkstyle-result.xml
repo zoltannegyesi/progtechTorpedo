@@ -6,6 +6,18 @@
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/Main.java">
 </file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/impl/Submarine.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/impl/Cruiser.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/impl/Destroyer.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/impl/Battleship.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/impl/Carrier.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/Ship.java">
+</file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ShipVO.java">
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/TableVO.java">
@@ -15,18 +27,6 @@
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/Ai.java">
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/GameState.java">
-</file>
-<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/impl/Submarine.java">
-</file>
-<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/impl/Cruiser.java">
-</file>
-<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/impl/Destroyer.java">
-</file>
-<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/impl/Battleship.java">
-</file>
-<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/impl/Carrier.java">
-</file>
-<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ships/Ship.java">
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Default.java">
 </file>

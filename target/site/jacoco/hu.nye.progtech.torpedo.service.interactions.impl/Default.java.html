@@ -14,37 +14,37 @@ import org.springframework.stereotype.Service;
 public class Default implements Interaction {
 
     private static final String UNKNOWN_COMMAND_MESSAGE = &quot;Unknown command&quot;;
-<span class="nc" id="L17">    private boolean usable = false;</span>
+<span class="fc" id="L17">    private boolean usable = false;</span>
 
 
-<span class="nc" id="L20">    public Default() {</span>
+<span class="fc" id="L20">    public Default() {</span>
 
-<span class="nc" id="L22">    }</span>
+<span class="fc" id="L22">    }</span>
 
     @Override
     public void process(String in, StepController stepController) {
-<span class="nc" id="L26">        System.out.println(&quot;Unknown command!&quot;);</span>
-<span class="nc" id="L27">        stepController.performStep();</span>
-<span class="nc" id="L28">    }</span>
+<span class="fc" id="L26">        System.out.println(&quot;Unknown command!&quot;);</span>
+<span class="fc" id="L27">        stepController.performStep();</span>
+<span class="fc" id="L28">    }</span>
 
     @Override
     public boolean isEqualToCommand(String in) {
-<span class="nc" id="L32">        return true;</span>
+<span class="fc" id="L32">        return true;</span>
     }
 
     @Override
     public String getName() {
-<span class="nc" id="L37">        return UNKNOWN_COMMAND_MESSAGE;</span>
+<span class="fc" id="L37">        return UNKNOWN_COMMAND_MESSAGE;</span>
     }
 
     @Override
     public void setUsable(boolean bool) {
-<span class="nc" id="L42">        this.usable = bool;</span>
-<span class="nc" id="L43">    }</span>
+<span class="fc" id="L42">        this.usable = bool;</span>
+<span class="fc" id="L43">    }</span>
 
     @Override
     public boolean isUsable() {
-<span class="nc" id="L47">        return this.usable;</span>
+<span class="fc" id="L47">        return this.usable;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

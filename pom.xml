@@ -92,6 +92,7 @@
                 <configuration>
                     <excludes>
                         <exclude>hu/nye/progtech/torpedo/model/*</exclude>
+                        <exclude>hu/nye/progtech/torpedo/model/ships/impl/*</exclude>
                         <exclude>hu/nye/progtech/torpedo/Main.*</exclude>
                     </excludes>
                 </configuration>
