@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: hu.nye.progtech.torpedo.service.ai.AiShooterTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in hu.nye.progtech.torpedo.service.ai.AiShooterTest
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! - in hu.nye.progtech.torpedo.service.ai.AiShooterTest
+hu.nye.progtech.torpedo.service.ai.AiShooterTest.testShootShouldCallItselfWithXAndFillInTheLastCoordinate  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[X, +, X, X, +, X, X, X, +, X]> but was: <[X, +, +,  , +, X, X, X, +, X]>
+	at hu.nye.progtech.torpedo.service.ai.AiShooterTest.testShootShouldCallItselfWithXAndFillInTheLastCoordinate(AiShooterTest.java:185)
+

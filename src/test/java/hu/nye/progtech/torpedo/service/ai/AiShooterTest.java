@@ -84,8 +84,8 @@ public class AiShooterTest {
         {
             add('X');
             add('+');
-            add('+');
-            add(' ');
+            add('X');
+            add('X');
             add('+');
             add('X');
             add('X');
