@@ -19,10 +19,10 @@ import org.springframework.stereotype.Service;
      * @param tableVO which is being created.
      */
 
-    public ArrayList&lt;List&lt;Character&gt;&gt; createTable(TableVO tableVO) {
-<span class="fc" id="L23">        ArrayList&lt;List&lt;Character&gt;&gt; table = new ArrayList&lt;&gt;();</span>
+    public ArrayList&lt;ArrayList&lt;Character&gt;&gt; createTable(TableVO tableVO) {
+<span class="fc" id="L23">        ArrayList&lt;ArrayList&lt;Character&gt;&gt; table = new ArrayList&lt;&gt;();</span>
 <span class="fc bfc" id="L24" title="All 2 branches covered.">        for (int i = 0; i &lt; tableVO.getTableSize(); i++) {</span>
-<span class="fc" id="L25">            List&lt;Character&gt; temp = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L25">            ArrayList&lt;Character&gt; temp = new ArrayList&lt;&gt;();</span>
 <span class="fc bfc" id="L26" title="All 2 branches covered.">            for (int j = 0; j &lt; tableVO.getTableSize(); j++) {</span>
 <span class="fc" id="L27">                temp.add(' ');</span>
             }

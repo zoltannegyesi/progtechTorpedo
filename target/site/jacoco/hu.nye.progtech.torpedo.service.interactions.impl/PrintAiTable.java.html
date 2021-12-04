@@ -14,15 +14,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class PrintAiTable implements Interaction {
     private static final String PRINTAITABLE_COMMAND = &quot;aitable&quot;;
-<span class="fc" id="L17">    private boolean usable = true;</span>
+<span class="nc" id="L17">    private boolean usable = true;</span>
 
     private final TablePrinter tablePrinter;
     private final Ai ai;
 
-<span class="fc" id="L22">    public PrintAiTable(TablePrinter tablePrinter, Ai ai) {</span>
-<span class="fc" id="L23">        this.tablePrinter = tablePrinter;</span>
-<span class="fc" id="L24">        this.ai = ai;</span>
-<span class="fc" id="L25">    }</span>
+<span class="nc" id="L22">    public PrintAiTable(TablePrinter tablePrinter, Ai ai) {</span>
+<span class="nc" id="L23">        this.tablePrinter = tablePrinter;</span>
+<span class="nc" id="L24">        this.ai = ai;</span>
+<span class="nc" id="L25">    }</span>
 
     @Override
     public void process(String in, StepController stepController) {
@@ -37,7 +37,7 @@ public class PrintAiTable implements Interaction {
 
     @Override
     public String getName() {
-<span class="fc" id="L40">        return PRINTAITABLE_COMMAND;</span>
+<span class="nc" id="L40">        return PRINTAITABLE_COMMAND;</span>
     }
 
     @Override
@@ -47,7 +47,7 @@ public class PrintAiTable implements Interaction {
 
     @Override
     public boolean isUsable() {
-<span class="fc" id="L50">        return this.usable;</span>
+<span class="nc" id="L50">        return this.usable;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -19,7 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 public class TablePrinterTest {
 
 
-    ArrayList<List<Character>> listSample = new ArrayList<>();
+    ArrayList<ArrayList<Character>> listSample = new ArrayList<>();
 
     private final String TABLE_SAMPLE =
 

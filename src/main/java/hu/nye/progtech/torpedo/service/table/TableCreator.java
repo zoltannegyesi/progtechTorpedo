@@ -19,10 +19,10 @@ public class TableCreator {
      * @param tableVO which is being created.
      */
 
-    public ArrayList<List<Character>> createTable(TableVO tableVO) {
-        ArrayList<List<Character>> table = new ArrayList<>();
+    public ArrayList<ArrayList<Character>> createTable(TableVO tableVO) {
+        ArrayList<ArrayList<Character>> table = new ArrayList<>();
         for (int i = 0; i < tableVO.getTableSize(); i++) {
-            List<Character> temp = new ArrayList<>();
+            ArrayList<Character> temp = new ArrayList<>();
             for (int j = 0; j < tableVO.getTableSize(); j++) {
                 temp.add(' ');
             }

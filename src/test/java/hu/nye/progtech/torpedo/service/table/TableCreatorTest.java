@@ -14,10 +14,22 @@ import org.junit.jupiter.api.Test;
  */
 
 public class TableCreatorTest {
+    private static final ArrayList<Character> ROW = new ArrayList<>() {
+        {
+            add(' ');
+            add(' ');
+            add(' ');
+            add(' ');
+            add(' ');
+            add(' ');
+            add(' ');
+            add(' ');
+            add(' ');
+            add(' ');
+        }
+    };
 
-    private static final List<Character> ROW = List.of(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
-
-    private static final ArrayList<List<Character>> EXPECTED_MAP = new ArrayList<>();
+    private static final ArrayList<ArrayList<Character>> EXPECTED_MAP = new ArrayList<>();
 
     @BeforeEach
     public void setup() {
@@ -34,7 +46,7 @@ public class TableCreatorTest {
 
 
         // when
-        ArrayList<List<Character>> result = underTest.createTable(tableVO);
+        ArrayList<ArrayList<Character>> result = underTest.createTable(tableVO);
 
         // then
         assertEquals(EXPECTED_MAP, result);

@@ -13,11 +13,23 @@ import org.junit.jupiter.api.Test;
 
 public class MapUtilTest {
 
-    private static ArrayList<List<Character>> NOT_COMPLETED_TABLE;
-    private static final List<Character> ROW_WITH_SHIP = List.of('o', ' ', 'X', '+');
-
-    private static ArrayList<List<Character>> COMPLETED_TABLE;
-    private static final List<Character> ROW_WITHOUT_SHIP = List.of('X', ' ', '+');
+    private static ArrayList<ArrayList<Character>> NOT_COMPLETED_TABLE;
+    private static final ArrayList<Character> ROW_WITH_SHIP = new ArrayList<>() {
+        {
+            add('o');
+            add(' ');
+            add('X');
+            add('+');
+        }
+    };
+    private static ArrayList<ArrayList<Character>> COMPLETED_TABLE;
+    private static final ArrayList<Character> ROW_WITHOUT_SHIP = new ArrayList<>() {
+        {
+            add('X');
+            add(' ');
+            add('+');
+        }
+    };
 
     private GameState gameState;
 

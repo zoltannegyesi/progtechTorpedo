@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
 public class Shoot implements Interaction {
 
     private static final String SHOOT_COMMAND = &quot;shoot&quot;;
-<span class="fc" id="L16">    private boolean usable = false;</span>
+<span class="nc" id="L16">    private boolean usable = false;</span>
 
     private final Shooter shooter;
 
-<span class="fc" id="L20">    public Shoot(Shooter shooter) {</span>
-<span class="fc" id="L21">        this.shooter = shooter;</span>
-<span class="fc" id="L22">    }</span>
+<span class="nc" id="L20">    public Shoot(Shooter shooter) {</span>
+<span class="nc" id="L21">        this.shooter = shooter;</span>
+<span class="nc" id="L22">    }</span>
 
     @Override
     public void process(String in, StepController stepController) {
@@ -33,17 +33,17 @@ public class Shoot implements Interaction {
 
     @Override
     public String getName() {
-<span class="fc" id="L36">        return SHOOT_COMMAND;</span>
+<span class="nc" id="L36">        return SHOOT_COMMAND;</span>
     }
 
     @Override
     public void setUsable(boolean bool) {
-<span class="fc" id="L41">        this.usable = bool;</span>
-<span class="fc" id="L42">    }</span>
+<span class="nc" id="L41">        this.usable = bool;</span>
+<span class="nc" id="L42">    }</span>
 
     @Override
     public boolean isUsable() {
-<span class="fc" id="L46">        return this.usable;</span>
+<span class="nc" id="L46">        return this.usable;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

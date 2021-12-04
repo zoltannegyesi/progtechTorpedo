@@ -50,7 +50,7 @@ public class GameController {
 <span class="pc bpc" id="L50" title="1 of 2 branches missed.">        while (isGameRunning()) {</span>
 <span class="nc" id="L51">            gameState.setRan(true);</span>
 <span class="nc" id="L52">            stepController.performStep();</span>
-<span class="nc" id="L53">            stepController.performAiStep();</span>
+<span class="nc" id="L53">            stepController.performAiStep(gameState);</span>
         }
 <span class="fc" id="L55">    }</span>
 
