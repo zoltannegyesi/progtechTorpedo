@@ -66,6 +66,7 @@ public class InputHandlerTest {
 
     }
 
+
     @Test
     public void testUnknownInteractionShouldCallUnknownProcessMethod() {
         // given

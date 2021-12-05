@@ -24,16 +24,14 @@ public class StepController {
     private final InputHandler inputHandler;
     private final List<Interaction> interactions;
     private final AiShooter aiShooter;
-    private final Ai ai;
     private final Random rnd;
 
     @Autowired
-    public StepController(UserInput userInput, InputHandler inputHandler, List<Interaction> interactions, Ai ai, AiShooter aiShooter) {
+    public StepController(UserInput userInput, InputHandler inputHandler, List<Interaction> interactions, AiShooter aiShooter) {
         this.userInput = userInput;
         this.inputHandler = inputHandler;
         this.interactions = interactions;
         this.aiShooter = aiShooter;
-        this.ai = ai;
         rnd = new Random();
     }
     /**

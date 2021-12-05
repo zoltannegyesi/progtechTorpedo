@@ -1,4 +1,13 @@
 -------------------------------------------------------------------------------
 Test set: hu.nye.progtech.torpedo.service.interactions.InputHandlerTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in hu.nye.progtech.torpedo.service.interactions.InputHandlerTest
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.042 s <<< FAILURE! - in hu.nye.progtech.torpedo.service.interactions.InputHandlerTest
+hu.nye.progtech.torpedo.service.interactions.InputHandlerTest.testHandleInputShouldRunNoCommandsWhenNoneOfThemIsApplicable  Time elapsed: 0.01 s  <<< ERROR!
+org.mockito.exceptions.misusing.UnnecessaryStubbingException: 
+
+Unnecessary stubbings detected.
+Clean & maintainable test code requires zero unnecessary code.
+Following stubbings are unnecessary (click to navigate to relevant line of code):
+  1. -> at hu.nye.progtech.torpedo.service.interactions.InputHandlerTest.testHandleInputShouldRunNoCommandsWhenNoneOfThemIsApplicable(InputHandlerTest.java:60)
+Please remove unnecessary stubbings or use 'lenient' strictness. More info: javadoc for UnnecessaryStubbingException class.
+

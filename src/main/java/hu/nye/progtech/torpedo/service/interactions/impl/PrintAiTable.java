@@ -24,9 +24,14 @@ public class PrintAiTable implements Interaction {
         this.ai = ai;
     }
 
+    /**
+     * //System.out.println(tablePrinter.drawTable(ai.getTable()));
+     * @param in asd
+     * @param stepController sad
+     */
     @Override
     public void process(String in, StepController stepController) {
-        System.out.println(tablePrinter.drawTable(ai.getTable()));
+
         stepController.performStep();
     }
 

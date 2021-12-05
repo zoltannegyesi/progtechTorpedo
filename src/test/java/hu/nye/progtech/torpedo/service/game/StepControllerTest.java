@@ -32,8 +32,6 @@ public class StepControllerTest {
 
     //private StepController stepController;
 
-    @Mock
-    private Ai ai;
 
     @Mock
     private AiShooter aiShooter;
@@ -51,7 +49,7 @@ public class StepControllerTest {
         interactions.add(Mockito.mock(Put.class));
         interactions.add(Mockito.mock(PrintAiTable.class));
         interactions.add(Mockito.mock(Shoot.class));
-        underTest = new StepController(userInput, inputHandler, interactions, ai, aiShooter);
+        underTest = new StepController(userInput, inputHandler, interactions, aiShooter);
     }
 /*
     @Test
