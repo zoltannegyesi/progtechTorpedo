@@ -1,9 +1,9 @@
 package hu.nye.progtech.torpedo.model;
 
-import hu.nye.progtech.torpedo.model.TableVO;
-import hu.nye.progtech.torpedo.service.ai.AiShooter;
+import java.util.List;
+
+import hu.nye.progtech.torpedo.model.ships.Ship;
 import hu.nye.progtech.torpedo.service.ai.AiTableCreator;
-import hu.nye.progtech.torpedo.ui.TablePrinter;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
@@ -18,20 +18,25 @@ import org.springframework.stereotype.Service;
 @Setter
 public class Ai {
 
-    private final AiShooter aiShooter;
-    private TableVO table;
     private final AiTableCreator aiTableCreator;
-    private final TablePrinter tablePrinter;
+    private final TableVO table;
+    private final List<Ship> ships;
 
-    public Ai(TableVO table, AiTableCreator aiTableCreator, TablePrinter tablePrinter, AiShooter aiShooter) {
-        this.table = table;
+    public Ai(AiTableCreator aiTableCreator, GameState gameState, TableVO table, List<Ship> ships) {
         this.aiTableCreator = aiTableCreator;
-        this.tablePrinter = tablePrinter;
-        this.aiShooter = aiShooter;
+        this.table = table;
+        this.ships = ships;
+
     }
 
+    /**
+     * Calls putDownShip for every ship.
+     */
+
     public void createTable() {
-        aiTableCreator.createAiTable(this);
+        ships.forEach(ship ->
+                aiTableCreator.putDownShip(this.table.getTable(), 10, ship.getSize())
+        );
     }
 
 }

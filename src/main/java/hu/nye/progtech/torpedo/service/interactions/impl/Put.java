@@ -35,7 +35,6 @@ public class Put implements Interaction {
         this.shipPutter = shipPutter;
         this.userInput = userInput;
         this.interactions = interactions;
-        interactions.add(this);
     }
 
     /**

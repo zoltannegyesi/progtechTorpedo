@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StepController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">torpedo</a> &gt; <a href="index.source.html" class="el_package">hu.nye.progtech.torpedo.service.game</a> &gt; <span class="el_source">StepController.java</span></div><h1>StepController.java</h1><pre class="source lang-java linenums">package hu.nye.progtech.torpedo.service.game;
+
+import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+
+import hu.nye.progtech.torpedo.model.Ai;
+import hu.nye.progtech.torpedo.model.GameState;
+import hu.nye.progtech.torpedo.service.ai.AiShooter;
+import hu.nye.progtech.torpedo.service.interactions.InputHandler;
+import hu.nye.progtech.torpedo.service.interactions.Interaction;
+import hu.nye.progtech.torpedo.ui.UserInput;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * Component that performs a step.
+ */
+
+@Service
+public class StepController {
+
+    private final UserInput userInput;
+    private final InputHandler inputHandler;
+    private final List&lt;Interaction&gt; interactions;
+    private final AiShooter aiShooter;
+    private final Ai ai;
+    private final Random rnd;
+
+    @Autowired
+<span class="fc" id="L31">    public StepController(UserInput userInput, InputHandler inputHandler, List&lt;Interaction&gt; interactions, Ai ai, AiShooter aiShooter) {</span>
+<span class="fc" id="L32">        this.userInput = userInput;</span>
+<span class="fc" id="L33">        this.inputHandler = inputHandler;</span>
+<span class="fc" id="L34">        this.interactions = interactions;</span>
+<span class="fc" id="L35">        this.aiShooter = aiShooter;</span>
+<span class="fc" id="L36">        this.ai = ai;</span>
+<span class="fc" id="L37">        rnd = new Random();</span>
+<span class="fc" id="L38">    }</span>
+    /**
+     * Method that lists the available commands.
+     *
+     * @return {@link List} of {@link Interaction}
+     */
+
+    private List&lt;Interaction&gt; printCommands() {
+<span class="fc" id="L46">        System.out.print(&quot;Commands: &quot;);</span>
+<span class="fc" id="L47">        List&lt;Interaction&gt; interactionList = interactions.stream().filter(Interaction::isUsable).collect(Collectors.toList());</span>
+<span class="pc" id="L48">        interactionList.forEach(interaction -&gt; System.out.print(interaction.getName() + &quot; &quot;));</span>
+<span class="fc" id="L49">        System.out.println();</span>
+<span class="fc" id="L50">        return interactionList;</span>
+    }
+
+    public void performAiStep(GameState gameState) {
+<span class="nc" id="L54">        aiShooter.shoot(gameState.getCurrentTable().getTable().get(rnd.nextInt(10)), rnd.nextInt(10));</span>
+<span class="nc" id="L55">    }</span>
+
+    /**
+     * Reads input,
+     * and calls the command handling method.
+     */
+    public void performStep() {
+<span class="fc" id="L62">        printCommands();</span>
+<span class="fc" id="L63">        String in = userInput.scanInput();</span>
+<span class="fc" id="L64">        inputHandler.handleInput(in, this);</span>
+<span class="fc" id="L65">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

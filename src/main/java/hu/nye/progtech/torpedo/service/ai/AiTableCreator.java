@@ -1,10 +1,8 @@
 package hu.nye.progtech.torpedo.service.ai;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Random;
 
-import hu.nye.progtech.torpedo.model.Ai;
-import hu.nye.progtech.torpedo.model.ships.Ship;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,89 +12,153 @@ import org.springframework.stereotype.Service;
 @Service
 public class AiTableCreator {
 
-    private final List<Ship> ships;
+
     private final Random rand;
 
-    public AiTableCreator(List<Ship> ships) {
-        this.ships = ships;
+    public AiTableCreator() {
         rand = new Random();
+    }
+
+    /**
+     * Get an empty coordinate.
+     *
+     * @param table table, that is being searched
+     * @param size  size of the table
+     * @return int[]
+     */
+
+    public int[] searchCoordinate(ArrayList<ArrayList<Character>> table, int size) {
+        int[] coordinates = new int[2];
+
+        boolean notUsed = true;
+        while (notUsed) {
+            int x1 = rand.nextInt(size);
+            int y1 = rand.nextInt(size);
+            if (!(table.get(y1).get(x1) == 'o')) {
+                notUsed = false;
+                coordinates[0] = x1;
+                coordinates[1] = y1;
+            }
+        }
+        return coordinates;
+    }
+
+    /**
+     * Puts down the ship to the given coordinate.
+     *
+     * @param num      where should it be facing
+     * @param table    the table that is being changed
+     * @param shipSize the size of the sip
+     * @param x        the x coordinate
+     * @param y        the y coordinate
+     * @return {@link ArrayList} of {@link ArrayList} of boolean
+     */
+
+    public ArrayList<ArrayList<Character>> putToCoordinate(int num, ArrayList<ArrayList<Character>> table, int shipSize, int x, int y) {
+
+        switch (num) {
+            case 0: // north
+                for (int i = 0; i < shipSize; i++) {
+                    table.get(y + i).set(x, 'o');
+                }
+                break;
+
+            case 1: // east
+                for (int i = 0; i < shipSize; i++) {
+                    table.get(y).set(x + i, 'o');
+                }
+                break;
+
+            case 2: // south
+                for (int i = 0; i < shipSize; i++) {
+                    table.get(y - i).set(x, 'o');
+                }
+                break;
+            default: // west
+                for (int i = 0; i < shipSize; i++) {
+                    table.get(y).set(x - i, 'o');
+                }
+                break;
+
+        }
+        return table;
+    }
+
+    /**
+     * Check if the coordinate is in the boundaries of the map.
+     *
+     * @param num      the coordinate
+     * @param shipSize the size of the ship
+     * @return boolean
+     */
+
+    public boolean canPutDown(int num, int shipSize, int size) {
+        return ((num + shipSize - 1) <= size && (num - shipSize) >= 0);
     }
 
     /**
      * Creates AI's table,
      * and puts down the ships randomly.
      *
-     * @param ai ai, that's table is being created.
+     * @param table    table which is being created
+     * @param size     the size of the map
+     * @param shipSize the size of the map
      */
-    public void createAiTable(Ai ai) {
-        ships.forEach(ship -> {
-            boolean cannotPutDown = true;
-            while (cannotPutDown) {
-                boolean notUsed = true;
-                int x = 0;
-                int y = 0;
-                while (notUsed) {
-                    int x1 = rand.nextInt(10);
-                    int y1 = rand.nextInt(10);
-                    if (!(ai.getTable().getTable().get(y1).get(x1) == '+')) {
-                        notUsed = false;
-                        x = x1;
-                        y = y1;
+
+    public ArrayList<ArrayList<Character>> putDownShip(ArrayList<ArrayList<Character>> table, int size, int shipSize) {
+
+        int[] coordinates = searchCoordinate(table, size);
+        int x = coordinates[0];
+        int y = coordinates[1];
+        int num = rand.nextInt(4);
+        switch (num) {
+            case 0: // north
+                if (canPutDown(y, shipSize, size)) {
+                    if (!(table.get(y + 1).get(x) == 'o')) {
+                        System.out.println("N");
+                        putToCoordinate(num, table, shipSize, x, y);
+                        return table;
                     }
+                } else {
+                    return this.putDownShip(table, size, shipSize);
                 }
-                boolean put = false;
-                while (!put) {
-                    switch (rand.nextInt(4)) {
-                        case 0: //north
-                            if ((y - ship.getSize()) >= 0) {
-                                if (!(ai.getTable().getTable().get(y - 1).get(x) == 'o')) {
-                                    for (int i = 0; i < ship.getSize(); i++) {
-                                        ai.getTable().getTable().get(y - i).set(x, 'o');
-                                    }
-                                    cannotPutDown = false;
-                                    put = true;
-                                }
-                            }
-                            break;
+                break;
 
-                        case 1: //east
-                            if ((x + ship.getSize() - 1) <= 9) {
-                                if (!(ai.getTable().getTable().get(y).get(x + 1) == 'o')) {
-                                    for (int i = 0; i < ship.getSize(); i++) {
-                                        ai.getTable().getTable().get(y).set(x + i, 'o');
-                                    }
-                                    cannotPutDown = false;
-                                    put = true;
-                                }
-                            }
-                            break;
-
-                        case 2: // south
-                            if ((y + ship.getSize() - 1) <= 9) {
-                                if (!(ai.getTable().getTable().get(y + 1).get(x) == 'o')) {
-                                    for (int i = 0; i < ship.getSize(); i++) {
-                                        ai.getTable().getTable().get(y + i).set(x, 'o');
-                                    }
-                                    cannotPutDown = false;
-                                    put = true;
-                                }
-
-                            }
-                            break;
-                        default: //west
-                            if ((x - ship.getSize() - 1) >= 0) {
-                                if (!(ai.getTable().getTable().get(y).get(x - 1) == 'o')) {
-                                    for (int i = 0; i < ship.getSize(); i++) {
-                                        ai.getTable().getTable().get(y).set(x - i, 'o');
-                                    }
-                                    cannotPutDown = false;
-                                    put = true;
-                                }
-                            }
-                            break;
+            case 1: // east
+                if (canPutDown(x, shipSize, size)) {
+                    if (!(table.get(y).get(x + 1) == 'o')) {
+                        System.out.println("E");
+                        putToCoordinate(num, table, shipSize, x, y);
+                        return table;
                     }
+                } else {
+                    return this.putDownShip(table, size, shipSize);
                 }
-            }
-        });
+                break;
+
+            case 2: // south
+                if (canPutDown(y, shipSize, size)) {
+                    System.out.println("S");
+                    if (!(table.get(y - 1).get(x) == 'o')) {
+                        putToCoordinate(num, table, shipSize, x, y);
+                        return table;
+                    }
+                } else {
+                    return this.putDownShip(table, size, shipSize);
+                }
+                break;
+            default: // west
+                if (canPutDown(x, shipSize, size)) {
+                    System.out.println("W");
+                    if (!(table.get(y).get(x - 1) == 'o')) {
+                        putToCoordinate(num, table, shipSize, x, y);
+                        return table;
+                    }
+                } else {
+                    return this.putDownShip(table, size, shipSize);
+                }
+                break;
+        }
+        return null;
     }
 }

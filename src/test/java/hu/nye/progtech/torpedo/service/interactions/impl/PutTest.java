@@ -1,6 +1,7 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
@@ -8,18 +9,20 @@ import java.util.List;
 
 import hu.nye.progtech.torpedo.model.ships.Ship;
 import hu.nye.progtech.torpedo.model.ships.impl.*;
+import hu.nye.progtech.torpedo.service.game.StepController;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
 import hu.nye.progtech.torpedo.ui.UserInput;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
 @ExtendWith(MockitoExtension.class)
 public class PutTest {
-    /*
+
     private static final String PUT_COMMAND = "put";
     private static final String NOT_PUT_COMMAND = "not-put";
 
@@ -43,7 +46,6 @@ public class PutTest {
     public void setUp() {
         ships = new ArrayList<>();
         Destroyer destroyer = new Destroyer();
-        destroyer.useShip();
         Submarine submarine = new Submarine();
         Cruiser cruiser = new Cruiser();
         ships.add(destroyer);
@@ -65,7 +67,7 @@ public class PutTest {
         underTest = new Put(null, null, null, null, null);
         //stepController = Mockito.mock(StepController.class);
     }
-
+/*
     @Test
     public void testShipsLeftShouldReturnTheNumberOfShipsRemaining() {
         // given in setup
@@ -74,9 +76,9 @@ public class PutTest {
         int result = underTest.shipsLeft(ships);
 
         // then
-        assertEquals(SHIPS_REMAINING, result);
+        assertEquals(result, SHIPS_REMAINING);
     }
-
+*/
 
     @Test
     public void testTurnOnShootShouldTurnOnShootInteraction() {
@@ -116,7 +118,7 @@ public class PutTest {
 
         // then
         verify(stepController).performStep();
-    }
+    }*/
 
 
     @Test
@@ -164,5 +166,5 @@ public class PutTest {
         // then
         assertEquals(result, PUT_COMMAND);
     }
-    */
+
 }
