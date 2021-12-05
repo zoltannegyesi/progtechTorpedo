@@ -26,7 +26,7 @@ public class PrintAiTable implements Interaction {
 <span class="fc" id="L26">    }</span>
 
     /**
-     * //System.out.println(tablePrinter.drawTable(gameState.getAiTable.getTable()));.
+     * //.
      *
      * @param in asd
      * @param stepController sad
@@ -35,27 +35,28 @@ public class PrintAiTable implements Interaction {
     @Override
     public void process(String in, StepController stepController) {
 
-<span class="fc" id="L38">        stepController.performStep();</span>
-<span class="fc" id="L39">    }</span>
+<span class="fc" id="L38">        System.out.println(tablePrinter.drawTable(gameState.getAiTable()));</span>
+<span class="fc" id="L39">        stepController.performStep();</span>
+<span class="fc" id="L40">    }</span>
 
     @Override
     public boolean isEqualToCommand(String in) {
-<span class="fc" id="L43">        return PRINTAITABLE_COMMAND.equals(in);</span>
+<span class="fc" id="L44">        return PRINTAITABLE_COMMAND.equals(in);</span>
     }
 
     @Override
     public String getName() {
-<span class="fc" id="L48">        return PRINTAITABLE_COMMAND;</span>
+<span class="fc" id="L49">        return PRINTAITABLE_COMMAND;</span>
     }
 
     @Override
     public void setUsable(boolean bool) {
-<span class="fc" id="L53">        this.usable = bool;</span>
-<span class="fc" id="L54">    }</span>
+<span class="fc" id="L54">        this.usable = bool;</span>
+<span class="fc" id="L55">    }</span>
 
     @Override
     public boolean isUsable() {
-<span class="fc" id="L58">        return this.usable;</span>
+<span class="fc" id="L59">        return this.usable;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

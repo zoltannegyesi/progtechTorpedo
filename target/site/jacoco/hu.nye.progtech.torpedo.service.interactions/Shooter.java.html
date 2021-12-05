@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Shooter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">torpedo</a> &gt; <a href="index.source.html" class="el_package">hu.nye.progtech.torpedo.service.interactions</a> &gt; <span class="el_source">Shooter.java</span></div><h1>Shooter.java</h1><pre class="source lang-java linenums">package hu.nye.progtech.torpedo.service.interactions;
 
+import java.util.ArrayList;
+
 import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.service.util.CoordinateConverter;
 import hu.nye.progtech.torpedo.ui.UserInput;
@@ -16,11 +18,11 @@ public class Shooter {
     private final UserInput userInput;
     private final CoordinateConverter coordinateConverter;
 
-<span class="nc" id="L19">    public Shooter(GameState gameState, UserInput userInput, CoordinateConverter coordinateConverter) {</span>
-<span class="nc" id="L20">        this.gameState = gameState;</span>
-<span class="nc" id="L21">        this.userInput = userInput;</span>
-<span class="nc" id="L22">        this.coordinateConverter = coordinateConverter;</span>
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L21">    public Shooter(GameState gameState, UserInput userInput, CoordinateConverter coordinateConverter) {</span>
+<span class="fc" id="L22">        this.gameState = gameState;</span>
+<span class="fc" id="L23">        this.userInput = userInput;</span>
+<span class="fc" id="L24">        this.coordinateConverter = coordinateConverter;</span>
+<span class="fc" id="L25">    }</span>
 
     /**
      * Checks if an input is correct
@@ -28,28 +30,54 @@ public class Shooter {
      */
 
     public void shoot() {
-<span class="nc" id="L31">        System.out.println(&quot;Type in the coordinate to shoot&quot;);</span>
-<span class="nc" id="L32">        char[] input = userInput.scanInput().toCharArray();</span>
-<span class="nc bnc" id="L33" title="All 10 branches missed.">        if (input.length != 2 || input[0] &gt; 'J' || input[0] &lt; 'A' || input[1] &lt; '0' || input[1] &gt; '9') {      //doesnt work</span>
-<span class="nc" id="L34">            System.out.println(&quot;Wrong input! Shoot again!&quot;);</span>
-<span class="nc" id="L35">            this.shoot();</span>
-        } else {
-<span class="nc" id="L37">            int x = coordinateConverter.checkCoordinate(input[0]);</span>
-<span class="nc" id="L38">            int y = coordinateConverter.checkCoordinate(input[1]);</span>
-<span class="nc bnc" id="L39" title="All 2 branches missed.">            if (gameState.getAiTable().getTable().get(y).get(x) == 'o') {</span>
-<span class="nc" id="L40">                System.out.println(&quot;It's a hit!&quot;);</span>
-<span class="nc" id="L41">                gameState.getAiTable().getTable().get(y).set(x, '+');</span>
-<span class="nc" id="L42">                gameState.getAiTableForPlayer().getTable().get(y).set(x, '+');</span>
-<span class="nc bnc" id="L43" title="All 4 branches missed.">            } else if (gameState.getAiTable().getTable().get(y).get(x) == 'X' || gameState.getAiTable().getTable().get(y).get(x) == '+') {</span>
-<span class="nc" id="L44">                System.out.println(&quot;It has already been shot! Shoot again!&quot;);</span>
-<span class="nc" id="L45">                this.shoot();</span>
+<span class="nc" id="L33">        System.out.println(&quot;Type in the coordinate to shoot&quot;);</span>
+<span class="nc" id="L34">        char[] input = userInput.scanInput().toCharArray();</span>
+<span class="nc bnc" id="L35" title="All 4 branches missed.">        if (input[0] &lt;= 'J' &amp;&amp; input[0] &gt;= 'A') {</span>
+<span class="nc" id="L36">            int x = coordinateConverter.checkCoordinate(input[0]);</span>
+<span class="nc" id="L37">            int y = 0;</span>
+<span class="nc bnc" id="L38" title="All 6 branches missed.">            if (input.length == 3 &amp;&amp; input[1] == '1' &amp;&amp; input[2] == '0') {</span>
+<span class="nc" id="L39">                y = 9;</span>
+<span class="nc bnc" id="L40" title="All 6 branches missed.">            } else if (input.length == 2 &amp;&amp; input[1] &gt; '0' &amp;&amp; input[1] &lt;= '9') {</span>
+<span class="nc" id="L41">                y = coordinateConverter.checkCoordinate(input[1]);</span>
             } else {
-<span class="nc" id="L47">                System.out.println(&quot;Missed!&quot;);</span>
-<span class="nc" id="L48">                gameState.getAiTable().getTable().get(y).set(x, 'X');</span>
-<span class="nc" id="L49">                gameState.getAiTableForPlayer().getTable().get(y).set(x, 'X');</span>
+<span class="nc" id="L43">                System.out.println(&quot;Wrong second coordinate! Shoot again!&quot;);</span>
+<span class="nc" id="L44">                this.shoot();</span>
             }
+<span class="nc" id="L46">            placeCharacter(x, gameState.getAiTableForPlayer().getTable().get(y), gameState.getAiTable().getTable().get(y));</span>
 
+<span class="nc" id="L48">        } else {</span>
+<span class="nc" id="L49">            System.out.println(&quot;Wrong first coordinate! Shoot again!&quot;);</span>
+<span class="nc" id="L50">            this.shoot();</span>
         }
-<span class="nc" id="L53">    }</span>
+<span class="nc" id="L52">    }</span>
+
+    /**
+     * Places down + or X to the given coordinate if it can.
+     * Sends back the put character.
+     *
+     * @param x the x coordinate.
+     * @param playerAiRow the player's ai table's row.
+     * @param aiRow tha ai table's row.
+     * @return the returning character.
+     *
+     */
+
+    public char placeCharacter(int x, ArrayList&lt;Character&gt; playerAiRow, ArrayList&lt;Character&gt; aiRow) {
+<span class="fc" id="L66">        char character = ' ';</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        if (aiRow.get(x) == 'o') {</span>
+<span class="fc" id="L68">            System.out.println(&quot;Its a hit&quot;);</span>
+<span class="fc" id="L69">            character = '+';</span>
+<span class="pc bpc" id="L70" title="1 of 4 branches missed.">        } else if (aiRow.get(x) == 'X' || aiRow.get(x) == '+') {</span>
+<span class="fc" id="L71">            System.out.println(&quot;It has already been shot! Shoot again!&quot;);</span>
+<span class="fc" id="L72">            character = aiRow.get(x);</span>
+<span class="fc" id="L73">            this.shoot();</span>
+        } else {
+<span class="nc" id="L75">            System.out.println(&quot;Missed!&quot;);</span>
+<span class="nc" id="L76">            character = 'X';</span>
+        }
+<span class="fc" id="L78">        playerAiRow.set(x, character);</span>
+<span class="fc" id="L79">        aiRow.set(x, character);</span>
+<span class="fc" id="L80">        return character;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

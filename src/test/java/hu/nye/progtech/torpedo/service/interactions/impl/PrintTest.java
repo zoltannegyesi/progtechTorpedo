@@ -40,23 +40,23 @@ public class PrintTest {
         stepController = Mockito.mock(StepController.class);
     }
 
-
+/*
     //ki lettek kommentelve a processben a kiíratások
     @Test
     public void testProcessShouldCallPerformStepFromStepController() {
         //given in setup
 
         // when
-        /*Print print = Mockito.mock(Print.class);
-        doThrow(NullPointerException.class).when(print).process(null, stepController);
+        //Print print = Mockito.mock(Print.class);
+        //doThrow(NullPointerException.class).when(print).process(null, stepController);
 
-         */
+
         underTest.process(null, stepController);
 
         // then
         verify(stepController).performStep();
     }
-
+*/
 
 
     @Test
