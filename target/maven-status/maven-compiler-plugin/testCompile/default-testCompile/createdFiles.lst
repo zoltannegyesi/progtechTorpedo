@@ -2,6 +2,7 @@ hu/nye/progtech/torpedo/service/interactions/ShooterTest$5.class
 hu/nye/progtech/torpedo/service/interactions/impl/PrintAiTableTest.class
 hu/nye/progtech/torpedo/service/ai/AiShooterTest$7.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$12$2.class
+hu/nye/progtech/torpedo/service/interactions/ShipPutterTest$1$1.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$10$2.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$3.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$7.class
@@ -24,6 +25,7 @@ hu/nye/progtech/torpedo/service/ai/AiShooterTest$8.class
 hu/nye/progtech/torpedo/service/interactions/impl/DefaultTest.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$12.class
 hu/nye/progtech/torpedo/service/interactions/impl/ExitTest.class
+hu/nye/progtech/torpedo/service/interactions/ShipPutterTest$1$3.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$2.class
 hu/nye/progtech/torpedo/service/ai/AiShooterTest$5.class
 hu/nye/progtech/torpedo/ui/UserInputTest.class
@@ -39,6 +41,7 @@ hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$11$2.class
 hu/nye/progtech/torpedo/service/ai/AiShooterTest$2.class
 hu/nye/progtech/torpedo/ui/TablePrinterTest.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$13$2.class
+hu/nye/progtech/torpedo/service/interactions/ShipPutterTest.class
 hu/nye/progtech/torpedo/service/util/MapUtilTest$2.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$10.class
 hu/nye/progtech/torpedo/service/util/CoordinateConverterTest.class
@@ -49,7 +52,9 @@ hu/nye/progtech/torpedo/service/interactions/ShooterTest$7$1.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$12$3.class
 hu/nye/progtech/torpedo/service/ai/AiShooterTest.class
 hu/nye/progtech/torpedo/service/interactions/ShooterTest$4.class
+hu/nye/progtech/torpedo/service/interactions/ShipPutterTest$1$2.class
 hu/nye/progtech/torpedo/service/ai/AiShooterTest$6.class
+hu/nye/progtech/torpedo/service/interactions/ShipPutterTest$1.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$9.class
 hu/nye/progtech/torpedo/service/interactions/impl/PutTest.class
 hu/nye/progtech/torpedo/service/interactions/InputHandlerTest.class

@@ -31,8 +31,8 @@ public class InteractionEnablerTest {
     @Test
     public void testDisablePutShouldReturnPutOperationAndDisableIt() {
         // given
-        Interaction put = new Put(null, null, null, null, null, null);
-        Interaction put2 = new Put(null, null, null, null, null, null);
+        Interaction put = new Put( null, null,null, null, null, null);
+        Interaction put2 = new Put(  null, null, null, null, null, null);
         put2.setUsable(false);
         // when
         Interaction result = underTest.disablePut(interactions, put);

@@ -2,15 +2,17 @@ package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import hu.nye.progtech.torpedo.model.TableVO;
 import hu.nye.progtech.torpedo.model.ships.Ship;
 import hu.nye.progtech.torpedo.model.ships.impl.*;
 import hu.nye.progtech.torpedo.service.game.StepController;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
+import hu.nye.progtech.torpedo.service.interactions.ShipPutter;
 import hu.nye.progtech.torpedo.ui.UserInput;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -55,7 +57,7 @@ public class PutTest {
         interactions = new ArrayList<>();
         interactions.add(new Exit(null));
        // interactions.add(new PrintTest(null, null));
-        interactions.add(new Put(null, null, null, null, null, null));
+        interactions.add(new Put(null, null,  null, null, null, null));
         interactions.add(new PrintAiTable(null, null));
         Shoot shoot = new Shoot(null);
         shoot.setUsable(false);
@@ -64,62 +66,90 @@ public class PutTest {
 
         //gameState = new GameState(null, null);
        //TablePrinter tablePrinter = Mockito.mock(TablePrinter.class);
-        underTest = new Put(null, null, null, null, null, null);
+        underTest = new Put(null, null,  null, null, null, null);
         //stepController = Mockito.mock(StepController.class);
     }
-/*
+
     @Test
     public void testShipsLeftShouldReturnTheNumberOfShipsRemaining() {
-        // given in setup
+        // given
+        Ship destroyer = new Destroyer();
+        Ship cruiser = new Cruiser();
+        cruiser.useShip();
+
+        List<Ship> ships = List.of(destroyer, cruiser);
 
         // when
         int result = underTest.shipsLeft(ships);
 
         // then
-        assertEquals(result, SHIPS_REMAINING);
+        assertEquals(result, 1);
     }
-*/
+
+
 /*
-    @Test
-    public void testTurnOnShootShouldTurnOnShootInteraction() {
-        // given in setup
-
-        // when
-        Interaction result = underTest.turnOnShoot(interactions);
-
-        // then
-        assertTrue(result.isUsable());
-
-    }
-
-    @Test
-    public void testTurnOffPutShouldTurnOffPutInteraction() {
-        // given in setup
-
-        // when
-        Interaction result = underTest.turnOffPut(interactions);
-
-        // then
-        assertFalse(result.isUsable());
-    }
-*/
-    /*
     @Test
     public void testProcessShouldReadInputAndCallPerformStepFromStepController() {
         // given
+        Ship destroyer = new Destroyer();
+        Ship cruiser = new Cruiser();
+
+        TableVO tableVO = new TableVO();
+        ArrayList<ArrayList<Character>> table = new ArrayList<>() {
+            {
+                add(new ArrayList<>() {
+                    {
+                        add(' ');
+                        add(' ');
+                        add(' ');
+                    }
+                });
+                add(new ArrayList<>() {
+                    {
+                        add(' ');
+                        add(' ');
+                        add(' ');
+                    }
+                });
+                add(new ArrayList<>() {
+                    {
+                        add(' ');
+                        add(' ');
+                        add(' ');
+                    }
+                });
+            }
+        };
+
+        tableVO.setTable(table);
+        tableVO.setTableSize(3);
+
+        List<Ship> ships = List.of(destroyer, cruiser);
+
+        String input = "Destroyer";
+
+
+        ShipPutter shipPutter = Mockito.mock(ShipPutter.class);
+        Put put = Mockito.mock(Put.class);
+        UserInput userInput = Mockito.mock(UserInput.class);
         StepController stepController = Mockito.mock(StepController.class);
-        List<Ship>
-        given(underTest.shipsLeft()).willReturn(SHIPS_REMAINING);
-        given(userInput.scanInput()).willReturn(INPUT);
-        given(underTest.useShip(ships, INPUT)).willReturn(true);
+        doCallRealMethod().when(put).shipsLeft(ships);
+        doCallRealMethod().when(put).useShip(ships, input, shipPutter);
+        when(put.shipsLeft(ships)).thenReturn(2);
+        when(userInput.scanInput()).thenReturn(input);
+        when(shipPutter.putShip(ships.get(0).getSize(), tableVO)).thenReturn(true);
+        when(shipPutter.putShip(ships.get(1).getSize(), tableVO)).thenReturn(true);
+        when(put.useShip(ships, input, shipPutter)).thenReturn(true);
+
+
 
         // when
-        underTest.process(null, stepController);
+        underTest.process(input, stepController);
 
         // then
         verify(stepController).performStep();
-    }*/
-
+    }
+*/
 
     @Test
     public void testIsEqualToCommandShouldReturnTrueWhenInputIsPut() {

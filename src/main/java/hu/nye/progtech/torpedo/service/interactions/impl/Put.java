@@ -2,7 +2,6 @@ package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 import hu.nye.progtech.torpedo.model.GameState;
@@ -51,6 +50,7 @@ public class Put implements Interaction {
         System.out.print("You can put down a: ");
         shipsLeft.forEach(ship -> System.out.print(ship.getName() + ", "));
         System.out.println();
+        System.out.println(shipsLeft.size());
         return shipsLeft.size();
     }
 
@@ -64,12 +64,12 @@ public class Put implements Interaction {
      * @return {@link Interaction}
      */
 
-    public boolean useShip(List<Ship> ships, String input) {
+    public boolean useShip(List<Ship> ships, String input, ShipPutter shipPutter) {
         AtomicBoolean allShipsPutDown = new AtomicBoolean(false);
         ships.stream()
                 .filter(ship -> ship.getName().equals(input))
                 .forEach(ship -> {
-                    if (shipPutter.putShip(ship.getSize(), game.getCurrentTable())) {
+                    if (shipPutter.managePut(ship.getSize(), game.getCurrentTable().getTable())) {
                         ship.useShip();
                         if (ships.stream().allMatch(Ship::isUsed)) {
                             System.out.println("All ships has been put down!");
@@ -88,7 +88,7 @@ public class Put implements Interaction {
     public void process(String in, StepController stepController) {
         shipsLeft(ships);
         String input = userInput.scanInput();
-        useShip(ships, input);
+        useShip(ships, input, this.shipPutter);
         stepController.performStep();
     }
 

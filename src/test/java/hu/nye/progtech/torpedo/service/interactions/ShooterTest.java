@@ -2,8 +2,7 @@ package hu.nye.progtech.torpedo.service.interactions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.doCallRealMethod;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 
@@ -157,7 +156,7 @@ public class ShooterTest {
 
         char result = shooter.placeCharacter(X_3, playerRowAlreadyShot, aiRowAlreadyShot);
 
-        Mockito.verify(shooter).shoot();
+        verify(shooter).shoot();
         assertEquals(result, COORDINATE_3);
     }
 
@@ -166,12 +165,14 @@ public class ShooterTest {
         // given
         Shooter shooter = Mockito.mock(Shooter.class);
 
-        // then
+
         doCallRealMethod().when(shooter).placeCharacter(X_2, playerRowAlreadyShot, aiRowAlreadyShot);
 
+        // when
         char result = shooter.placeCharacter(X_2, playerRowAlreadyShot, aiRowAlreadyShot);
 
-        Mockito.verify(shooter).shoot();
+        // then
+        verify(shooter).shoot();
         assertEquals(result, COORDINATE_2);
     }
 

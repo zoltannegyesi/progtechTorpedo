@@ -2,7 +2,6 @@
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 import hu.nye.progtech.torpedo.model.GameState;
@@ -21,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class Put implements Interaction {
     private static final String PUT_COMMAND = &quot;put&quot;;
-<span class="fc" id="L24">    private boolean usable = true;</span>
+<span class="fc" id="L23">    private boolean usable = true;</span>
 
     private final GameState game;
     private final List&lt;Ship&gt; ships;
@@ -31,14 +30,14 @@ public class Put implements Interaction {
     private final List&lt;Interaction&gt; interactions;
 
     public Put(GameState game, List&lt;Ship&gt; ships,
-<span class="fc" id="L34">               ShipPutter shipPutter, UserInput userInput, InteractionEnabler interactionEnabler, List&lt;Interaction&gt; interactions) {</span>
-<span class="fc" id="L35">        this.game = game;</span>
-<span class="fc" id="L36">        this.ships = ships;</span>
-<span class="fc" id="L37">        this.shipPutter = shipPutter;</span>
-<span class="fc" id="L38">        this.userInput = userInput;</span>
-<span class="fc" id="L39">        this.interactionEnabler = interactionEnabler;</span>
-<span class="fc" id="L40">        this.interactions = interactions;</span>
-<span class="fc" id="L41">    }</span>
+<span class="fc" id="L33">               ShipPutter shipPutter, UserInput userInput, InteractionEnabler interactionEnabler, List&lt;Interaction&gt; interactions) {</span>
+<span class="fc" id="L34">        this.game = game;</span>
+<span class="fc" id="L35">        this.ships = ships;</span>
+<span class="fc" id="L36">        this.shipPutter = shipPutter;</span>
+<span class="fc" id="L37">        this.userInput = userInput;</span>
+<span class="fc" id="L38">        this.interactionEnabler = interactionEnabler;</span>
+<span class="fc" id="L39">        this.interactions = interactions;</span>
+<span class="fc" id="L40">    }</span>
 
     /**
      * Should turn on shoot.
@@ -47,11 +46,12 @@ public class Put implements Interaction {
      */
 
     public int shipsLeft(List&lt;Ship&gt; ships) {
-<span class="nc bnc" id="L50" title="All 2 branches missed.">        List&lt;Ship&gt; shipsLeft = ships.stream().filter(ship -&gt; !ship.isUsed()).collect(Collectors.toList());</span>
-<span class="nc" id="L51">        System.out.print(&quot;You can put down a: &quot;);</span>
-<span class="nc" id="L52">        shipsLeft.forEach(ship -&gt; System.out.print(ship.getName() + &quot;, &quot;));</span>
-<span class="nc" id="L53">        System.out.println();</span>
-<span class="nc" id="L54">        return shipsLeft.size();</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        List&lt;Ship&gt; shipsLeft = ships.stream().filter(ship -&gt; !ship.isUsed()).collect(Collectors.toList());</span>
+<span class="fc" id="L50">        System.out.print(&quot;You can put down a: &quot;);</span>
+<span class="fc" id="L51">        shipsLeft.forEach(ship -&gt; System.out.print(ship.getName() + &quot;, &quot;));</span>
+<span class="fc" id="L52">        System.out.println();</span>
+<span class="fc" id="L53">        System.out.println(shipsLeft.size());</span>
+<span class="fc" id="L54">        return shipsLeft.size();</span>
     }
 
 
@@ -64,12 +64,12 @@ public class Put implements Interaction {
      * @return {@link Interaction}
      */
 
-    public boolean useShip(List&lt;Ship&gt; ships, String input) {
+    public boolean useShip(List&lt;Ship&gt; ships, String input, ShipPutter shipPutter) {
 <span class="nc" id="L68">        AtomicBoolean allShipsPutDown = new AtomicBoolean(false);</span>
 <span class="nc" id="L69">        ships.stream()</span>
 <span class="nc" id="L70">                .filter(ship -&gt; ship.getName().equals(input))</span>
 <span class="nc" id="L71">                .forEach(ship -&gt; {</span>
-<span class="nc bnc" id="L72" title="All 2 branches missed.">                    if (shipPutter.putShip(ship.getSize(), game.getCurrentTable())) {</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">                    if (shipPutter.managePut(ship.getSize(), game.getCurrentTable().getTable())) {</span>
 <span class="nc" id="L73">                        ship.useShip();</span>
 <span class="nc bnc" id="L74" title="All 2 branches missed.">                        if (ships.stream().allMatch(Ship::isUsed)) {</span>
 <span class="nc" id="L75">                            System.out.println(&quot;All ships has been put down!&quot;);</span>
@@ -88,7 +88,7 @@ public class Put implements Interaction {
     public void process(String in, StepController stepController) {
 <span class="nc" id="L89">        shipsLeft(ships);</span>
 <span class="nc" id="L90">        String input = userInput.scanInput();</span>
-<span class="nc" id="L91">        useShip(ships, input);</span>
+<span class="nc" id="L91">        useShip(ships, input, this.shipPutter);</span>
 <span class="nc" id="L92">        stepController.performStep();</span>
 <span class="nc" id="L93">    }</span>
 
