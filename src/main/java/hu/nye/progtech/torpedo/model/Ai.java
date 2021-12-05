@@ -32,12 +32,12 @@ public class Ai {
     }
 
     /**
-     * Calls putDownShip for every ship.
+     * Calls putDownShip for every  ship.
      */
 
     public ArrayList<ArrayList<Character>> createTable() {
         AtomicReference<ArrayList<ArrayList<Character>>> aiTable = new AtomicReference<>(new ArrayList<>());
-        ships.forEach(ship ->
+        ships.stream().filter(ship -> !ship.isUsed()).forEach(ship ->
                 aiTable.set(aiTableCreator.putDownShip(this.table.getTable(), 10, ship.getSize()))
         );
         return aiTable.get();

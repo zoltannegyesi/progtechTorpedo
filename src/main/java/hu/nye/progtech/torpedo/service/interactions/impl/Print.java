@@ -35,6 +35,7 @@ public class Print implements Interaction {
     @Override
     public void process(String in, StepController stepController) {
 
+        System.out.println("Your table:\n" + tablePrinter.drawTable(game.getCurrentTable()));
         stepController.performStep();
     }
 

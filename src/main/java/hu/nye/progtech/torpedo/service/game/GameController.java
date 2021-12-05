@@ -33,7 +33,6 @@ public class GameController {
 
 
     private boolean isGameRunning() {
-        System.out.println(mapUtil.areAllShipsDestroyed());
         return !gameState.isShouldExit() && mapUtil.areAllShipsDestroyed();
     }
 

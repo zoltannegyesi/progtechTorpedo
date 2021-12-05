@@ -15,7 +15,6 @@ public class Main {
     /* TODO
     - enable ships(true)
     - putting works with (A1 B10)
-    - shooting on 10 should work
     - wrong ship name -> Not valid ship name
     - input checking for all inputs(what to do with wrong inputs)
     - write out if an input is wrong(putting)

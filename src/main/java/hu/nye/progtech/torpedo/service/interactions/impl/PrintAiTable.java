@@ -26,7 +26,7 @@ public class PrintAiTable implements Interaction {
     }
 
     /**
-     * //System.out.println(tablePrinter.drawTable(gameState.getAiTable.getTable()));.
+     * //.
      *
      * @param in asd
      * @param stepController sad
@@ -35,6 +35,7 @@ public class PrintAiTable implements Interaction {
     @Override
     public void process(String in, StepController stepController) {
 
+        System.out.println(tablePrinter.drawTable(gameState.getAiTable()));
         stepController.performStep();
     }
 
