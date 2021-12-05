@@ -29,7 +29,7 @@ public class Shooter {
      * and sets the given coordinate to a '+' or 'X'.
      */
 
-    public void shoot() {
+    public ArrayList<Character> shoot() {
         System.out.println("Type in the coordinate to shoot");
         char[] input = userInput.scanInput().toCharArray();
         if (input[0] <= 'J' && input[0] >= 'A') {
@@ -41,14 +41,16 @@ public class Shooter {
                 y = coordinateConverter.checkCoordinate(input[1]);
             } else {
                 System.out.println("Wrong second coordinate! Shoot again!");
-                this.shoot();
+                return this.shoot();
             }
             placeCharacter(x, gameState.getAiTableForPlayer().getTable().get(y), gameState.getAiTable().getTable().get(y));
+            return gameState.getAiTableForPlayer().getTable().get(y);
 
         } else {
             System.out.println("Wrong first coordinate! Shoot again!");
-            this.shoot();
+            return this.shoot();
         }
+
     }
 
     /**

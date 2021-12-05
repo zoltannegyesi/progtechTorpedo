@@ -29,7 +29,7 @@ public class Shooter {
      * and sets the given coordinate to a '+' or 'X'.
      */
 
-    public void shoot() {
+    public ArrayList&lt;Character&gt; shoot() {
 <span class="nc" id="L33">        System.out.println(&quot;Type in the coordinate to shoot&quot;);</span>
 <span class="nc" id="L34">        char[] input = userInput.scanInput().toCharArray();</span>
 <span class="nc bnc" id="L35" title="All 4 branches missed.">        if (input[0] &lt;= 'J' &amp;&amp; input[0] &gt;= 'A') {</span>
@@ -41,15 +41,17 @@ public class Shooter {
 <span class="nc" id="L41">                y = coordinateConverter.checkCoordinate(input[1]);</span>
             } else {
 <span class="nc" id="L43">                System.out.println(&quot;Wrong second coordinate! Shoot again!&quot;);</span>
-<span class="nc" id="L44">                this.shoot();</span>
+<span class="nc" id="L44">                return this.shoot();</span>
             }
 <span class="nc" id="L46">            placeCharacter(x, gameState.getAiTableForPlayer().getTable().get(y), gameState.getAiTable().getTable().get(y));</span>
+<span class="nc" id="L47">            return gameState.getAiTableForPlayer().getTable().get(y);</span>
 
-<span class="nc" id="L48">        } else {</span>
-<span class="nc" id="L49">            System.out.println(&quot;Wrong first coordinate! Shoot again!&quot;);</span>
-<span class="nc" id="L50">            this.shoot();</span>
+        } else {
+<span class="nc" id="L50">            System.out.println(&quot;Wrong first coordinate! Shoot again!&quot;);</span>
+<span class="nc" id="L51">            return this.shoot();</span>
         }
-<span class="nc" id="L52">    }</span>
+
+    }
 
     /**
      * Places down + or X to the given coordinate if it can.
@@ -63,21 +65,21 @@ public class Shooter {
      */
 
     public char placeCharacter(int x, ArrayList&lt;Character&gt; playerAiRow, ArrayList&lt;Character&gt; aiRow) {
-<span class="fc" id="L66">        char character = ' ';</span>
-<span class="fc bfc" id="L67" title="All 2 branches covered.">        if (aiRow.get(x) == 'o') {</span>
-<span class="fc" id="L68">            System.out.println(&quot;Its a hit&quot;);</span>
-<span class="fc" id="L69">            character = '+';</span>
-<span class="pc bpc" id="L70" title="1 of 4 branches missed.">        } else if (aiRow.get(x) == 'X' || aiRow.get(x) == '+') {</span>
-<span class="fc" id="L71">            System.out.println(&quot;It has already been shot! Shoot again!&quot;);</span>
-<span class="fc" id="L72">            character = aiRow.get(x);</span>
-<span class="fc" id="L73">            this.shoot();</span>
+<span class="fc" id="L68">        char character = ' ';</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        if (aiRow.get(x) == 'o') {</span>
+<span class="fc" id="L70">            System.out.println(&quot;Its a hit&quot;);</span>
+<span class="fc" id="L71">            character = '+';</span>
+<span class="fc bfc" id="L72" title="All 4 branches covered.">        } else if (aiRow.get(x) == 'X' || aiRow.get(x) == '+') {</span>
+<span class="fc" id="L73">            System.out.println(&quot;It has already been shot! Shoot again!&quot;);</span>
+<span class="fc" id="L74">            character = aiRow.get(x);</span>
+<span class="fc" id="L75">            this.shoot();</span>
         } else {
-<span class="nc" id="L75">            System.out.println(&quot;Missed!&quot;);</span>
-<span class="nc" id="L76">            character = 'X';</span>
+<span class="fc" id="L77">            System.out.println(&quot;Missed!&quot;);</span>
+<span class="fc" id="L78">            character = 'X';</span>
         }
-<span class="fc" id="L78">        playerAiRow.set(x, character);</span>
-<span class="fc" id="L79">        aiRow.set(x, character);</span>
-<span class="fc" id="L80">        return character;</span>
+<span class="fc" id="L80">        playerAiRow.set(x, character);</span>
+<span class="fc" id="L81">        aiRow.set(x, character);</span>
+<span class="fc" id="L82">        return character;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

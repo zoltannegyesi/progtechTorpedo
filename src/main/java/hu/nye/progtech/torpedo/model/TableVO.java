@@ -18,7 +18,7 @@ import org.springframework.stereotype.Repository;
 @Scope("prototype")
 public class TableVO {
 
-    private final int tableSize = 10;
+    private int tableSize = 10;
     private ArrayList<ArrayList<Character>> table = new ArrayList<>();
 
     @Override
