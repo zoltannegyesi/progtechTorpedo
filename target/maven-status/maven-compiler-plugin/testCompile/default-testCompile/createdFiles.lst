@@ -59,6 +59,7 @@ hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$4.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$11$3.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$6.class
 hu/nye/progtech/torpedo/service/ai/AiShooterTest$3.class
+hu/nye/progtech/torpedo/service/util/InteractionEnablerTest.class
 hu/nye/progtech/torpedo/service/interactions/ShooterTest$1.class
 hu/nye/progtech/torpedo/service/interactions/ShooterTest$8.class
 hu/nye/progtech/torpedo/service/game/StepControllerTest.class

@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.model.TableVO;
@@ -48,9 +47,9 @@ public class MapUtilTest {
         COMPLETED_TABLE.add(ROW_WITHOUT_SHIP);
     }
 
-    /*
+
     @Test
-    public void testAreAllShipsDestroyedShouldReturnTrueWhenThereAreNoShipsRemainingOnTheMap() {
+    public void testAreAllShipsDestroyedShouldReturnFalseWhenThereAreNoShipsRemainingOnTheMap() {
         // given
         TableVO tableVO = new TableVO();
         tableVO.setTable(COMPLETED_TABLE);
@@ -62,11 +61,11 @@ public class MapUtilTest {
         boolean result = underTest.areAllShipsDestroyed();
 
         // then
-        assertTrue(result);
+        assertFalse(result);
     }
 
     @Test
-    public void testAreAllShipsDestroyedShouldReturnFalseWhenThereAreShipsRemainingOnTheMap() {
+    public void testAreAllShipsDestroyedShouldReturnTrueWhenThereAreShipsRemainingOnTheMap() {
         // given
         TableVO tableVO = new TableVO();
         tableVO.setTable(NOT_COMPLETED_TABLE);
@@ -78,8 +77,8 @@ public class MapUtilTest {
         boolean result = underTest.areAllShipsDestroyed();
 
         // then
-        assertFalse(result);
+        assertTrue(result);
     }
-*/
+
 
 }
