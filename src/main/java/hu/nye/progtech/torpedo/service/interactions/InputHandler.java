@@ -23,12 +23,10 @@ public class InputHandler {
     /**
      * Method used to call the input command.
      *
-     *
-     * @param in                the input.
-     * @param stepController    the controller, that used it.
-     *
+     * @param in             the input.
+     * @param stepController the controller, that used it.
      */
-    public void handleInput(String in, StepController stepController) {
+    public boolean handleInput(String in, StepController stepController) {
         boolean unknown = true;
         for (Interaction interaction : interactions) {
             if (interaction.isEqualToCommand(in) && !interaction.getName().equals("Unknown command")) {
@@ -37,11 +35,20 @@ public class InputHandler {
                 break;
             }
         }
-        if (unknown) {
-            Interaction interaction = interactions.stream().filter(command ->
-                    command.getName().equals("Unknown command")).collect(Collectors.toList()).get(0);
-            interaction.process(in, stepController);
-        }
+        return unknown;
+    }
+
+    /**
+     * Call the unknown command's process method.
+     *
+     * @param in command name
+     * @param stepController stepController
+     */
+
+    public void unknownInteraction(String in, StepController stepController) {
+        Interaction interaction = interactions.stream().filter(command ->
+                command.getName().equals("Unknown command")).collect(Collectors.toList()).get(0);
+        interaction.process(in, stepController);
 
     }
 }

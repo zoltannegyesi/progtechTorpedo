@@ -61,6 +61,10 @@ public class StepController {
     public void performStep() {
         printCommands();
         String in = userInput.scanInput();
-        inputHandler.handleInput(in, this);
+        boolean unknown = inputHandler.handleInput(in, this);
+        if (unknown) {
+            inputHandler.unknownInteraction(in, this);
+        }
+
     }
 }

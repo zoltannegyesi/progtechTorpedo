@@ -61,7 +61,11 @@ public class StepController {
     public void performStep() {
 <span class="fc" id="L62">        printCommands();</span>
 <span class="fc" id="L63">        String in = userInput.scanInput();</span>
-<span class="fc" id="L64">        inputHandler.handleInput(in, this);</span>
-<span class="fc" id="L65">    }</span>
+<span class="fc" id="L64">        boolean unknown = inputHandler.handleInput(in, this);</span>
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (unknown) {</span>
+<span class="nc" id="L66">            inputHandler.unknownInteraction(in, this);</span>
+        }
+
+<span class="fc" id="L69">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

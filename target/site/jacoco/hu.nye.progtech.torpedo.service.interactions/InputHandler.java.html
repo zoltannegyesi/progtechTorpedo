@@ -16,33 +16,40 @@ public class InputHandler {
     private final List&lt;Interaction&gt; interactions;
 
 
-<span class="nc" id="L19">    public InputHandler(List&lt;Interaction&gt; interactions) {</span>
-<span class="nc" id="L20">        this.interactions = interactions;</span>
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L19">    public InputHandler(List&lt;Interaction&gt; interactions) {</span>
+<span class="fc" id="L20">        this.interactions = interactions;</span>
+<span class="fc" id="L21">    }</span>
 
     /**
      * Method used to call the input command.
      *
-     *
-     * @param in                the input.
-     * @param stepController    the controller, that used it.
-     *
+     * @param in             the input.
+     * @param stepController the controller, that used it.
      */
-    public void handleInput(String in, StepController stepController) {
-<span class="nc" id="L32">        boolean unknown = true;</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (Interaction interaction : interactions) {</span>
-<span class="nc bnc" id="L34" title="All 4 branches missed.">            if (interaction.isEqualToCommand(in) &amp;&amp; !interaction.getName().equals(&quot;Unknown command&quot;)) {</span>
-<span class="nc" id="L35">                interaction.process(in, stepController);</span>
-<span class="nc" id="L36">                unknown = false;</span>
-<span class="nc" id="L37">                break;</span>
+    public boolean handleInput(String in, StepController stepController) {
+<span class="fc" id="L30">        boolean unknown = true;</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        for (Interaction interaction : interactions) {</span>
+<span class="pc bpc" id="L32" title="1 of 4 branches missed.">            if (interaction.isEqualToCommand(in) &amp;&amp; !interaction.getName().equals(&quot;Unknown command&quot;)) {</span>
+<span class="fc" id="L33">                interaction.process(in, stepController);</span>
+<span class="fc" id="L34">                unknown = false;</span>
+<span class="fc" id="L35">                break;</span>
             }
-<span class="nc" id="L39">        }</span>
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (unknown) {</span>
-<span class="nc" id="L41">            Interaction interaction = interactions.stream().filter(command -&gt;</span>
-<span class="nc" id="L42">                    command.getName().equals(&quot;Unknown command&quot;)).collect(Collectors.toList()).get(0);</span>
-<span class="nc" id="L43">            interaction.process(in, stepController);</span>
-        }
+<span class="fc" id="L37">        }</span>
+<span class="fc" id="L38">        return unknown;</span>
+    }
 
-<span class="nc" id="L46">    }</span>
+    /**
+     * Call the unknown command's process method.
+     *
+     * @param in command name
+     * @param stepController stepController
+     */
+
+    public void unknownInteraction(String in, StepController stepController) {
+<span class="fc" id="L49">        Interaction interaction = interactions.stream().filter(command -&gt;</span>
+<span class="fc" id="L50">                command.getName().equals(&quot;Unknown command&quot;)).collect(Collectors.toList()).get(0);</span>
+<span class="fc" id="L51">        interaction.process(in, stepController);</span>
+
+<span class="fc" id="L53">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
