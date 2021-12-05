@@ -43,7 +43,7 @@ public class GameControllerTest {
     @Test
     public void testStartShouldLoopTheGameUntilTheUserDoesNotForceExit() {
         // given
-        gameState = new GameState(null, null);
+        gameState = new GameState(null, null, null);
         underTest = new GameController(stepController, mapUtil, gameState, tableCreator, ai);
 
         // when

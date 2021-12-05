@@ -1,6 +1,7 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import hu.nye.progtech.torpedo.model.Ai;
+import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.service.game.StepController;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
 import hu.nye.progtech.torpedo.ui.TablePrinter;
@@ -17,19 +18,19 @@ public class PrintAiTable implements Interaction {
     private boolean usable = true;
 
     private final TablePrinter tablePrinter;
-    private final Ai ai;
+    GameState gameState;
 
-    public PrintAiTable(TablePrinter tablePrinter, Ai ai) {
+    public PrintAiTable(TablePrinter tablePrinter, GameState gameState) {
         this.tablePrinter = tablePrinter;
-        this.ai = ai;
+        this.gameState = gameState;
     }
 
     /**
-     * //System.out.println(tablePrinter.drawTable(ai.getTable()));.
+     * //System.out.println(tablePrinter.drawTable(gameState.getAiTable.getTable()));.
      *
      * @param in asd
      * @param stepController sad
-     *                       
+     *
      */
     @Override
     public void process(String in, StepController stepController) {

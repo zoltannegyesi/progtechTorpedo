@@ -1,10 +1,7 @@
 package hu.nye.progtech.torpedo.ui;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.model.TableVO;
 import org.springframework.stereotype.Service;
 

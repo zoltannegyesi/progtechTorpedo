@@ -1,6 +1,8 @@
 package hu.nye.progtech.torpedo.model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 import hu.nye.progtech.torpedo.model.ships.Ship;
 import hu.nye.progtech.torpedo.service.ai.AiTableCreator;
@@ -22,7 +24,7 @@ public class Ai {
     private final TableVO table;
     private final List<Ship> ships;
 
-    public Ai(AiTableCreator aiTableCreator, GameState gameState, TableVO table, List<Ship> ships) {
+    public Ai(AiTableCreator aiTableCreator, TableVO table, List<Ship> ships) {
         this.aiTableCreator = aiTableCreator;
         this.table = table;
         this.ships = ships;
@@ -33,10 +35,12 @@ public class Ai {
      * Calls putDownShip for every ship.
      */
 
-    public void createTable() {
+    public ArrayList<ArrayList<Character>> createTable() {
+        AtomicReference<ArrayList<ArrayList<Character>>> aiTable = new AtomicReference<>(new ArrayList<>());
         ships.forEach(ship ->
-                aiTableCreator.putDownShip(this.table.getTable(), 10, ship.getSize())
+                aiTable.set(aiTableCreator.putDownShip(this.table.getTable(), 10, ship.getSize()))
         );
+        return aiTable.get();
     }
 
 }

@@ -93,7 +93,7 @@ public class AiTableCreator {
      */
 
     public boolean canPutDown(int num, int shipSize, int size) {
-        return ((num + shipSize - 1) <= size && (num - shipSize) >= 0);
+        return ((num + shipSize - 1) <= size - 1 && (num - shipSize) >= 0);
     }
 
     /**
@@ -115,7 +115,6 @@ public class AiTableCreator {
             case 0: // north
                 if (canPutDown(y, shipSize, size)) {
                     if (!(table.get(y + 1).get(x) == 'o')) {
-                        System.out.println("N");
                         putToCoordinate(num, table, shipSize, x, y);
                         return table;
                     }
@@ -127,7 +126,6 @@ public class AiTableCreator {
             case 1: // east
                 if (canPutDown(x, shipSize, size)) {
                     if (!(table.get(y).get(x + 1) == 'o')) {
-                        System.out.println("E");
                         putToCoordinate(num, table, shipSize, x, y);
                         return table;
                     }
@@ -138,7 +136,6 @@ public class AiTableCreator {
 
             case 2: // south
                 if (canPutDown(y, shipSize, size)) {
-                    System.out.println("S");
                     if (!(table.get(y - 1).get(x) == 'o')) {
                         putToCoordinate(num, table, shipSize, x, y);
                         return table;
@@ -149,7 +146,6 @@ public class AiTableCreator {
                 break;
             default: // west
                 if (canPutDown(x, shipSize, size)) {
-                    System.out.println("W");
                     if (!(table.get(y).get(x - 1) == 'o')) {
                         putToCoordinate(num, table, shipSize, x, y);
                         return table;

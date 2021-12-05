@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InteractionEnabler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">torpedo</a> &gt; <a href="index.source.html" class="el_package">hu.nye.progtech.torpedo.service.util</a> &gt; <span class="el_source">InteractionEnabler.java</span></div><h1>InteractionEnabler.java</h1><pre class="source lang-java linenums">package hu.nye.progtech.torpedo.service.util;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import hu.nye.progtech.torpedo.service.interactions.Interaction;
+import org.springframework.stereotype.Service;
+
+/**
+ * Class for enable/disable interactions.
+ */
+
+@Service
+<span class="nc" id="L14">public class InteractionEnabler {</span>
+
+
+    /**
+     * Should disable put.
+     *
+     * @return {@link Interaction}
+     */
+
+    public Interaction disablePut(List&lt;Interaction&gt; interactions, Interaction put) {
+<span class="nc" id="L24">        interactions.add(put);</span>
+<span class="nc" id="L25">        interactions.stream()</span>
+<span class="nc" id="L26">                .filter(interaction -&gt; interaction.getName().equals(&quot;put&quot;))</span>
+<span class="nc" id="L27">                .forEach(interaction -&gt; interaction.setUsable(false));</span>
+<span class="nc" id="L28">        return interactions.stream().filter(interaction -&gt; interaction.getName().equals(&quot;put&quot;)).collect(Collectors.toList()).get(0);</span>
+    }
+
+    /**
+     * Should enable shoot.
+     *
+     * @return {@link Interaction}
+     */
+
+    public Interaction enableShoot(List&lt;Interaction&gt; interactions) {
+<span class="nc" id="L38">        interactions.stream()</span>
+<span class="nc" id="L39">                .filter(interaction -&gt; interaction.getName().equals(&quot;shoot&quot;))</span>
+<span class="nc" id="L40">                .forEach(interaction -&gt; interaction.setUsable(true));</span>
+<span class="nc" id="L41">        return interactions.stream().filter(interaction -&gt; interaction.getName().equals(&quot;shoot&quot;)).collect(Collectors.toList()).get(0);</span>
+
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

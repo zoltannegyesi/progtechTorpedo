@@ -16,11 +16,9 @@ public class Exit implements Interaction {
     private static final String EXIT_COMMAND = "exit";
     private boolean usable = true;
 
-    private final TablePrinter tablePrinter;
     private final GameState game;
 
-    public Exit(TablePrinter tablePrinter, GameState game) {
-        this.tablePrinter = tablePrinter;
+    public Exit(GameState game) {
         this.game = game;
     }
 

@@ -190,7 +190,7 @@ public class AiTableCreatorTest {
     private static final int COORDINATE_LESS_PUT_DOWN = 6;
     private static final int COORDINATE_BIGGER_PUT_DOWN = 4;
     private static final int SHIP_SIZE_CAN_PUT_DOWN = 5;
-    private static final int TABLE_SIZE_PUT_DOWN = 9;
+    private static final int TABLE_SIZE_PUT_DOWN = 10;
 
     private AiTableCreator underTest;
 

@@ -35,7 +35,6 @@
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Print.java">
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/PrintAiTable.java">
-<error line="30" severity="error" message="Javadoc tag &apos;@param&apos; should be preceded with an empty line." source="com.puppycrawl.tools.checkstyle.checks.javadoc.RequireEmptyLineBeforeBlockTagGroupCheck"/>
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Put.java">
 </file>
@@ -48,6 +47,8 @@
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/ShipPutter.java">
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/Shooter.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/util/InteractionEnabler.java">
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/util/CoordinateConverter.java">
 </file>

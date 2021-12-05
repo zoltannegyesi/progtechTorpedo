@@ -24,9 +24,9 @@ public class ExitTest {
 
     @BeforeEach
     public void setUp() {
-        gameState = new GameState(null, null);
+        gameState = new GameState(null, null, null);
         TablePrinter tablePrinter = Mockito.mock(TablePrinter.class);
-        underTest = new Exit(tablePrinter, gameState);
+        underTest = new Exit(gameState);
         stepController = Mockito.mock(StepController.class);
     }
 

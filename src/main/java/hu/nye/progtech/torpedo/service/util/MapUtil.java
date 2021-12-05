@@ -29,6 +29,7 @@ public class MapUtil {
             AtomicBoolean shipLeft = new AtomicBoolean(true);
             AtomicBoolean aiShipLeft = new AtomicBoolean(true);
             gameState.getCurrentTable().getTable().forEach(row -> {
+
                 row.forEach(item -> {
                     if (item == 'o') {
                         shipLeft.set(false);
@@ -47,7 +48,7 @@ public class MapUtil {
             } else if (aiShipLeft.get()) {
                 System.out.println("Player won");
             }
-            return (shipLeft.get() && aiShipLeft.get());
+            return !(shipLeft.get() && aiShipLeft.get());
 
         } else {
             return true;

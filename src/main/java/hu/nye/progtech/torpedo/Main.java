@@ -14,12 +14,9 @@ public class Main {
 
     /* TODO
     - enable ships(true)
-    - after exit ai should not shoot
-    - if wrong input on shooting, can shoot again without ai shooting
-    - shooting out of range should not work
+    - putting works with (A1 B10)
     - shooting on 10 should work
-    - wrong shipname -> Not valid ship name
-    - shouldn't put , after last ship
+    - wrong ship name -> Not valid ship name
     - input checking for all inputs(what to do with wrong inputs)
     - write out if an input is wrong(putting)
     - write tests

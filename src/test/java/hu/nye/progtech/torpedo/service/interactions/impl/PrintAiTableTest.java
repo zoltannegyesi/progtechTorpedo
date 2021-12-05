@@ -22,14 +22,12 @@ public class PrintAiTableTest {
     private GameState gameState;
     @Mock
     private StepController stepController;
-    @Mock
-    private Ai ai;
 
     @BeforeEach
     public void setUp() {
-        gameState = new GameState(null, null);
+        gameState = new GameState(null, null, null);
         TablePrinter tablePrinter = Mockito.mock(TablePrinter.class);
-        underTest = new PrintAiTable(tablePrinter, ai);
+        underTest = new PrintAiTable(tablePrinter, gameState);
         stepController = Mockito.mock(StepController.class);
     }
 

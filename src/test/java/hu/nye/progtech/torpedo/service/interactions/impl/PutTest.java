@@ -53,9 +53,9 @@ public class PutTest {
         ships.add(cruiser);
 
         interactions = new ArrayList<>();
-        interactions.add(new Exit(null, null));
+        interactions.add(new Exit(null));
        // interactions.add(new PrintTest(null, null));
-        interactions.add(new Put(null, null, null, null, null));
+        interactions.add(new Put(null, null, null, null, null, null));
         interactions.add(new PrintAiTable(null, null));
         Shoot shoot = new Shoot(null);
         shoot.setUsable(false);
@@ -64,7 +64,7 @@ public class PutTest {
 
         //gameState = new GameState(null, null);
        //TablePrinter tablePrinter = Mockito.mock(TablePrinter.class);
-        underTest = new Put(null, null, null, null, null);
+        underTest = new Put(null, null, null, null, null, null);
         //stepController = Mockito.mock(StepController.class);
     }
 /*
@@ -79,7 +79,7 @@ public class PutTest {
         assertEquals(result, SHIPS_REMAINING);
     }
 */
-
+/*
     @Test
     public void testTurnOnShootShouldTurnOnShootInteraction() {
         // given in setup
@@ -102,7 +102,7 @@ public class PutTest {
         // then
         assertFalse(result.isUsable());
     }
-
+*/
     /*
     @Test
     public void testProcessShouldReadInputAndCallPerformStepFromStepController() {

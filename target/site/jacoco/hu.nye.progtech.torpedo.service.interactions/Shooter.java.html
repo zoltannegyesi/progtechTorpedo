@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="hu"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Shooter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">torpedo</a> &gt; <a href="index.source.html" class="el_package">hu.nye.progtech.torpedo.service.interactions</a> &gt; <span class="el_source">Shooter.java</span></div><h1>Shooter.java</h1><pre class="source lang-java linenums">package hu.nye.progtech.torpedo.service.interactions;
+
+import hu.nye.progtech.torpedo.model.GameState;
+import hu.nye.progtech.torpedo.service.util.CoordinateConverter;
+import hu.nye.progtech.torpedo.ui.UserInput;
+import org.springframework.stereotype.Service;
+
+/**
+ * Component for player shooting.
+ */
+
+@Service
+public class Shooter {
+
+    private final GameState gameState;
+    private final UserInput userInput;
+    private final CoordinateConverter coordinateConverter;
+
+<span class="nc" id="L19">    public Shooter(GameState gameState, UserInput userInput, CoordinateConverter coordinateConverter) {</span>
+<span class="nc" id="L20">        this.gameState = gameState;</span>
+<span class="nc" id="L21">        this.userInput = userInput;</span>
+<span class="nc" id="L22">        this.coordinateConverter = coordinateConverter;</span>
+<span class="nc" id="L23">    }</span>
+
+    /**
+     * Checks if an input is correct
+     * and sets the given coordinate to a '+' or 'X'.
+     */
+
+    public void shoot() {
+<span class="nc" id="L31">        System.out.println(&quot;Type in the coordinate to shoot&quot;);</span>
+<span class="nc" id="L32">        char[] input = userInput.scanInput().toCharArray();</span>
+<span class="nc bnc" id="L33" title="All 10 branches missed.">        if (input.length != 2 || input[0] &gt; 'J' || input[0] &lt; 'A' || input[1] &lt; '0' || input[1] &gt; '9') {      //doesnt work</span>
+<span class="nc" id="L34">            System.out.println(&quot;Wrong input! Shoot again!&quot;);</span>
+<span class="nc" id="L35">            this.shoot();</span>
+        } else {
+<span class="nc" id="L37">            int x = coordinateConverter.checkCoordinate(input[0]);</span>
+<span class="nc" id="L38">            int y = coordinateConverter.checkCoordinate(input[1]);</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">            if (gameState.getAiTable().getTable().get(y).get(x) == 'o') {</span>
+<span class="nc" id="L40">                System.out.println(&quot;It's a hit!&quot;);</span>
+<span class="nc" id="L41">                gameState.getAiTable().getTable().get(y).set(x, '+');</span>
+<span class="nc" id="L42">                gameState.getAiTableForPlayer().getTable().get(y).set(x, '+');</span>
+<span class="nc bnc" id="L43" title="All 4 branches missed.">            } else if (gameState.getAiTable().getTable().get(y).get(x) == 'X' || gameState.getAiTable().getTable().get(y).get(x) == '+') {</span>
+<span class="nc" id="L44">                System.out.println(&quot;It has already been shot! Shoot again!&quot;);</span>
+<span class="nc" id="L45">                this.shoot();</span>
+            } else {
+<span class="nc" id="L47">                System.out.println(&quot;Missed!&quot;);</span>
+<span class="nc" id="L48">                gameState.getAiTable().getTable().get(y).set(x, 'X');</span>
+<span class="nc" id="L49">                gameState.getAiTableForPlayer().getTable().get(y).set(x, 'X');</span>
+            }
+
+        }
+<span class="nc" id="L53">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

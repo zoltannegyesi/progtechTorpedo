@@ -2,6 +2,7 @@ package hu.nye.progtech.torpedo.service.game;
 
 import hu.nye.progtech.torpedo.model.Ai;
 import hu.nye.progtech.torpedo.model.GameState;
+import hu.nye.progtech.torpedo.model.TableVO;
 import hu.nye.progtech.torpedo.service.table.TableCreator;
 import hu.nye.progtech.torpedo.service.util.MapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,14 +33,17 @@ public class GameController {
 
 
     private boolean isGameRunning() {
+        System.out.println(mapUtil.areAllShipsDestroyed());
         return !gameState.isShouldExit() && mapUtil.areAllShipsDestroyed();
     }
 
     private void createStartingTables() {
         tableCreator.createTable(ai.getTable());
-        ai.createTable();
+        TableVO tableVO = new TableVO();
+        tableVO.setTable(ai.createTable());
+        gameState.setAiTable(tableVO);
         tableCreator.createTable(gameState.getCurrentTable());
-        tableCreator.createTable(gameState.getAiTable());
+        tableCreator.createTable(gameState.getAiTableForPlayer());
     }
 
     /**
@@ -50,7 +54,9 @@ public class GameController {
         while (isGameRunning()) {
             gameState.setRan(true);
             stepController.performStep();
-            stepController.performAiStep(gameState);
+            if (!gameState.isShouldExit()) {
+                stepController.performAiStep(gameState);
+            }
         }
     }
 

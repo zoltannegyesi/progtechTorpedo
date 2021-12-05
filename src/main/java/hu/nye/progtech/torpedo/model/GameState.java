@@ -14,14 +14,16 @@ import org.springframework.stereotype.Repository;
 public class GameState {
 
     private TableVO currentTable;
+    private TableVO aiTableForPlayer;
     private TableVO aiTable;
     private boolean shouldExit;
     private boolean ran;
 
-    public GameState(TableVO currentTable, TableVO aiTable) {
+    public GameState(TableVO currentTable, TableVO aiTableForPlayer, TableVO aiTable) {
         this.currentTable = currentTable;
+        this.aiTableForPlayer = aiTableForPlayer;
         this.aiTable = aiTable;
-        shouldExit = false;
-        ran = false;
+        this.shouldExit = false;
+        this.ran = false;
     }
 }

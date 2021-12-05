@@ -34,7 +34,7 @@ public class PrintTest {
 
     @BeforeEach
     public void setUp() {
-        gameState = new GameState(null, null);
+        gameState = new GameState(null, null, null);
         TablePrinter tablePrinter = Mockito.mock(TablePrinter.class);
         underTest = new Print(null, null);
         stepController = Mockito.mock(StepController.class);

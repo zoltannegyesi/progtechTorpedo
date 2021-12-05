@@ -10,6 +10,7 @@ import hu.nye.progtech.torpedo.model.ships.Ship;
 import hu.nye.progtech.torpedo.service.game.StepController;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
 import hu.nye.progtech.torpedo.service.interactions.ShipPutter;
+import hu.nye.progtech.torpedo.service.util.InteractionEnabler;
 import hu.nye.progtech.torpedo.ui.UserInput;
 import org.springframework.stereotype.Service;
 
@@ -26,14 +27,16 @@ public class Put implements Interaction {
     private final List<Ship> ships;
     private final ShipPutter shipPutter;
     private final UserInput userInput;
+    private final InteractionEnabler interactionEnabler;
     private final List<Interaction> interactions;
 
     public Put(GameState game, List<Ship> ships,
-               ShipPutter shipPutter, UserInput userInput, List<Interaction> interactions) {
+               ShipPutter shipPutter, UserInput userInput, InteractionEnabler interactionEnabler, List<Interaction> interactions) {
         this.game = game;
         this.ships = ships;
         this.shipPutter = shipPutter;
         this.userInput = userInput;
+        this.interactionEnabler = interactionEnabler;
         this.interactions = interactions;
     }
 
@@ -51,34 +54,6 @@ public class Put implements Interaction {
         return shipsLeft.size();
     }
 
-    /**
-     * Should turn on shoot.
-     *
-     * @param interactions interactions
-     * @return {@link Interaction}
-     */
-
-    public Interaction turnOnShoot(List<Interaction> interactions) {
-        interactions.stream()
-                .filter(interaction -> interaction.getName().equals("shoot"))
-                .forEach(interaction -> interaction.setUsable(true));
-        return interactions.stream().filter(interaction -> interaction.getName().equals("shoot")).collect(Collectors.toList()).get(0);
-
-    }
-
-    /**
-     * Should turn off put.
-     *
-     * @param interactions interactions
-     * @return {@link Interaction}
-     */
-
-    public Interaction turnOffPut(List<Interaction> interactions) {
-        interactions.stream()
-                .filter(interaction -> interaction.getName().equals("put"))
-                .forEach(interaction -> interaction.setUsable(false));
-        return interactions.stream().filter(interaction -> interaction.getName().equals("put")).collect(Collectors.toList()).get(0);
-    }
 
 
     /**
@@ -103,8 +78,8 @@ public class Put implements Interaction {
                     }
                 });
         if (allShipsPutDown.get()) {
-            turnOffPut(interactions);
-            turnOnShoot(interactions);
+            interactionEnabler.disablePut(interactions, this);
+            interactionEnabler.enableShoot(interactions);
         }
         return true;
     }
