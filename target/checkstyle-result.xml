@@ -1,3 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="9.0.1">
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/ui/TablePrinter.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/ui/UserInput.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/Main.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/impl/Submarine.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/impl/Cruiser.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/impl/Destroyer.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/impl/Battleship.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/impl/Carrier.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ships/Ship.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/ShipVO.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/TableVO.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/Player.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/Ai.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/GameState.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Default.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Shoot.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Print.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Save.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/PrintAiTable.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Put.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/HighScore.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Exit.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/Interaction.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/InputHandler.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/ShipPutter.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/Shooter.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/repository/PlayerRepository.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/util/InteractionEnabler.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/util/CoordinateConverter.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/util/MapUtil.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/game/StepController.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/game/GameController.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/table/TableCreator.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ai/AiTableCreator.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/ai/AiShooter.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/resources/application.properties">
+</file>
 </checkstyle>
