@@ -2,6 +2,8 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 torpedo,hu.nye.progtech.torpedo.ui,TablePrinter,0,116,0,4,0,18,0,6,0,4
 torpedo,hu.nye.progtech.torpedo.ui,UserInput,0,29,0,0,0,11,0,3,0,3
 torpedo,hu.nye.progtech.torpedo.service.table,TableCreator,0,41,0,4,0,9,0,4,0,2
+torpedo,hu.nye.progtech.torpedo.service.game,StepController,27,55,1,1,3,17,3,3,2,3
+torpedo,hu.nye.progtech.torpedo.service.game,GameController,126,0,8,0,31,0,9,0,5,0
 torpedo,hu.nye.progtech.torpedo.service.util,InteractionEnabler,0,69,0,0,0,10,0,9,0,9
 torpedo,hu.nye.progtech.torpedo.service.util,CoordinateConverter,0,17,1,3,0,4,1,3,0,2
 torpedo,hu.nye.progtech.torpedo.service.util,MapUtil,17,80,3,11,3,22,3,10,0,6

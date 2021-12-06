@@ -25,19 +25,16 @@ public class GameController {
     private final TableCreator tableCreator;
     private final Ai ai;
 
-    @Autowired
-    Save save;
-
-    @Autowired
     UserInput userInput;
 
     @Autowired
-    public GameController(StepController stepController, MapUtil mapUtil, GameState gameState, TableCreator tableCreator, Ai ai) {
+    public GameController(StepController stepController, MapUtil mapUtil, GameState gameState, TableCreator tableCreator, Ai ai, UserInput userInput) {
         this.stepController = stepController;
         this.mapUtil = mapUtil;
         this.gameState = gameState;
         this.tableCreator = tableCreator;
         this.ai = ai;
+        this.userInput = userInput;
     }
 
 
@@ -76,7 +73,6 @@ public class GameController {
                 stepController.performAiStep(gameState.getCurrentTable().getTable());
             }
         }
-        save.process(null, null);
     }
 
 
