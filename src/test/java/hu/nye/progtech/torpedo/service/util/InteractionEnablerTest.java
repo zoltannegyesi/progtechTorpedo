@@ -23,7 +23,7 @@ public class InteractionEnablerTest {
         underTest = new InteractionEnabler();
         interactions = new ArrayList<>();
         Interaction exit = new Exit(null);
-        Interaction shoot = new Shoot(null);
+        Interaction shoot = new Shoot(null, null);
         interactions.add(exit);
         interactions.add(shoot);
     }
@@ -45,7 +45,7 @@ public class InteractionEnablerTest {
     @Test
     public void testDisablePutShouldReturnShootOperationAndEnableIt() {
         // given
-        Interaction shoot = new Shoot(null);
+        Interaction shoot = new Shoot(null, null);
         shoot.setUsable(true);
         // when
         Interaction result = underTest.enableShoot(interactions);

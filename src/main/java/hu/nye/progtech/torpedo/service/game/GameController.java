@@ -28,7 +28,9 @@ public class GameController {
     UserInput userInput;
 
     @Autowired
-    public GameController(StepController stepController, MapUtil mapUtil, GameState gameState, TableCreator tableCreator, Ai ai, UserInput userInput) {
+    public GameController(StepController stepController,
+                          MapUtil mapUtil, GameState gameState,
+                          TableCreator tableCreator, Ai ai, UserInput userInput) {
         this.stepController = stepController;
         this.mapUtil = mapUtil;
         this.gameState = gameState;

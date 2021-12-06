@@ -20,6 +20,7 @@ hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$13$1.class
 hu/nye/progtech/torpedo/service/util/MapUtilTest$1.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest.class
 hu/nye/progtech/torpedo/service/table/TableCreatorTest.class
+hu/nye/progtech/torpedo/service/interactions/impl/SaveTest.class
 hu/nye/progtech/torpedo/service/interactions/ShooterTest$6.class
 hu/nye/progtech/torpedo/service/ai/AiShooterTest$8.class
 hu/nye/progtech/torpedo/service/interactions/impl/DefaultTest.class
@@ -42,6 +43,7 @@ hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$11$2.class
 hu/nye/progtech/torpedo/service/ai/AiShooterTest$2.class
 hu/nye/progtech/torpedo/ui/TablePrinterTest.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$13$2.class
+hu/nye/progtech/torpedo/service/interactions/impl/HighScoreTest.class
 hu/nye/progtech/torpedo/service/interactions/ShipPutterTest.class
 hu/nye/progtech/torpedo/service/util/MapUtilTest$2.class
 hu/nye/progtech/torpedo/service/ai/AiTableCreatorTest$10.class

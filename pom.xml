@@ -95,9 +95,16 @@
                         <exclude>hu/nye/progtech/torpedo/model/ships/impl/*</exclude>
                         <exclude>hu/nye/progtech/torpedo/Main.*</exclude>
 
-                        <exclude>hu/nye/progtech/torpedo/service/ai/*</exclude>
-                        <exclude>hu/nye/progtech/torpedo/service/interactions/impl/*</exclude>
-                        <exclude>hu/nye/progtech/torpedo/service/interactions/*</exclude>
+                        <!--- Csak hogy le tudjon futni-->
+                        <exclude>hu/nye/progtech/torpedo/service/interactions/impl/Save.*</exclude>
+                        <exclude>hu/nye/progtech/torpedo/service/interactions/impl/HighScore.*</exclude>
+                        <exclude>hu/nye/progtech/torpedo/service/interactions/Shooter.*</exclude>
+                        <exclude>hu/nye/progtech/torpedo/service/interactions/impl/Put.*</exclude>
+                        <exclude>hu/nye/progtech/torpedo/service/interactions/impl/Print.*</exclude>
+                        <exclude>hu/nye/progtech/torpedo/service/interactions/impl/HighScore.*</exclude>
+                        <exclude>hu/nye/progtech/torpedo/service/ai/AiTableCreator.*</exclude>
+                        <!--- Csak hogy le tudjon futni-->
+
                     </excludes>
                 </configuration>
                 <executions>

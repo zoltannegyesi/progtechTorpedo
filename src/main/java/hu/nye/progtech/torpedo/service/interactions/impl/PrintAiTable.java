@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PrintAiTable implements Interaction {
     private static final String PRINTAITABLE_COMMAND = "aitable";
-    private boolean usable = true;
+    private boolean usable = false;
 
     private final TablePrinter tablePrinter;
     GameState gameState;
@@ -30,8 +30,8 @@ public class PrintAiTable implements Interaction {
     /**
      * //System.out.println(tablePrinter.drawTable(gameState.getAiTable().getTable()));.
      *
-     * @param in asd
-     * @param stepController sad
+     * @param in in
+     * @param stepController asd
      *
      */
     @Override

@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public final class Player {
+public class Player {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)

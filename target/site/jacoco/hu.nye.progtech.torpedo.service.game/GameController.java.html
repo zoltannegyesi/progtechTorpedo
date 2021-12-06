@@ -25,59 +25,57 @@ public class GameController {
     private final TableCreator tableCreator;
     private final Ai ai;
 
-    @Autowired
-    Save save;
-
-    @Autowired
     UserInput userInput;
 
     @Autowired
-<span class="nc" id="L35">    public GameController(StepController stepController, MapUtil mapUtil, GameState gameState, TableCreator tableCreator, Ai ai) {</span>
-<span class="nc" id="L36">        this.stepController = stepController;</span>
-<span class="nc" id="L37">        this.mapUtil = mapUtil;</span>
-<span class="nc" id="L38">        this.gameState = gameState;</span>
-<span class="nc" id="L39">        this.tableCreator = tableCreator;</span>
-<span class="nc" id="L40">        this.ai = ai;</span>
-<span class="nc" id="L41">    }</span>
+    public GameController(StepController stepController,
+                          MapUtil mapUtil, GameState gameState,
+<span class="fc" id="L33">                          TableCreator tableCreator, Ai ai, UserInput userInput) {</span>
+<span class="fc" id="L34">        this.stepController = stepController;</span>
+<span class="fc" id="L35">        this.mapUtil = mapUtil;</span>
+<span class="fc" id="L36">        this.gameState = gameState;</span>
+<span class="fc" id="L37">        this.tableCreator = tableCreator;</span>
+<span class="fc" id="L38">        this.ai = ai;</span>
+<span class="fc" id="L39">        this.userInput = userInput;</span>
+<span class="fc" id="L40">    }</span>
 
 
     private boolean isGameRunning() {
-<span class="nc bnc" id="L45" title="All 4 branches missed.">        return !gameState.isShouldExit() &amp;&amp; mapUtil.areAllShipsDestroyed();</span>
+<span class="pc bpc" id="L44" title="1 of 4 branches missed.">        return !gameState.isShouldExit() &amp;&amp; mapUtil.areAllShipsDestroyed();</span>
     }
 
     private void createStartingTables() {
-<span class="nc" id="L49">        tableCreator.createTable(ai.getTable());</span>
-<span class="nc" id="L50">        TableVO tableVO = new TableVO();</span>
-<span class="nc" id="L51">        tableVO.setTable(ai.createTable());</span>
-<span class="nc" id="L52">        gameState.setAiTable(tableVO);</span>
-<span class="nc" id="L53">        tableCreator.createTable(gameState.getCurrentTable());</span>
-<span class="nc" id="L54">        tableCreator.createTable(gameState.getAiTableForPlayer());</span>
-<span class="nc" id="L55">    }</span>
+<span class="fc" id="L48">        tableCreator.createTable(ai.getTable());</span>
+<span class="fc" id="L49">        TableVO tableVO = new TableVO();</span>
+<span class="fc" id="L50">        tableVO.setTable(ai.createTable());</span>
+<span class="fc" id="L51">        gameState.setAiTable(tableVO);</span>
+<span class="fc" id="L52">        tableCreator.createTable(gameState.getCurrentTable());</span>
+<span class="fc" id="L53">        tableCreator.createTable(gameState.getAiTableForPlayer());</span>
+<span class="fc" id="L54">    }</span>
 
     private void createPlayer() {
-<span class="nc" id="L58">        System.out.println(&quot;Type in your name: &quot;);</span>
-<span class="nc" id="L59">        String name = userInput.scanInput();</span>
-<span class="nc" id="L60">        gameState.setPlayer(new Player());</span>
-<span class="nc" id="L61">        gameState.getPlayer().setWins(0L);</span>
-<span class="nc" id="L62">        gameState.getPlayer().setName(name);</span>
-<span class="nc" id="L63">        System.out.println(&quot;Hello &quot; + name + &quot;!&quot;);</span>
-<span class="nc" id="L64">    }</span>
+<span class="fc" id="L57">        System.out.println(&quot;Type in your name: &quot;);</span>
+<span class="fc" id="L58">        String name = userInput.scanInput();</span>
+<span class="fc" id="L59">        gameState.setPlayer(new Player());</span>
+<span class="fc" id="L60">        gameState.getPlayer().setWins(0L);</span>
+<span class="fc" id="L61">        gameState.getPlayer().setName(name);</span>
+<span class="fc" id="L62">        System.out.println(&quot;Hello &quot; + name + &quot;!&quot;);</span>
+<span class="fc" id="L63">    }</span>
 
     /**
      * Starts the game loop.
      */
     public void start() {
-<span class="nc" id="L70">        createPlayer();</span>
-<span class="nc" id="L71">        createStartingTables();</span>
-<span class="nc bnc" id="L72" title="All 2 branches missed.">        while (isGameRunning()) {</span>
-<span class="nc" id="L73">            gameState.setRan(true);</span>
-<span class="nc" id="L74">            stepController.performStep();</span>
-<span class="nc bnc" id="L75" title="All 2 branches missed.">            if (!gameState.isShouldExit()) {</span>
-<span class="nc" id="L76">                stepController.performAiStep(gameState.getCurrentTable().getTable());</span>
+<span class="fc" id="L69">        createPlayer();</span>
+<span class="fc" id="L70">        createStartingTables();</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        while (isGameRunning()) {</span>
+<span class="fc" id="L72">            gameState.setRan(true);</span>
+<span class="fc" id="L73">            stepController.performStep();</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">            if (!gameState.isShouldExit()) {</span>
+<span class="fc" id="L75">                stepController.performAiStep(gameState.getCurrentTable().getTable());</span>
             }
         }
-<span class="nc" id="L79">        save.process(null, null);</span>
-<span class="nc" id="L80">    }</span>
+<span class="fc" id="L78">    }</span>
 
 
 }

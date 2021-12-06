@@ -19,7 +19,7 @@ public class ShootTest {
     @BeforeEach
     public void setUp() {
         shooter = Mockito.mock(Shooter.class);
-        underTest = new Shoot(shooter);
+        underTest = new Shoot(shooter, null);
     }
 
     @Test

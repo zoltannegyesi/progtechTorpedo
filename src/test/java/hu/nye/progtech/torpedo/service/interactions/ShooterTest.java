@@ -204,15 +204,15 @@ public class ShooterTest {
         CoordinateConverter coordinateConverter = Mockito.mock(CoordinateConverter.class);
         Shooter shooter = Mockito.mock(Shooter.class);
 
-        underTest = new Shooter(gameState, userInput, coordinateConverter);
-
+        //underTest = new Shooter(gameState, userInput, coordinateConverter);
+        underTest = spy(new Shooter(gameState, userInput, coordinateConverter));
+        doCallRealMethod().when(underTest).shoot();
 
         when(userInput.scanInput()).thenReturn("A1");
         when(coordinateConverter.checkCoordinate('A')).thenReturn(0);
         when(coordinateConverter.checkCoordinate('1')).thenReturn(0);
 
-        when(shooter.placeCharacter(0, playerTable.get(0), aiTable.get(0))).thenReturn('+');
-
+        when(underTest.placeCharacter(1, playerTable.get(0), aiTable.get(0))).thenReturn('+');
         // when
         ArrayList<Character> result = underTest.shoot();
 
@@ -220,33 +220,5 @@ public class ShooterTest {
         assertEquals(result, shootedPlayerTable);
     }
 */
-    /*@Test
-    public void testShoots() {
-        // given
-        UserInput userInput = Mockito.mock(UserInput.class);
-        CoordinateConverter coordinateConverter = Mockito.mock(CoordinateConverter.class);
-        Shooter shooter = Mockito.mock(Shooter.class);
-        TableVO tableVO = Mockito.mock(TableVO.class);
-        underTest = new Shooter(gameState, userInput, coordinateConverter);
-        given(gameState.setAiTable(tableVO)).will()
-        given(gameState.getAiTable().getTable()).willReturn(playerTable);
-
-
-        when(userInput.scanInput()).thenReturn("A1");
-        char[] coordinates = userInput.scanInput().toCharArray();
-        when(coordinateConverter.checkCoordinate(coordinates[0])).thenReturn(0);
-        when(coordinateConverter.checkCoordinate(coordinates[1])).thenReturn(0);
-
-        when(gameState.getAiTableForPlayer().getTable().get(0)).thenReturn(shootPlayerTable);
-        when(gameState.getAiTable().getTable().get(0)).thenReturn(shootAiTable);
-        when(shooter.placeCharacter(0, shootPlayerTable, shootAiTable)).thenReturn('+');
-
-        // when
-        ArrayList<Character> result = underTest.shoot();
-
-        // then
-        assertEquals(result, shootedPlayerTable);
-    }*/
-
 
 }

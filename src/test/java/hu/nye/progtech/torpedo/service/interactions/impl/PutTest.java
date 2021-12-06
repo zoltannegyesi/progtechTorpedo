@@ -1,6 +1,7 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import hu.nye.progtech.torpedo.model.ships.impl.Cruiser;
 import hu.nye.progtech.torpedo.model.ships.impl.Destroyer;
 import hu.nye.progtech.torpedo.model.ships.impl.Submarine;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
+import hu.nye.progtech.torpedo.service.interactions.ShipPutter;
 import hu.nye.progtech.torpedo.ui.UserInput;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -54,7 +56,7 @@ public class PutTest {
         interactions.add(new Exit(null));
         interactions.add(new Put(null, null,  null, null, null, null));
         interactions.add(new PrintAiTable(null, null));
-        Shoot shoot = new Shoot(null);
+        Shoot shoot = new Shoot(null, null);
         shoot.setUsable(false);
         interactions.add(shoot);
 
@@ -69,15 +71,17 @@ public class PutTest {
     public void testUseShipShouldReturnTrueIfItUsedTheShip() {
         // given
         ShipPutter shipPutter = new ShipPutter(null, null);
+        ShipPutter spy = spy(shipPutter);
 
-        doReturn(true).when()
+        spy.managePut(2, null);
 
         // when
-        underTest.useShip(ships, );
+        underTest.useShip(ships, null, spy, null);
 
         // then
-    }*/
-
+        verify(spy).managePut(2, null);
+    }
+*/
     @Test
     public void testShipsLeftShouldReturnTheNumberOfShipsRemaining() {
         // given

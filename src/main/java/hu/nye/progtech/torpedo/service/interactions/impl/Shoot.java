@@ -2,6 +2,7 @@ package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import java.util.ArrayList;
 
+import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.service.game.StepController;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
 import hu.nye.progtech.torpedo.service.interactions.Shooter;
@@ -16,11 +17,13 @@ public class Shoot implements Interaction {
 
     private static final String SHOOT_COMMAND = "shoot";
     private boolean usable = false;
+    private GameState gameState;
 
     private final Shooter shooter;
 
-    public Shoot(Shooter shooter) {
+    public Shoot(Shooter shooter, GameState gameState) {
         this.shooter = shooter;
+        this.gameState = gameState;
     }
 
     @Override
