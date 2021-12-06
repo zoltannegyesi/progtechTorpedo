@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import hu.nye.progtech.torpedo.model.Ai;
 import hu.nye.progtech.torpedo.model.GameState;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -47,6 +48,7 @@ public class MapUtil {
                 System.out.println("AI won!");
             } else if (aiShipLeft.get()) {
                 System.out.println("Player won");
+                gameState.getPlayer().setWins(gameState.getPlayer().getWins() + 1);
             }
             return !(shipLeft.get() && aiShipLeft.get());
 

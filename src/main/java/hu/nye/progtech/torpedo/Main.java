@@ -1,14 +1,22 @@
 package hu.nye.progtech.torpedo;
 
+import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.service.game.GameController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 
 /**
  * Main class, to run the program.
  */
 
-public class Main {
+@SpringBootApplication
+@Component
+public class Main implements CommandLineRunner {
 
 
 
@@ -17,9 +25,7 @@ public class Main {
     - putting works with (A1 B10)
     - wrong ship name -> Not valid ship name
     - input checking for all inputs(what to do with wrong inputs)
-    - write out if an input is wrong(putting)
     - write tests
-    - work with db (save, get)
 
      */
 
@@ -27,9 +33,16 @@ public class Main {
      * Run the program,
      * and create the ApplicationContext for Spring.
      */
+    @Autowired
+    private GameController gameController;
+
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext("hu.nye.progtech.torpedo");
-        GameController gameController = context.getBean(GameController.class);
+        SpringApplication.run(Main.class, args);
+
+    }
+
+    @Override
+    public void run(String... args) {
         gameController.start();
     }
 }

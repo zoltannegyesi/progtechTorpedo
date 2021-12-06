@@ -58,7 +58,7 @@ public class TablePrinterTest {
 
 
         // when
-        String result = underTest.drawTable(tableVO);
+        String result = underTest.drawTable(tableVO.getTable());
 
         // then
         assertEquals(TABLE_SAMPLE, result);

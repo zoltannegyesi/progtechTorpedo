@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 @Setter
 public class GameState {
 
+    private Player player;
     private TableVO currentTable;
     private TableVO aiTableForPlayer;
     private TableVO aiTable;

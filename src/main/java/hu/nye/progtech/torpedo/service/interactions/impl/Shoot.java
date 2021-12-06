@@ -1,5 +1,7 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
+import java.util.ArrayList;
+
 import hu.nye.progtech.torpedo.service.game.StepController;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
 import hu.nye.progtech.torpedo.service.interactions.Shooter;

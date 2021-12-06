@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import hu.nye.progtech.torpedo.model.Ai;
 import hu.nye.progtech.torpedo.model.GameState;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,9 +16,9 @@ public class MapUtil {
 
     private final GameState gameState;
 
-<span class="fc" id="L18">    public MapUtil(GameState gameState) {</span>
-<span class="fc" id="L19">        this.gameState = gameState;</span>
-<span class="fc" id="L20">    }</span>
+<span class="fc" id="L19">    public MapUtil(GameState gameState) {</span>
+<span class="fc" id="L20">        this.gameState = gameState;</span>
+<span class="fc" id="L21">    }</span>
 
     /**
      * Checks, if the given tableVO has unshoted ships left.
@@ -25,33 +26,34 @@ public class MapUtil {
      * @return boolean.
      */
     public boolean areAllShipsDestroyed() {
-<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if (gameState.isRan()) {</span>
-<span class="fc" id="L29">            AtomicBoolean shipLeft = new AtomicBoolean(true);</span>
-<span class="fc" id="L30">            AtomicBoolean aiShipLeft = new AtomicBoolean(true);</span>
-<span class="fc" id="L31">            gameState.getCurrentTable().getTable().forEach(row -&gt; {</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if (gameState.isRan()) {</span>
+<span class="fc" id="L30">            AtomicBoolean shipLeft = new AtomicBoolean(true);</span>
+<span class="fc" id="L31">            AtomicBoolean aiShipLeft = new AtomicBoolean(true);</span>
+<span class="fc" id="L32">            gameState.getCurrentTable().getTable().forEach(row -&gt; {</span>
 
-<span class="fc" id="L33">                row.forEach(item -&gt; {</span>
-<span class="fc bfc" id="L34" title="All 2 branches covered.">                    if (item == 'o') {</span>
-<span class="fc" id="L35">                        shipLeft.set(false);</span>
+<span class="fc" id="L34">                row.forEach(item -&gt; {</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">                    if (item == 'o') {</span>
+<span class="fc" id="L36">                        shipLeft.set(false);</span>
                     }
-<span class="fc" id="L37">                });</span>
-<span class="fc" id="L38">            });</span>
-<span class="fc" id="L39">            gameState.getAiTable().getTable().forEach(row -&gt; {</span>
-<span class="fc" id="L40">                row.forEach(item -&gt; {</span>
-<span class="fc bfc" id="L41" title="All 2 branches covered.">                    if (item == 'o') {</span>
-<span class="fc" id="L42">                        aiShipLeft.set(false);</span>
+<span class="fc" id="L38">                });</span>
+<span class="fc" id="L39">            });</span>
+<span class="fc" id="L40">            gameState.getAiTable().getTable().forEach(row -&gt; {</span>
+<span class="fc" id="L41">                row.forEach(item -&gt; {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">                    if (item == 'o') {</span>
+<span class="fc" id="L43">                        aiShipLeft.set(false);</span>
                     }
-<span class="fc" id="L44">                });</span>
-<span class="fc" id="L45">            });</span>
-<span class="fc bfc" id="L46" title="All 2 branches covered.">            if (shipLeft.get()) {</span>
-<span class="fc" id="L47">                System.out.println(&quot;AI won!&quot;);</span>
-<span class="pc bpc" id="L48" title="1 of 2 branches missed.">            } else if (aiShipLeft.get()) {</span>
-<span class="nc" id="L49">                System.out.println(&quot;Player won&quot;);</span>
+<span class="fc" id="L45">                });</span>
+<span class="fc" id="L46">            });</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">            if (shipLeft.get()) {</span>
+<span class="fc" id="L48">                System.out.println(&quot;AI won!&quot;);</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">            } else if (aiShipLeft.get()) {</span>
+<span class="nc" id="L50">                System.out.println(&quot;Player won&quot;);</span>
+<span class="nc" id="L51">                gameState.getPlayer().setWins(gameState.getPlayer().getWins() + 1);</span>
             }
-<span class="pc bpc" id="L51" title="1 of 4 branches missed.">            return !(shipLeft.get() &amp;&amp; aiShipLeft.get());</span>
+<span class="pc bpc" id="L53" title="1 of 4 branches missed.">            return !(shipLeft.get() &amp;&amp; aiShipLeft.get());</span>
 
         } else {
-<span class="nc" id="L54">            return true;</span>
+<span class="nc" id="L56">            return true;</span>
         }
 
 

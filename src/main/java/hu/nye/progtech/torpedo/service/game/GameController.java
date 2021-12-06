@@ -2,9 +2,12 @@ package hu.nye.progtech.torpedo.service.game;
 
 import hu.nye.progtech.torpedo.model.Ai;
 import hu.nye.progtech.torpedo.model.GameState;
+import hu.nye.progtech.torpedo.model.Player;
 import hu.nye.progtech.torpedo.model.TableVO;
+import hu.nye.progtech.torpedo.service.interactions.impl.Save;
 import hu.nye.progtech.torpedo.service.table.TableCreator;
 import hu.nye.progtech.torpedo.service.util.MapUtil;
+import hu.nye.progtech.torpedo.ui.UserInput;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +24,12 @@ public class GameController {
     private final GameState gameState;
     private final TableCreator tableCreator;
     private final Ai ai;
+
+    @Autowired
+    Save save;
+
+    @Autowired
+    UserInput userInput;
 
     @Autowired
     public GameController(StepController stepController, MapUtil mapUtil, GameState gameState, TableCreator tableCreator, Ai ai) {
@@ -45,10 +54,20 @@ public class GameController {
         tableCreator.createTable(gameState.getAiTableForPlayer());
     }
 
+    private void createPlayer() {
+        System.out.println("Type in your name: ");
+        String name = userInput.scanInput();
+        gameState.setPlayer(new Player());
+        gameState.getPlayer().setWins(0L);
+        gameState.getPlayer().setName(name);
+        System.out.println("Hello " + name + "!");
+    }
+
     /**
      * Starts the game loop.
      */
     public void start() {
+        createPlayer();
         createStartingTables();
         while (isGameRunning()) {
             gameState.setRan(true);
@@ -57,6 +76,7 @@ public class GameController {
                 stepController.performAiStep(gameState.getCurrentTable().getTable());
             }
         }
+        save.process(null, null);
     }
 
 

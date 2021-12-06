@@ -1,5 +1,7 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
+import java.util.ArrayList;
+
 import hu.nye.progtech.torpedo.model.Ai;
 import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.service.game.StepController;
@@ -26,7 +28,7 @@ public class PrintAiTable implements Interaction {
     }
 
     /**
-     * //.
+     * //System.out.println(tablePrinter.drawTable(gameState.getAiTable().getTable()));.
      *
      * @param in asd
      * @param stepController sad
@@ -35,7 +37,7 @@ public class PrintAiTable implements Interaction {
     @Override
     public void process(String in, StepController stepController) {
 
-        System.out.println(tablePrinter.drawTable(gameState.getAiTable()));
+
         stepController.performStep();
     }
 

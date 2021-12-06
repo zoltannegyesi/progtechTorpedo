@@ -1,24 +1,20 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import hu.nye.progtech.torpedo.model.TableVO;
 import hu.nye.progtech.torpedo.model.ships.Ship;
-import hu.nye.progtech.torpedo.model.ships.impl.*;
-import hu.nye.progtech.torpedo.service.game.StepController;
+import hu.nye.progtech.torpedo.model.ships.impl.Cruiser;
+import hu.nye.progtech.torpedo.model.ships.impl.Destroyer;
+import hu.nye.progtech.torpedo.model.ships.impl.Submarine;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
-import hu.nye.progtech.torpedo.service.interactions.ShipPutter;
 import hu.nye.progtech.torpedo.ui.UserInput;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
@@ -56,7 +52,6 @@ public class PutTest {
 
         interactions = new ArrayList<>();
         interactions.add(new Exit(null));
-       // interactions.add(new PrintTest(null, null));
         interactions.add(new Put(null, null,  null, null, null, null));
         interactions.add(new PrintAiTable(null, null));
         Shoot shoot = new Shoot(null);
@@ -69,6 +64,19 @@ public class PutTest {
         underTest = new Put(null, null,  null, null, null, null);
         //stepController = Mockito.mock(StepController.class);
     }
+/*
+    @Test
+    public void testUseShipShouldReturnTrueIfItUsedTheShip() {
+        // given
+        ShipPutter shipPutter = new ShipPutter(null, null);
+
+        doReturn(true).when()
+
+        // when
+        underTest.useShip(ships, );
+
+        // then
+    }*/
 
     @Test
     public void testShipsLeftShouldReturnTheNumberOfShipsRemaining() {
@@ -150,6 +158,8 @@ public class PutTest {
         verify(stepController).performStep();
     }
 */
+
+
 
     @Test
     public void testIsEqualToCommandShouldReturnTrueWhenInputIsPut() {

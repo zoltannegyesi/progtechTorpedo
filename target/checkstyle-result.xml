@@ -22,7 +22,7 @@
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/TableVO.java">
 </file>
-<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/PlayerVO.java">
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/Player.java">
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/model/Ai.java">
 </file>
@@ -34,9 +34,13 @@
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Print.java">
 </file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Save.java">
+</file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/PrintAiTable.java">
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Put.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/HighScore.java">
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/impl/Exit.java">
 </file>
@@ -47,6 +51,8 @@
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/ShipPutter.java">
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/interactions/Shooter.java">
+</file>
+<file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/repository/PlayerRepository.java">
 </file>
 <file name="/Users/zoltannegyesi/Desktop/Torpedo/torpedo/src/main/java/hu/nye/progtech/torpedo/service/util/InteractionEnabler.java">
 </file>

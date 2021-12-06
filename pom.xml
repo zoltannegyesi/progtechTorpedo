@@ -94,6 +94,11 @@
                         <exclude>hu/nye/progtech/torpedo/model/*</exclude>
                         <exclude>hu/nye/progtech/torpedo/model/ships/impl/*</exclude>
                         <exclude>hu/nye/progtech/torpedo/Main.*</exclude>
+
+                        <exclude>hu/nye/progtech/torpedo/service/ai/*</exclude>
+                        <exclude>hu/nye/progtech/torpedo/service/interactions/impl/*</exclude>
+                        <exclude>hu/nye/progtech/torpedo/service/interactions/*</exclude>
+                        <exclude>hu/nye/progtech/torpedo/service/game/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>

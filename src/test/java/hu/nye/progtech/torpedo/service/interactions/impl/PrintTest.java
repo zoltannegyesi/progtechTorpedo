@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,15 +23,27 @@ public class PrintTest {
     private static final String NOT_PRINT_COMMAND = "not-print";
 
 
+    private final String TABLE_SAMPLE =
 
+            "    A B C D E F G H I J\n" +
+                    "   _____________________\n" +
+                    "1  |X X X X X X X X X X|\n" +
+                    "2  |X X X X X X X X X X|\n" +
+                    "3  |X X X X X X X X X X|\n" +
+                    "4  |X X X X X X X X X X|\n" +
+                    "5  |X X X X X X X X X X|\n" +
+                    "6  |X X X X X X X X X X|\n" +
+                    "7  |X X X X X X X X X X|\n" +
+                    "8  |X X X X X X X X X X|\n" +
+                    "9  |X X X X X X X X X X|\n" +
+                    "10 |X X X X X X X X X X|\n" +
+                    "   ---------------------";
 
 
     private Print underTest;
     private GameState gameState;
     @Mock
     private StepController stepController;
-    @Mock
-    private TablePrinter tablePrinter;
 
     @BeforeEach
     public void setUp() {
@@ -41,22 +54,28 @@ public class PrintTest {
     }
 
 /*
-    //ki lettek kommentelve a processben a kiíratások
     @Test
     public void testProcessShouldCallPerformStepFromStepController() {
-        //given in setup
+        ArrayList<ArrayList<Character>> listSample = new ArrayList<>();
+        ArrayList<Character> temp = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            temp.add('X');
+        }
+        for (int i = 0; i < 10; i++) {
+            listSample.add(temp);
+        }
+
+        TablePrinter tablePrinter = Mockito.mock(TablePrinter.class);
+
+        when(tablePrinter.drawTable(listSample)).thenReturn(TABLE_SAMPLE).thenReturn(TABLE_SAMPLE);
 
         // when
-        //Print print = Mockito.mock(Print.class);
-        //doThrow(NullPointerException.class).when(print).process(null, stepController);
-
-
         underTest.process(null, stepController);
 
         // then
         verify(stepController).performStep();
-    }
-*/
+    }*/
+
 
 
     @Test

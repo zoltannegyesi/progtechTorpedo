@@ -85,8 +85,10 @@ public class ShipPutter {
         int result = 0;
         if (coordinate.length() == 3 && coordinate.toCharArray()[1] == '1' && coordinate.toCharArray()[2] == '0') {
             result = 9;
-        } else {
+        } else if (coordinate.length() == 2 && coordinate.toCharArray()[1] <= '9' && coordinate.toCharArray()[1] > '0') {
             result = coordinateConverter.checkCoordinate(coordinate.toCharArray()[1]);
+        } else {
+            result = -1;
         }
         return result;
     }
@@ -109,7 +111,7 @@ public class ShipPutter {
         int x2 = coordinateConverter.checkCoordinate(coordinates.get(1).toCharArray()[0]);
         int y1 = coordinateChecker(coordinates.get(0));
         int y2 = coordinateChecker(coordinates.get(1));
-        if (y1 == 0 || y2 == 0) {
+        if (y1 == -1 || y2 == -1) {
             System.out.println("Invalid input");
             return false;
         } else {

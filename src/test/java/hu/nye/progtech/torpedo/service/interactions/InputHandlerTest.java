@@ -1,15 +1,13 @@
 package hu.nye.progtech.torpedo.service.interactions;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoInteractions;
 
 import java.util.List;
 
 import hu.nye.progtech.torpedo.service.game.StepController;
-import hu.nye.progtech.torpedo.service.interactions.impl.Default;
-import org.aspectj.apache.bcel.classfile.Unknown;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -35,7 +33,7 @@ public class InputHandlerTest {
 
     @BeforeEach
     public void setUp() {
-        underTest = new InputHandler(List.of(interaction1, interaction2));
+        underTest = new InputHandler(List.of(interaction1, interaction2), null);
     }
 
     @Test

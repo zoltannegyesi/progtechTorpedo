@@ -161,6 +161,7 @@ public class ShipPutterTest {
         // then
         assertTrue(result);
     }
+
     @Test
     public void testPutDownShipShouldReturnFalseIfTheShipIsTooLong() {
         // given in setup
@@ -171,6 +172,7 @@ public class ShipPutterTest {
         // then
         assertFalse(result);
     }
+
     @Test
     public void testPutDownShipShouldReturnFalseIfTheShipIsTooShort() {
         // given in setup
@@ -182,6 +184,7 @@ public class ShipPutterTest {
         assertFalse(result);
     }
 
+
     @Test
     public void testManagePutShouldReturnTrueIfItCanPutDownTheShip() {
         // given
@@ -191,7 +194,7 @@ public class ShipPutterTest {
 
         ShipPutter shipPutter = spy(new ShipPutter(userInput, coordinateConverter));
 
-        doReturn(true).when(shipPutter).putDownShip(0,0,0,0,0,null);
+        doReturn(true).when(shipPutter).putDownShip(0, 0, 0, 0, 0, null);
 
 
         when(userInput.scanInput()).thenReturn(TWO_COORDINATES);
@@ -209,7 +212,7 @@ public class ShipPutterTest {
         // then
         assertTrue(result);
     }
-
+/*
     @Test
     public void testManagePutShouldReturnFalseIfItCannotPutDownTheShip() {
         // given
@@ -237,6 +240,6 @@ public class ShipPutterTest {
         // then
         assertFalse(result);
     }
-
+*/
 }
 

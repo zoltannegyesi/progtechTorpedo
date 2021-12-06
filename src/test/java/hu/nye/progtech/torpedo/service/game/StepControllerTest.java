@@ -1,5 +1,6 @@
 package hu.nye.progtech.torpedo.service.game;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
@@ -16,6 +17,7 @@ import hu.nye.progtech.torpedo.ui.UserInput;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.internal.verification.AtMost;
@@ -34,6 +36,8 @@ public class StepControllerTest {
 
     //private StepController stepController;
 
+    private ArrayList<ArrayList<Character>> table;
+
 
     @Mock
     private AiShooter aiShooter;
@@ -45,6 +49,14 @@ public class StepControllerTest {
 
     @BeforeEach
     public void setUp() {
+        table = new ArrayList<>();
+        ArrayList<Character> temp = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            temp.add(' ');
+        }
+        for (int i = 0; i < 10; i++) {
+            table.add(temp);
+        }
         interactions = new ArrayList<>();
         interactions.add(Mockito.mock(Exit.class));
         //interactions.add(Mockito.mock(Print.class));
@@ -57,14 +69,15 @@ public class StepControllerTest {
     @Test
     public void testPerformAiStepShouldCallShootMethodFromAi() {
         // given in setup
-        GameState gameState = Mockito.mock(GameState.class);
+
+
         // when
-        underTest.performAiStep()ga;
+        underTest.performAiStep(table);
 
         // then
-        verify(aiShooter).shoot();
-    }
-*/
+        verify(aiShooter).shoot(any(), any());
+    }*/
+
     @Test
     public void testPerformStepShouldReadUserInputAndCallHandleInputFromInputHandler() {
         // given

@@ -1,9 +1,12 @@
 package hu.nye.progtech.torpedo.service.interactions;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.service.game.StepController;
+import hu.nye.progtech.torpedo.ui.TablePrinter;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,10 +17,11 @@ import org.springframework.stereotype.Service;
 public class InputHandler {
 
     private final List<Interaction> interactions;
+    private GameState gameState;
 
-
-    public InputHandler(List<Interaction> interactions) {
+    public InputHandler(List<Interaction> interactions, GameState gameState) {
         this.interactions = interactions;
+        this.gameState = gameState;
     }
 
     /**

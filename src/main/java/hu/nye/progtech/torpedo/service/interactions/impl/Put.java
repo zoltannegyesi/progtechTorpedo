@@ -1,5 +1,6 @@
 package hu.nye.progtech.torpedo.service.interactions.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
@@ -50,7 +51,6 @@ public class Put implements Interaction {
         System.out.print("You can put down a: ");
         shipsLeft.forEach(ship -> System.out.print(ship.getName() + ", "));
         System.out.println();
-        System.out.println(shipsLeft.size());
         return shipsLeft.size();
     }
 
@@ -64,13 +64,15 @@ public class Put implements Interaction {
      * @return {@link Interaction}
      */
 
-    public boolean useShip(List<Ship> ships, String input, ShipPutter shipPutter) {
+    public boolean useShip(List<Ship> ships, String input, ShipPutter shipPutter, ArrayList<ArrayList<Character>> table) {
+        AtomicBoolean usedShip = new AtomicBoolean(false);
         AtomicBoolean allShipsPutDown = new AtomicBoolean(false);
         ships.stream()
                 .filter(ship -> ship.getName().equals(input))
                 .forEach(ship -> {
-                    if (shipPutter.managePut(ship.getSize(), game.getCurrentTable().getTable())) {
+                    if (shipPutter.managePut(ship.getSize(), table)) {
                         ship.useShip();
+                        usedShip.set(true);
                         if (ships.stream().allMatch(Ship::isUsed)) {
                             System.out.println("All ships has been put down!");
                             allShipsPutDown.set(true);
@@ -81,14 +83,14 @@ public class Put implements Interaction {
             interactionEnabler.disablePut(interactions, this);
             interactionEnabler.enableShoot(interactions);
         }
-        return true;
+        return usedShip.get();
     }
 
     @Override
     public void process(String in, StepController stepController) {
         shipsLeft(ships);
         String input = userInput.scanInput();
-        useShip(ships, input, this.shipPutter);
+        useShip(ships, input, this.shipPutter, this.game.getCurrentTable().getTable());
         stepController.performStep();
     }
 

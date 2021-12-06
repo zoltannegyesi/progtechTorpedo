@@ -1,8 +1,8 @@
 package hu.nye.progtech.torpedo.ui;
 
+import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import hu.nye.progtech.torpedo.model.TableVO;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,16 +19,16 @@ public class TablePrinter {
      * Prints the given table to the standard input.
      */
 
-    public String drawTable(TableVO tableVO) {
+    public String drawTable(ArrayList<ArrayList<Character>> table) {
         StringBuilder tableText = new StringBuilder("   ");
-        for (char c = 'A'; c < 'A' + tableVO.getTableSize(); c++) {
+        for (char c = 'A'; c < 'A' + table.size(); c++) {
             tableText.append(" ").append(c);
         }
         tableText.append("\n   ");
-        tableText.append("_".repeat(Math.max(0, tableVO.getTableSize() * 2 + 1)));
+        tableText.append("_".repeat(Math.max(0, table.size() * 2 + 1)));
         tableText.append("\n");
         AtomicInteger i = new AtomicInteger();
-        tableVO.getTable().forEach(
+        table.forEach(
                 row -> {
                     String temp = i.incrementAndGet() > 9 ? " " : "  ";
                     tableText.append(i.get()).append(temp).append('|');
@@ -37,7 +37,7 @@ public class TablePrinter {
                     tableText.append("|\n");
                 }
         );
-        tableText.append("   ").append("-".repeat(Math.max(0, tableVO.getTableSize() * 2 + 1)));
+        tableText.append("   ").append("-".repeat(Math.max(0, table.size() * 2 + 1)));
         return tableText.toString();
     }
 }
