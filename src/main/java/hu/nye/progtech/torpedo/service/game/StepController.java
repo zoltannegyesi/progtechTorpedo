@@ -1,5 +1,6 @@
 package hu.nye.progtech.torpedo.service.game;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -48,8 +49,8 @@ public class StepController {
         return interactionList;
     }
 
-    public void performAiStep(GameState gameState) {
-        aiShooter.shoot(gameState.getCurrentTable().getTable().get(rnd.nextInt(10)), rnd.nextInt(10));
+    public void performAiStep(ArrayList<ArrayList<Character>> table) {
+        aiShooter.shoot(table.get(rnd.nextInt(10)), rnd.nextInt(10));
     }
 
     /**

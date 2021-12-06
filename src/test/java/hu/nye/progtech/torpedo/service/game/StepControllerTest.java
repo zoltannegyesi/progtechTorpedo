@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hu.nye.progtech.torpedo.model.Ai;
+import hu.nye.progtech.torpedo.model.GameState;
 import hu.nye.progtech.torpedo.service.ai.AiShooter;
 import hu.nye.progtech.torpedo.service.interactions.InputHandler;
 import hu.nye.progtech.torpedo.service.interactions.Interaction;
@@ -17,6 +18,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.internal.verification.AtMost;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
@@ -55,9 +57,9 @@ public class StepControllerTest {
     @Test
     public void testPerformAiStepShouldCallShootMethodFromAi() {
         // given in setup
-
+        GameState gameState = Mockito.mock(GameState.class);
         // when
-        underTest.performAiStep();
+        underTest.performAiStep()ga;
 
         // then
         verify(aiShooter).shoot();

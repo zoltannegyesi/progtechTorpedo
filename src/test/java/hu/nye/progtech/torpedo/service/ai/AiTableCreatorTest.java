@@ -1,12 +1,19 @@
 package hu.nye.progtech.torpedo.service.ai;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 public class AiTableCreatorTest {
 
 
@@ -135,16 +142,42 @@ public class AiTableCreatorTest {
             });
             add(new ArrayList<>() {
                 {
-                    add(' ');
-                    add(' ');
-                    add(' ');
+                    add('o');
+                    add('o');
+                    add('o');
                 }
             });
             add(new ArrayList<>() {
                 {
+                    add('o');
+                    add('o');
+                    add('o');
+                }
+            });
+        }
+    };
+
+    private final ArrayList<ArrayList<Character>>  PUT_SHIP_TABLE_FULL = new ArrayList<>() {
+        {
+            add(new ArrayList<>() {
+                {
                     add(' ');
-                    add(' ');
-                    add(' ');
+                    add('o');
+                    add('o');
+                }
+            });
+            add(new ArrayList<>() {
+                {
+                    add('o');
+                    add('o');
+                    add('o');
+                }
+            });
+            add(new ArrayList<>() {
+                {
+                    add('o');
+                    add('o');
+                    add('o');
                 }
             });
         }
@@ -161,20 +194,22 @@ public class AiTableCreatorTest {
             });
             add(new ArrayList<>() {
                 {
-                    add('o');
-                    add('o');
-                    add('o');
+                    add(' ');
+                    add(' ');
+                    add(' ');
                 }
             });
             add(new ArrayList<>() {
                 {
-                    add('o');
-                    add('o');
-                    add('o');
+                    add(' ');
+                    add(' ');
+                    add(' ');
                 }
             });
         }
     };
+
+    private static final int[] COORDINATES = new int[] {0, 0};
 
     private static final int NORTH = 0;
     private static final int EAST = 1;
@@ -229,11 +264,11 @@ public class AiTableCreatorTest {
         // given in setup
 
         // when
-        int[] result = underTest.searchCoordinate(COORDINATE_CHECKER_TABLE, TABLE_SIZE);
+        List<Integer> result = underTest.searchCoordinate(COORDINATE_CHECKER_TABLE, TABLE_SIZE);
 
         //then
-        assertEquals(result[0], RESULT[0]);
-        assertEquals(result[1], RESULT[1]);
+        assertEquals(result.get(0), RESULT[0]);
+        assertEquals(result.get(0), RESULT[1]);
     }
 
     @Test
@@ -318,15 +353,77 @@ public class AiTableCreatorTest {
     }
 /*
     @Test
-    public void testPutDownShipShouldReturnTableWithPutDownShip() {
+    public void testPutDownShipShouldReturnTableWithPutDownShips() {
         // given
+        AiTableCreator aiTableCreator = spy(new AiTableCreator());
+
+        Random rnd = new Random();
+
+       // doReturn(COORDINATES).when(aiTableCreator).searchCoordinate(PUT_SHIP_TABLE, 3);
+
+        doReturn(true).when(aiTableCreator).canPutDown(0,3,3);
+
+        doReturn(PUT_SHIP_EXPECTED_TABLE).when(aiTableCreator).putToCoordinate(0, null, 0, 0, 0);
 
         // when
-        ArrayList<ArrayList<Character>> result = underTest.putDownShip(PUT_SHIP_TABLE, 3, 2);
+        ArrayList<ArrayList<Character>> result = aiTableCreator.putDownShip(PUT_SHIP_TABLE, 3, 3, 0);
 
         // then
         assertEquals(result, PUT_SHIP_EXPECTED_TABLE);
     }
 
- */
+/*
+    @Test
+    public void testPutDownShipShouldReturnTableWithPutDownShip() {
+        // given
+        AiTableCreator aiTableCreator = spy(new AiTableCreator());
+        List<Integer> coordinates = List.of(1, 1);
+        Random rnd = Mockito.mock(Random.class);
+
+        doReturn(true).when(aiTableCreator.putDownShip(any(), any(), any(), any()));
+
+        doReturn(List.of(0,0)).when(aiTableCreator).searchCoordinate(any(), any());
+
+        doReturn(true).when(aiTableCreator).canPutDown(any(), any(), any());
+
+
+
+        // when
+        ArrayList<ArrayList<Character>> result = aiTableCreator.putDownShip(PUT_SHIP_TABLE, 3, 3, 1);
+
+        // then
+        assertEquals(result, PUT_SHIP_EXPECTED_TABLE);
+    }
+/*
+    @Test
+    public void testPutDownShipShouldReturnTableWithPutDownShipss() {
+        final ArgumentCaptor<Foo> captor = ArgumentCaptor.forClass(Foo.class);
+
+        verify(mock).doSomething(captor.capture());
+
+        final Foo argument = captor.getValue();
+
+// Test the argument
+
+        // given
+        AiTableCreator aiTableCreator = spy(new AiTableCreator());
+        List<Integer> coordinates = List.of(1, 1);
+        Random rnd = Mockito.mock(Random.class);
+
+        doReturn(true).when(aiTableCreator.putDownShip(any(), any(), any(), any()));
+
+        doReturn(List.of(0,0)).when(aiTableCreator).searchCoordinate(any(), any());
+
+        doReturn(true).when(aiTableCreator).canPutDown(any(), any(), any());
+
+
+
+        // when
+        ArrayList<ArrayList<Character>> result = aiTableCreator.putDownShip(PUT_SHIP_TABLE, 3, 3, 1);
+
+        // then
+        assertEquals(result, PUT_SHIP_EXPECTED_TABLE);
+    }
+*/
+
 }

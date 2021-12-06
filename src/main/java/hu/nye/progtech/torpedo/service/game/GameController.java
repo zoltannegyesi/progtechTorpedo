@@ -54,7 +54,7 @@ public class GameController {
             gameState.setRan(true);
             stepController.performStep();
             if (!gameState.isShouldExit()) {
-                stepController.performAiStep(gameState);
+                stepController.performAiStep(gameState.getCurrentTable().getTable());
             }
         }
     }

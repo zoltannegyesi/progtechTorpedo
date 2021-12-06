@@ -1,6 +1,7 @@
 package hu.nye.progtech.torpedo.service.ai;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.stereotype.Service;
@@ -27,8 +28,8 @@ public class AiTableCreator {
      * @return int[]
      */
 
-    public int[] searchCoordinate(ArrayList<ArrayList<Character>> table, int size) {
-        int[] coordinates = new int[2];
+    public List<Integer> searchCoordinate(ArrayList<ArrayList<Character>> table, int size) {
+        List<Integer> coordinates = new ArrayList<>();
 
         boolean notUsed = true;
         while (notUsed) {
@@ -36,8 +37,8 @@ public class AiTableCreator {
             int y1 = rand.nextInt(size);
             if (!(table.get(y1).get(x1) == 'o')) {
                 notUsed = false;
-                coordinates[0] = x1;
-                coordinates[1] = y1;
+                coordinates.add(x1);
+                coordinates.add(x1);
             }
         }
         return coordinates;
@@ -105,12 +106,11 @@ public class AiTableCreator {
      * @param shipSize the size of the map
      */
 
-    public ArrayList<ArrayList<Character>> putDownShip(ArrayList<ArrayList<Character>> table, int size, int shipSize) {
+    public ArrayList<ArrayList<Character>> putDownShip(ArrayList<ArrayList<Character>> table, int size, int shipSize, int num) {
 
-        int[] coordinates = searchCoordinate(table, size);
-        int x = coordinates[0];
-        int y = coordinates[1];
-        int num = rand.nextInt(4);
+        List<Integer> coordinates = searchCoordinate(table, size);
+        int x = coordinates.get(0);
+        int y = coordinates.get(1);
         switch (num) {
             case 0: // north
                 if (canPutDown(y, shipSize, size)) {
@@ -119,7 +119,7 @@ public class AiTableCreator {
                         return table;
                     }
                 } else {
-                    return this.putDownShip(table, size, shipSize);
+                    return this.putDownShip(table, size, shipSize, 1);
                 }
                 break;
 
@@ -130,7 +130,7 @@ public class AiTableCreator {
                         return table;
                     }
                 } else {
-                    return this.putDownShip(table, size, shipSize);
+                    return this.putDownShip(table, size, shipSize, 2);
                 }
                 break;
 
@@ -141,7 +141,7 @@ public class AiTableCreator {
                         return table;
                     }
                 } else {
-                    return this.putDownShip(table, size, shipSize);
+                    return this.putDownShip(table, size, shipSize, 3);
                 }
                 break;
             default: // west
@@ -151,7 +151,7 @@ public class AiTableCreator {
                         return table;
                     }
                 } else {
-                    return this.putDownShip(table, size, shipSize);
+                    return this.putDownShip(table, size, shipSize, 0);
                 }
                 break;
         }
